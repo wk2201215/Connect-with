@@ -1,0 +1,10 @@
+CREATE TABLE account(
+account_id        CHAR(1000),
+mail-address      VARCHAR(40),
+account_password  VARCHAR(40),
+account_name      VARCHAR(40),
+photograph_id     VARCHAR(40),
+self-introduction VARCHAR(40),
+authority         VARCHAR(40),
+delete_flag       VARCHAR(40)
+);
