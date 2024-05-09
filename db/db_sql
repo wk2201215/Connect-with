@@ -1,10 +1,47 @@
+CREATE TABLE photograph(
+    photograph_id   INT(7)  NOT NULL,
+    photograph_path VARCHAR(40) NOT NULL,
+    PRIMARY KEY(photograph_id)
+);
+
 CREATE TABLE account(
-account_id        CHAR(1000),
-mail-address      VARCHAR(40),
-account_password  VARCHAR(40),
-account_name      VARCHAR(40),
-photograph_id     VARCHAR(40),
-self-introduction VARCHAR(40),
-authority         VARCHAR(40),
-delete_flag       VARCHAR(40)
+    account_id        INT(6) AUTO_INCREMENT      NOT NULL,
+    account_password  VARCHAR(40)                NOT NULL,
+    mail_address      VARCHAR(40)                NOT NULL,
+    account_name      VARCHAR(40)                NOT NULL,
+    photograph_id     INT(7)                     NOT NULL,
+    self_introduction VARCHAR(500)               NOT NULL,
+    authority         TINYINT                    NOT NULL,
+    delete_flag       BIT(1) DEFAULT 0           NOT NULL,
+    PRIMARY KEY(account_id),
+    FOREIGN KEY(photograph_id) REFERENCES photograph(photograph_id)
+);
+
+CREATE TABLE post(
+    post_id       INT(7) AUTO_INCREMENT              NOT NULL,
+    account_id    INT(6)                        NOT NULL,
+    post_time     DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    post_content  VARCHAR(40)                        NOT NULL,
+    photograph_id INT(7)                             NOT NULL,
+    good_count    INT(6)                             NOT NULL,
+    delete_flag   BIT(1) DEFAULT 0                   NOT NULL,
+    PRIMARY KEY(post_id),
+    FOREIGN KEY(account_id)    REFERENCES account(account_id),
+    FOREIGN KEY(photograph_id) REFERENCES photograph(photograph_id)
+);
+
+CREATE TABLE reply(
+    reply_id      INT(7) AUTO_INCREMENT              NOT NULL,
+    account_id    INT(6)                        NOT NULL,
+    post_time     DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    post_content  VARCHAR(40)                        NOT NULL,
+    photograph_id INT(7)                             NOT NULL,
+    good_count    INT(6)                             NOT NULL,
+    post_id       INT(7)                             NOT NULL,
+    delete_flag   BIT(1) DEFAULT 0                   NOT NULL,
+    PRIMARY KEY(reply_id),
+    FOREIGN KEY(account_id)    REFERENCES account(account_id),
+    FOREIGN KEY(photograph_id) REFERENCES photograph(photograph_id),
+    FOREIGN KEY(post_id)       REFERENCES post(post_id),
+    FOREIGN KEY(post_id)       REFERENCES reply(reply_id)
 );
