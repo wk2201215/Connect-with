@@ -3,22 +3,23 @@
 
     <form action="login-output.php" method="post">
 <?php
+
+    echo '<p style="font-size:100px;">ログイン</p><br>';
     unset($_SESSION['account']);
 
+    echo '<label><p1 style="font-size:50px;">メールアドレス</p1></label><br>';
+    echo '<input type="text" name="mail-address"><br>';
 
-    echo '<label>メールアドレス</label>';
-    echo '<input type="text" name="mail-address">';
-
-    echo '<label>パスワード</label>';
-    echo '<input type="password" name="password">';
+    echo '<label>パスワード</label><br>';
+    echo '<input type="password" name="password"><br>';
   
-    echo '<input type="submit" value="ログイン">';
+    echo '<input type="submit" value="ログイン"><br>';
         
     if(isset($_GET['hogeA'])){
         echo '<p>',$_GET['hogeA'],'</p>';
     }
    
-    echo '<label>アカウント新規作成は<a href="account-input.php">こちら</a></label>';
+    echo '<button type="submit">新規登録</button>';
    
 ?>
     </form>
