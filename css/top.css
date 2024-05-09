@@ -1,0 +1,58 @@
+.horizontal_scroll {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 0 12px 5px;
+    display: -ms-flexbox;
+    display: flex; }
+  
+  /* 画面幅が768px以上の場合、横スクロールを解除 */
+  @media screen and (min-width: 768px) {
+    .horizontal_scroll {
+      overflow-x: inherit;
+      padding: 0 8px 6px; } }
+  
+  .horizontal_scroll > li {
+    width: 100%;
+    min-width: 140px; }
+  
+  @media screen and (min-width: 768px) {
+    .horizontal_scroll > li {
+      min-width: inherit; } }
+  
+  .horizontal_scroll > li:not(:last-child) {
+    margin-right: 5px; }
+  
+  .horizontal_scroll > li:last-child {
+    padding-right: 5px; }
+  
+  @media screen and (min-width: 768px) {
+    .horizontal_scroll > li:last-child {
+      padding-right: 0; } }
+  
+  .horizontal_scroll img {
+    vertical-align: bottom; }
+
+    .fuwafuwa {
+      animation: fuwafuwa 3s ease-in-out infinite alternate;
+      background: url(../images/beer_kanpai_9648.png) no-repeat center center / 60px auto;
+      display: inline-block;
+      transition: 1.5s ease-in-out;
+      width: 70px;
+      height: 70px;
+      margin-top: 15px;
+    }
+     
+    @keyframes fuwafuwa {
+      0% {
+        transform:translate(0, 0) rotate(-7deg);
+      }
+      50% {
+        transform:translate(0, -7px) rotate(0deg);
+      }
+      100% {
+        transform:translate(0, 0) rotate(7deg);
+      }
+    }
+    
+    
