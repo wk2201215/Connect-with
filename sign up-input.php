@@ -3,10 +3,10 @@
 
     <form action="sign up-output.php" method="post">
 <?php
-$name=$address==$password='';
+$name=$address=$password='';
 if (isset($_SESSION['account'])){
    $name=$_SESSION['account']['account_name'];
-   $address=$_SESSION['account']['account_address'];
+   $address=$_SESSION['account']['mail_address'];
    $password=$_SESSION['account']['account_password'];
 }
 
@@ -17,10 +17,10 @@ if (isset($_SESSION['account'])){
     echo '<input type="text" name="account_name" value="',$name,'">';
 
     echo '<label>メールアドレス</label>';
-    echo '<input type="password" name="mail_address" value="',$address,'">';
+    echo '<input type="text" name="mail_address" value="',$address,'">';
 
     echo '<label>パスワード</label>';
-    echo '<input type="password" name="accaunt_password" value="',$password,'">';
+    echo '<input type="password" name="account_password" value="',$password,'">';
   
     echo '<input type="submit" value="新規登録">';
    
