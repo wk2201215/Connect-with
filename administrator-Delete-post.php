@@ -5,5 +5,6 @@
 
 echo '<form action="post-delete.php" method="post">';
 echo '<input type="text" name="keyword">';
-echo '<input type="submit" value="検索">';
+echo '<input type="submit" value="🔍">';
+echo '<input type="submit" value="＃">';
 ?>
