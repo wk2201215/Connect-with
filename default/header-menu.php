@@ -22,5 +22,3 @@
 		</div>
 	</div>
 </header>
-
-<script src="script/header.js"></script>
