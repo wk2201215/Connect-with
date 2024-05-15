@@ -12,10 +12,17 @@ echo '<input type="submit" value="＃">';
 <?php
 // テーブルのデータを定義
 $products = array(
-    array("Product ID", "Product Name", "Price"),
-    array(1, "Product A", "$19.99"),
-    array(2, "Product B", "$29.99"),
-    array(3, "Product C", "$39.99")
+    array("POST", "User Name", "Delete"),
+    array(1, "User Name", ""),
+    array(2, "User Name", ""),
+    array(3, "User Name", ""),
+    array(4, "User Name", ""),
+    array(5, "User Name", ""),
+    array(6, "User Name", ""),
+    array(7, "User Name", ""),
+    array(8, "User Name", ""),
+    array(9, "User Name", ""),
+    array(10, "User Name", ""),
 );
 // テーブルの開始タグを出力
 echo "<table border='1'>";
