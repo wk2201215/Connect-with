@@ -1,35 +1,46 @@
-<?php session_start(); ?>
-
-<?php require 'db/db-connect.php'; ?>
-<?php require 'default/header.php'; ?>
 <?php
-$pdo=new PDO($connect,USER,PASS);
-if (isset($_SESSION['account'])){
-    $id=$_SESSION['account'];
-    $sql=$pdo->prepare('select * from accaunt where id !=? and login=?');
-    $sql->execute([$id, $_POST['login']]);
-    } else {
-        $sql=$pdo->prepare('select * from caccaunt where login=?');
-        $sql->execute([$_POST['login']]);
-    }
-    if (empty($sql->fetchAll())) {
+session_start();
+
+require 'db/db-connect.php';
+require 'default/header.php';
+
+try {
+    $pdo = new PDO($connect, USER, PASS);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo->exec('SET foreign_key_checks = 0');
+
+    // 入力されたメールアドレスが既に存在するかチェック
+    $sql_check = $pdo->prepare('SELECT * FROM account WHERE mail_address = ?');
+    $sql_check->execute([$_POST['mail_address']]);
+    $existing_account = $sql_check->fetch(PDO::FETCH_ASSOC);
+
+    if (!$existing_account) {
         if (isset($_SESSION['account'])) {
-            $sql=$pdo->prepare('update account set name=?, address=?,'. 'password=? where id=?');
+            $id = $_SESSION['account']['account_id'];
+            $sql = $pdo->prepare('UPDATE account SET account_name=?, mail_address=?, account_password=? WHERE id=?');
             $sql->execute([
-                $_POST['name'], $_POST['address'], $_POST['password'], $id]);
-            $_SESSION['account']=[
-                'id'=>$id, 'name'=>$_POST['name'],
-                'address'=>$_POST['address'],
-                'password'=>$_POST['password']];
+                $_POST['account_name'], $_POST['mail_address'], $_POST['account_password'], $id
+            ]);
+            $_SESSION['account'] = [
+                'account_id' => $id,
+                'account_name' => $_POST['account_name'],
+                'mail_address' => $_POST['mail_address'],
+                'account_password' => $_POST['account_password']
+            ];
             echo 'お客様の情報を更新しました。';
-        }else{
-            $sql=$pdo->prepare('insert into account values(null,?,?,?,?)');
+        } else {
+            $sql = $pdo->prepare('INSERT INTO account (account_name, mail_address, account_password) VALUES (?, ?, ?)');
             $sql->execute([
-                $_POST['name'], $_POST['address'], $_POST['password']]);
-                echo 'お客様情報を登録しました。';
-            }
-        }else{
-            echo 'ログイン名が既に使用されていますので、変更してください。';
+                $_POST['account_name'], $_POST['mail_address'], $_POST['account_password']
+            ]);
+            echo 'お客様情報を登録しました。';
         }
-    ?>
-<?php require './footer.php'; ?>
+    } else {
+        echo 'そのメールアドレスは既に登録されています。別のメールアドレスを使用してください。';
+    }
+} catch (PDOException $e) {
+    echo "エラー: " . $e->getMessage();
+}
+
+require 'default/footer.php';
+?>
