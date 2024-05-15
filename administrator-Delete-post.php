@@ -12,7 +12,7 @@ echo '<input type="submit" value="＃">';
 <?php
 // テーブルのデータを定義
 $products = array(
-    array("POST", "User Name", "Delete"),
+    array("Post", "User Name", "Delete"),
     array(1, "User Name", ""),
     array(2, "User Name", ""),
     array(3, "User Name", ""),
