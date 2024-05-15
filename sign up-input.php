@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="./css/sign up.css">
 <?php session_start(); ?>
 <?php require 'default/header.php'; ?>
 <form action="sign up-output.php" method="post">
@@ -7,16 +8,16 @@ $address = isset($_SESSION['account']['mail_address']) ? htmlspecialchars($_SESS
 // パスワードは表示しないことを推奨
 $password = '';
 
-echo '<h2>新規登録</h2>';
+echo '<p style="font-size:100px;">新規登録</p><br>';
 
-echo '<label>名前</label>';
-echo '<input type="text" name="account_name" value="' . $name . '">';
+echo '<label><p1 style="font-size:35px;">名前</p1></label><br>';
+echo '<input type="text" name="account_name" value="' . $name . '"><br>';
 
-echo '<label>メールアドレス</label>';
-echo '<input type="text" name="mail_address" value="' . $address . '">';
+echo '<label><p1 style="font-size:35px;">メールアドレス</p1></label><br>';
+echo '<input type="text" name="mail_address" size="50" value="' . $address . '"><br>';
 
-echo '<label>パスワード</label>';
-echo '<input type="password" name="account_password" value="' . $password . '">';
+echo '<label><p1 style="font-size:35px;">パスワード</p1></label><br>';
+echo '<input type="password" name="account_password" value="' . $password . '"><br>';
 
 echo '<input type="submit" value="新規登録">';
 
