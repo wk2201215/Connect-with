@@ -4,13 +4,13 @@
 <?php
 unset($_SESSION['account']);
 $pdo=new PDO($connect, USER, PASS);
-$sql=$pdo->prepare('select * from account where mail-address=?');
-$sql->execute([$_POST['mail-address']]);
+$sql=$pdo->prepare('select * from account where mail_address=?');
+$sql->execute([$_POST['mail_address']]);
 foreach($sql as $row) {
     if(password_verify($_POST['password'],$row['account_password'])){
         $_SESSION['account']=[
             'account_id'=>$row['account_id'],
-            'account_mail-address'=>$row['mail-address'],
+            'mail_address'=>$row['mail_address'],
             'account_password'=>$_POST['account_password'],
             'account_name'=>$row['account_name'],
             'photograph_id'=>$row['photograph_id'],
