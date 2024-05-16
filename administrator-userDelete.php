@@ -22,7 +22,7 @@ $products = array(
     array(7, "", ""),
     array(8, "", ""),
     array(9, "", ""),
-    array(10, "", ""),
+    array(10, "", "")
 );
 // テーブルの開始タグを出力
 echo "<table border='1'>";
