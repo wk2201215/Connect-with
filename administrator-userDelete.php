@@ -13,8 +13,8 @@
 // テーブルのデータを定義
 $products = array(
     array("user name", "restoration", "delete"),
-    array(user1, "", ""),
-    array(user2, "", ""),
+    array(1, "", ""),
+    array(2, "", ""),
     array(3, "", ""),
     array(4, "", ""),
     array(5, "", ""),
