@@ -14,6 +14,7 @@ try {
     $sql_check->execute([$_POST['mail_address']]);
     $existing_account = $sql_check->fetch(PDO::FETCH_ASSOC);
 
+
     if (!$existing_account) {
         if (isset($_SESSION['account'])) {
             $id = $_SESSION['account']['account_id'];
@@ -30,9 +31,14 @@ try {
             echo 'お客様の情報を更新しました。';
         } else {
             $sql = $pdo->prepare('INSERT INTO account (account_name, mail_address, account_password) VALUES (?, ?, ?)');
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1, $_POST['account_id'], PDO::PARAM_STR);
+            $ps->bindValue(2, password_hash( $_POST['account_password'], PASSWORD_DEFAULT), PDO::PARAM_STR)
             $sql->execute([
                 $_POST['account_name'], $_POST['mail_address'], $_POST['account_password']
             ]);
+
+                    
             echo 'お客様情報を登録しました。';
         }
     } else {
@@ -43,4 +49,4 @@ try {
 }
 
 require 'default/footer.php';
-?>
+?>助けて

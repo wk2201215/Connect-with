@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="./css/sign up.css">
 <?php session_start(); ?>
 <?php require 'default/header.php'; ?>
-<form action="sign up-output.php" method="post">
+<form action="signup-output.php" method="post">
 <?php
 $name = isset($_SESSION['account']['account_name']) ? htmlspecialchars($_SESSION['account']['account_name']) : '';
 $address = isset($_SESSION['account']['mail_address']) ? htmlspecialchars($_SESSION['account']['mail_address']) : '';
