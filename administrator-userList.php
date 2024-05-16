@@ -1,3 +1,13 @@
+<?php
+    const SERVER = 'mysql302.phy.lolipop.lan';
+    const DBNAME = 'LAA1517442';
+    const USER = 'LAA1517442';
+    const PASS = 'post0418';
+
+    $connect = 'mysql:host='. SERVER . ';dbname='. DBNAME . ';charset=utf8';
+?>
+
+
 <?php session_start(); ?>
 <?php require 'default/header.php'; ?>
 
@@ -33,6 +43,13 @@ $products = array(
     array(9, "", ""),
     array(10, "", ""),
 );
+
+<?php
+$button_text = "delete"; // ボタンに表示するテキスト
+
+echo "<input type='button' value='$products_delete'>";
+?>
+
 // テーブルの開始タグを出力
 echo "<table border='1'>";
 
@@ -48,4 +65,6 @@ foreach ($products as $row) {
 // テーブルの終了タグを出力
 echo "</table>";
 ?>
+
 </body>
+
