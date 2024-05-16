@@ -44,12 +44,6 @@ $products = array(
     array(10, "", ""),
 );
 
-<?php
-$button_text = "delete"; // ボタンに表示するテキスト
-
-echo "<input type='button' value='$products_delete'>";
-?>
-
 // テーブルの開始タグを出力
 echo "<table border='1'>";
 
