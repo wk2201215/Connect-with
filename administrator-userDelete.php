@@ -36,3 +36,5 @@
 <button class="user_button" type="submit" name="garbage_can" value="ユーザー削除">🗑️</button>
 
 <?php require 'default/footer.php'; ?>
+
+

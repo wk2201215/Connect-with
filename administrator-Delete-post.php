@@ -14,15 +14,15 @@ echo '<input type="submit" value="＃">';
 $products = array(
     array("Post", "User Name", "Delete"),
     array(1, "", ""),
-    array(2, "User Name", ""),
-    array(3, "User Name", ""),
-    array(4, "User Name", ""),
-    array(5, "User Name", ""),
-    array(6, "User Name", ""),
-    array(7, "User Name", ""),
-    array(8, "User Name", ""),
-    array(9, "User Name", ""),
-    array(10, "User Name", ""),
+    array(2, "", ""),
+    array(3, "", ""),
+    array(4, "", ""),
+    array(5, "", ""),
+    array(6, "", ""),
+    array(7, "", ""),
+    array(8, "", ""),
+    array(9, "", ""),
+    array(10, "", ""),
 );
 // テーブルの開始タグを出力
 echo "<table border='1'>";
