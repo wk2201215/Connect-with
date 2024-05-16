@@ -1,5 +1,5 @@
 <header>
-    <div>
-        <h1>音楽</h1>
-    </div>
+        音楽
+        <?php require 'default/ba-ga-.php'; ?>
+
 </header>
