@@ -41,13 +41,4 @@ echo "</table>";
 ?>
 </body>
 
-<?php
-    unset($_SESSION['account']);
-    $pdo=new PDO($connect, USER, PASS);
-    $sql=$pdo->prepare('select * from account where mail-address=?');
-    $sql->execute([$_POST['mail-address']]);
-?>
 
-<input type="image" name="garbage_can" src="./images/🗑️.png"  alt="ユーザー削除" value="ユーザー削除">
-
-<?php require 'default/footer.php'; ?>
