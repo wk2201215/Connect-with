@@ -1,5 +1,11 @@
-<link rel="stylesheet" href="./css/sign up.css">
-<?php session_start(); ?>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>新規登録</title>
+    <link rel="stylesheet" href="./css/sign up.css">
+</head>
+<body>
 <?php require 'default/header.php'; ?>
 <form action="signup-output.php" method="post">
 <?php
@@ -20,9 +26,10 @@ echo '<label><p1 style="font-size:35px;">パスワード</p1></label><br>';
 echo '<input type="password" name="account_password" value="' . $password . '"><br>';
 
 echo '<input type="submit" value="新規登録">';
-
 ?>
 </form>
 
 <script src="script/design.js"></script>
 <?php require 'default/footer.php'; ?>
+</body>
+</html>

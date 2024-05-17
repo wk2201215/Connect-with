@@ -20,7 +20,7 @@
     }
     ?>
     </form>
-    <form action="sign up-input.php" method="post">
+    <form action="signup-input.php" method="post">
     <button type="submit">新規登録</button>
     </form>
    
