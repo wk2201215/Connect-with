@@ -7,7 +7,7 @@ $pdo=new PDO($connect, USER, PASS);
 $sql=$pdo->prepare('select * from account where mail_address=?');
 $sql->execute([$_POST['mail_address']]);
 foreach($sql as $row) {
-    if(password_verify($_POST['password'],$row['account_password'])){
+    if(password_verify($_POST['password'],$row['account_password'] == true)){
         $_SESSION['account']=[
             'account_id'=>$row['account_id'],
             'mail_address'=>$row['mail_address'],
@@ -18,6 +18,8 @@ foreach($sql as $row) {
             'authority'=>$row['authority'],
             'delete_flag'=>$row['delete_flag']
         ];
+
+        echo 'ログインできたよ';
     }
 }
 if(isset($_SESSION['account'])){
