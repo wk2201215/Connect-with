@@ -18,6 +18,8 @@ try {
     if (!$existing_account) {
         if (isset($_SESSION['account'])) {
             $id = $_SESSION['account']['account_id'];
+            $existing_account = $sql_cheak->fetch(PDO::FETCH_ASSOC);
+
             $sql = $pdo->prepare('UPDATE account SET account_name=?, mail_address=?, account_password=? WHERE id=?');
             $sql->execute([
                 $_POST['account_name'], $_POST['mail_address'], $_POST['account_password'], $id
@@ -31,9 +33,8 @@ try {
             echo 'お客様の情報を更新しました。';
         } else {
             $sql = $pdo->prepare('INSERT INTO account (account_name, mail_address, account_password) VALUES (?, ?, ?)');
-            $ps = $pdo->prepare($sql);
-            $ps->bindValue(1, $_POST['account_id'], PDO::PARAM_STR);
-            $ps->bindValue(2, password_hash( $_POST['account_password'], PASSWORD_DEFAULT), PDO::PARAM_STR)
+
+            $hashed_password = password_hash($_POST['account_password'], PASSWORD_DEFAULT);
             $sql->execute([
                 $_POST['account_name'], $_POST['mail_address'], $_POST['account_password']
             ]);
@@ -49,4 +50,4 @@ try {
 }
 
 require 'default/footer.php';
-?>助けて
+?>
