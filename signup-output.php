@@ -14,32 +14,33 @@ try {
     $sql_check->execute([$_POST['mail_address']]);
     $existing_account = $sql_check->fetch(PDO::FETCH_ASSOC);
 
-
     if (!$existing_account) {
         if (isset($_SESSION['account'])) {
             $id = $_SESSION['account']['account_id'];
-            $existing_account = $sql_cheak->fetch(PDO::FETCH_ASSOC);
+
+            // パスワードをハッシュ化
+            $hashed_password = password_hash($_POST['account_password'], PASSWORD_DEFAULT);
 
             $sql = $pdo->prepare('UPDATE account SET account_name=?, mail_address=?, account_password=? WHERE id=?');
             $sql->execute([
-                $_POST['account_name'], $_POST['mail_address'], $_POST['account_password'], $id
+                $_POST['account_name'], $_POST['mail_address'], $hashed_password, $id
             ]);
             $_SESSION['account'] = [
                 'account_id' => $id,
                 'account_name' => $_POST['account_name'],
                 'mail_address' => $_POST['mail_address'],
-                'account_password' => $_POST['account_password']
+                'account_password' => $hashed_password
             ];
             echo 'お客様の情報を更新しました。';
         } else {
-            $sql = $pdo->prepare('INSERT INTO account (account_name, mail_address, account_password) VALUES (?, ?, ?)');
-
+            // パスワードをハッシュ化
             $hashed_password = password_hash($_POST['account_password'], PASSWORD_DEFAULT);
+
+            $sql = $pdo->prepare('INSERT INTO account (account_name, mail_address, account_password) VALUES (?, ?, ?)');
             $sql->execute([
-                $_POST['account_name'], $_POST['mail_address'], $_POST['account_password']
+                $_POST['account_name'], $_POST['mail_address'], $hashed_password
             ]);
 
-                    
             echo 'お客様情報を登録しました。';
         }
     } else {
