@@ -1,5 +1,4 @@
-<?php
-session_start();
+<?php session_start();
 
 require 'db/db-connect.php';
 require 'default/header.php';
