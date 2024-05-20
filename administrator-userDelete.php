@@ -10,14 +10,31 @@
 </div>
 
 <?php
-    unset($_SESSION['account']);
-    $pdo=new PDO($connect, USER, PASS);
-    $sql=$pdo->prepare('select * from account where account_name=?');
-    $sql->execute([$_POST['account_name']]);
-    foreach($sql as $row) {
+    // ユーザー情報を取得
+    $sql = "SELECT account_name, mail_address FROM accounts WHERE account_id = $user_id";
+    $result = $conn->query($sql);
 
-        var_dump($row);
+    if ($result->num_rows > 0) {
+        // 結果をフェッチ
+        $user = $result->fetch_assoc();
+        $user_name = $user['account_name'];
+        $user_email = $user['mail_address'];
+    } else {
+        echo "User not found.";
         exit;
+    }
+
+    // 接続を閉じる
+    $conn->close();
+    ?>
+    // unset($_SESSION['account']);
+    // $pdo=new PDO($connect, USER, PASS);
+    // $sql=$pdo->prepare('select * from account where account_name=?');
+    // $sql->execute([$_POST['account_name']]);
+    // foreach($sql as $row) {
+
+    //     var_dump($row);
+    //     exit;
         // if($_POST['id'],$row['account_id']){
         //     $_SESSION['account'] = [
         //         'account_name'=>$row['account_name'],
@@ -26,7 +43,7 @@
         
         // }
 
-    }
+    // }
     // echo '<label><p1 style="font-size:20px;"></p1></label>name<br>';
     // echo 
     // echo '<label><p1 style="font-size:20px;"></p1></label>email address<br>';
