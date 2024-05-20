@@ -10,7 +10,7 @@
 
 <table border="1">
   <tr>
-    <th>user name</th><th>restoration</th><th>delete</th>
+    <th>administrator name</th><th>restoration</th><th>delete</th>
   </tr>
   <tr>
     <td></td><td><button>restoration</button></td><td><button>delete</button></td>
