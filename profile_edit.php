@@ -92,7 +92,7 @@
     <div class="form-group">
         <textarea id="bio" placeholder="自己紹介文"></textarea>
     </div><br>
-    <button class="submit-btn">確定</button>
+    <button class="submit-btn" onclick="location.href='mypage.php'">確定</button>
 </div>
 
 <script>
