@@ -1,4 +1,3 @@
-
 <div class="search">
 <input class="keyword" type="text" name="keyword" placeholder="  キーワード検索  ">
 <button class="searchbutton" type="submit" name="user_search" value="ユーザー検索">🔍</button>
@@ -7,7 +6,7 @@
 
 <table border="1">
   <tr>
-    <th>user name</th><th>restoration</th><th>delete</th>
+    <th>administrator name</th><th>restoration</th><th>delete</th>
   </tr>
   <tr>
     <td></td><td><button>restoration</button></td><td><button>delete</button></td>
