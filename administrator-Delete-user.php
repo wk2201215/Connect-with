@@ -20,13 +20,14 @@
 <button class="searchbutton" type="submit" name="hashtag" value="ハッシュタグ検索" style="width:22px;height:22px">＃</button>
 </div>
 
-<table class="table">
-<!-- <?php
-    foreach($sql as $row){
-
-    }
-?> -->
+<table border="1">
+  <tr>
+    <th>post</th><th>restoration</th><th>delete</th>
+  </tr>
+  <tr>
+    <td></td><td><button>restoration</button></td><td><button>delete</button></td>
+  </tr>
+  <tr>
+    <td></td><td><button>restoration</button></td><td><button>delete</button></td>
+  </tr>
 </table>
-
-
-<?php require 'default/footer.php'; ?>

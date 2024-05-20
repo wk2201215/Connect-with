@@ -10,7 +10,7 @@ echo '<input type="submit" value="＃">';
 
 <table border="1">
   <tr>
-    <th>username</th><th>restoration</th><th>delete</th>
+    <th>post</th><th>restoration</th><th>delete</th>
   </tr>
   <tr>
     <td></td><td><button>restoration</button></td><td><button>delete</button></td>
