@@ -6,7 +6,7 @@ CREATE TABLE photograph(
 
 CREATE TABLE account(
     account_id        INT(6) AUTO_INCREMENT      NOT NULL,
-    account_password  VARCHAR(40)                NOT NULL,
+    account_password  VARCHAR(200)                NOT NULL,
     mail_address      VARCHAR(40)                NOT NULL,
     account_name      VARCHAR(40)                NOT NULL,
     photograph_id     INT(7)                     NOT NULL,
