@@ -10,13 +10,13 @@ echo '<input type="submit" value="＃">';
 
 <table border="1">
   <tr>
-    <th>post</th><th>restoration</th><th>delete</th>
+    <th>post</th><th>username</th><th>delete</th>
   </tr>
   <tr>
-    <td></td><td><button>restoration</button></td><td><button>delete</button></td>
+    <td></td><td><button>user1</button></td><td><button>delete</button></td>
   </tr>
   <tr>
-    <td></td><td><button>restoration</button></td><td><button>delete</button></td>
+    <td></td><td><button>user2</button></td><td><button>delete</button></td>
   </tr>
 </table>
 
