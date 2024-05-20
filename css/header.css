@@ -36,7 +36,7 @@ footer{
 }
 
 /* バーガーメニュー */
-html{
+/* html{
     box-sizing: border-box;
   }
   *, *:after,*:before{
@@ -64,8 +64,8 @@ html{
     padding: 40px 0;
   }
   .open{
-    position: sticky;
-    /* position: fixed; */
+    /* position: sticky; */
+    /* position: fixed;
     top: 40px;
     right: 40px;
     width: 50px;
@@ -223,4 +223,4 @@ html{
         transform: translateY(0);
       }
     }
-  }
+  } */ 

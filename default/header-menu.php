@@ -1,5 +1,6 @@
 <header>
+<div>
         音楽
-        <?php require 'default/ba-ga-.php'; ?>
+</div>  
 
 </header>

@@ -17,9 +17,16 @@ CREATE TABLE account(
     FOREIGN KEY(photograph_id) REFERENCES photograph(photograph_id)
 );
 
+CREATE TABLE category(
+    category_id   INT(3)  NOT NULL,
+    category_name VARCHAR(20) NOT NULL,
+    PRIMARY KEY(category_id)
+);
+
 CREATE TABLE post(
     post_id       INT(7) AUTO_INCREMENT              NOT NULL,
-    account_id    INT(6)                        NOT NULL,
+    account_id    INT(6)                             NOT NULL,
+    category_id   INT(3)                             NOT NULL,
     post_time     DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
     post_content  VARCHAR(40)                        NOT NULL,
     photograph_id INT(7)                             NOT NULL,
@@ -27,12 +34,14 @@ CREATE TABLE post(
     delete_flag   BIT(1) DEFAULT 0                   NOT NULL,
     PRIMARY KEY(post_id),
     FOREIGN KEY(account_id)    REFERENCES account(account_id),
-    FOREIGN KEY(photograph_id) REFERENCES photograph(photograph_id)
+    FOREIGN KEY(photograph_id) REFERENCES photograph(photograph_id),
+    FOREIGN KEY(category_id)   REFERENCES category(category_id)
 );
 
 CREATE TABLE reply(
     reply_id      INT(7) AUTO_INCREMENT              NOT NULL,
-    account_id    INT(6)                        NOT NULL,
+    account_id    INT(6)                             NOT NULL,
+    category_id   INT(3)                             NOT NULL,
     post_time     DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
     post_content  VARCHAR(40)                        NOT NULL,
     photograph_id INT(7)                             NOT NULL,
@@ -43,5 +52,6 @@ CREATE TABLE reply(
     FOREIGN KEY(account_id)    REFERENCES account(account_id),
     FOREIGN KEY(photograph_id) REFERENCES photograph(photograph_id),
     FOREIGN KEY(post_id)       REFERENCES post(post_id),
-    FOREIGN KEY(post_id)       REFERENCES reply(reply_id)
+    FOREIGN KEY(post_id)       REFERENCES reply(reply_id),
+    FOREIGN KEY(category_id)   REFERENCES category(category_id)
 );
