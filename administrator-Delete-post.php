@@ -5,6 +5,7 @@ echo '<input type="submit" value="🔍">';
 echo '<input type="submit" value="＃">';
 ?>
 
+
 <table border="1">
   <tr>
     <th>post</th><th>username</th><th>delete</th>
