@@ -28,7 +28,6 @@
 
 <body>
 <?php
-<?php
 unset($_SESSION['account']);
 $pdo=new PDO($connect, USER, PASS);
 $sql=$pdo->prepare('select * from account where mail_address=?');
