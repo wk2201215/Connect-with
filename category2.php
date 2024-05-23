@@ -5,6 +5,7 @@
 <?php
 $pdo=new PDO($connect,USER,PASS);
 $sql=$pdo->query('select * from category');
+echo '<div id="container">';
 foreach($sql as $row){
     echo $row['category_name'];
     echo '<br>';
