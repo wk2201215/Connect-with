@@ -1,48 +1,91 @@
-<?php session_start(); ?>
-<?php require 'default/header.php'; ?>
- 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
- 
+<?php
+session_start();
 
+require 'db/db-connect.php';  
+
+if (!isset($_SESSION['account'])) {
+    echo 'ログインしてください。';
+  
+    exit;
+}
+
+try {
+    $pdo = new PDO($connect, USER, PASS);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // セッションからユーザーIDを取得
+    $userId = $_SESSION['account']['account_id'];
+
+    // ユーザー情報を取得するSQLクエリ
+    $sql = 'SELECT mail_address, photograph_id, account_name, self_introduction FROM account WHERE account_id = ?';
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$userId]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    // ユーザー情報が取得できたか確認
+    if ($user) {
+        $mailAddress = htmlspecialchars($user['mail_address']);
+        $photographId = htmlspecialchars($user['photograph_id']);
+        $accountName = htmlspecialchars($user['account_name']);
+        $selfIntroduction = htmlspecialchars($user['self_introduction']);
+    } else {
+        echo 'ユーザー情報が見つかりません。';
+        exit;
+    }
+} catch (PDOException $e) {
+    echo "エラー: " . $e->getMessage();
+    exit;
+}
+?>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プロフィールレイアウト</title>
     <style>
-        p{
-          text-align:center;
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
         }
-       .human {
-          text-align:center;
+        .profile-username {
+            font-size: 20px;
+            margin-bottom: 10px;
         }
-        .link{
-          text-align:center;
-   
-          margin-left:120px
+        .profile-picture {
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+            border-radius: 50%;
+            margin: 0 auto;
+            background-image: url('path/to/images/<?php echo $photographId; ?>');  /* ここに写真のパスを入れる */
+            background-size: cover;
         }
-        .button {
-          text-align:center;
-       margin-top: 5%;
-    margin-bottom: 5%;
-    width: 100px;
-    border: 0;
-    background-color: lightgray;
-    padding-top: 16px;
-    padding-bottom: 40px;
+        .profile-edit {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 10px;
+            border: 1px solid #ff69b4;
+            border-radius: 20px;
+            color: #ff69b4;
+            text-decoration: none;
+            font-size: 14px;
         }
-        .fa-user-circle{
-       
+        .profile-edit:hover {
+            background-color: #ff69b4;
+            color: white;
+        }
+        .profile-name, .profile-details {
+            margin-top: 10px;
         }
     </style>
-<form action="purchase_history.php">
-    <p><?= $_SESSION['account']['mail_address'] ?></p>
- <div class="human">
-      <i class="fas fa-user-circle fa-10x"></i>
-</div>
-    <p><?= $_SESSION['account']['account_name'] ?></p>
-<div class="link">
-    <a href="profile.php">プロフィール編集</a>
-</div>  
-    <p><input type="submit" class="button_de button is-success is-outlined is-rounded" value="購入履歴" class="button"></p>
-     
-  </form>
-   
-<?php require 'modules/navigation.php'; ?>
-<?php require 'modules/footer.php'; ?>
+</head>
+<body>
+    <div class="profile-username">@<?php echo $mailAddress; ?></div>
+    <div class="profile-picture"></div>
+    <a href="#" class="profile-edit">プロフィール編集</a>
+    <div class="profile-name"><?php echo $accountName; ?></div>
+    <div class="profile-details"><?php echo $selfIntroduction; ?></div>
+</body>
+</html>
