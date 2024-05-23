@@ -1,3 +1,6 @@
+<?php require 'function/not-access.php'; ?>
+<?php require 'db/db-connect.php';?>
+
 
 <div class="search">
 <input class="keyword" type="text" name="keyword" placeholder="  キーワード検索  ">
@@ -15,4 +18,13 @@
   <tr>
     <td></td><td><button>restoration</button></td><td><button>delete</button></td>
   </tr>
+
+
+  <?php
+    $pdo=new PDO($account, USER, PASS);
+    foreach($pdo->query('select * from account where') as $row){
+        echo '<tr>';
+        echo '<td>',$row[''],'</td>';
+        echo '<td>',$row[''],'</td>';
+        echo '<td>';
 </table>

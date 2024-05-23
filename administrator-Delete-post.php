@@ -1,3 +1,7 @@
+<?php require 'function/not-access.php'; ?>
+<?php require 'db/db-connect.php';?>
+
+
 <?php
 echo '<form action="post-delete.php" method="post">';
 echo '<input type="text" name="keyword">';
@@ -16,6 +20,14 @@ echo '<input type="submit" value="＃">';
   <tr>
     <td></td><td><button>user2</button></td><td><button>delete</button></td>
   </tr>
+
+  <?php
+    $pdo=new PDO($account, USER, PASS);
+    foreach($pdo->query('select * from account where') as $row){
+        echo '<tr>';
+        echo '<td>',$row[''],'</td>';
+        echo '<td>',$row[''],'</td>';
+        echo '<td>';
 </table>
 
 
