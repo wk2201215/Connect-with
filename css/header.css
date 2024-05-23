@@ -1,16 +1,26 @@
+#container{
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: 25px;
+}
 header{
-    /* position:fixed;画面に対して位置を固定する */
+    width: 100%;
+  /* 画面に対して位置を固定する */
+    position:fixed;
     /* 親要素内の範囲で固定される */
-    position: sticky;
+    /* position: sticky; */
     top:0;
     transition: 0.5s;/* アニメーション表示時間 */
     background-color:rgb(208, 250, 0);
 }
 
 footer{
-    /* position: fixed; */
-    position: sticky;
+    position: fixed;
+    /* position: sticky; */
+    left: 0;
     bottom: 0;
+    width: 100%;
     transition: 0.5s;
     background-color:rgb(208, 250, 0);
 }

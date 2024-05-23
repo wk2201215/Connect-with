@@ -11,47 +11,33 @@
 
 <?php
     // ユーザー情報を取得
-    $sql = "SELECT account_name, mail_address FROM accounts WHERE account_id = $user_id";
-    $result = $conn->query($sql);
+    $user_id=1;
+    $pdo=new PDO($connect, USER, PASS);
+    $sql = "SELECT account_name, mail_address FROM account WHERE account_id = $user_id";
+    $result = $pdo->query($sql);
 
-    if ($result->num_rows > 0) {
-        // 結果をフェッチ
-        $user = $result->fetch_assoc();
-        $user_name = $user['account_name'];
-        $user_email = $user['mail_address'];
-    } else {
-        echo "User not found.";
-        exit;
+    foreach($result as $val) {
+        $user_name = $val['account_name'];
+        $user_email = $val['mail_address'];
     }
 
-    // 接続を閉じる
-    $conn->close();
-    ?>
-    // unset($_SESSION['account']);
-    // $pdo=new PDO($connect, USER, PASS);
-    // $sql=$pdo->prepare('select * from account where account_name=?');
-    // $sql->execute([$_POST['account_name']]);
-    // foreach($sql as $row) {
+    echo 'name: ',$user_name,'<br>';
+    echo 'email address: ',$user_email;
 
-    //     var_dump($row);
+    // if ($result->num_rows > 0) {
+    //     // 結果をフェッチ
+    //     $user = $result->fetch_assoc();
+    //     $user_name = $user['account_name'];
+    //     $user_email = $user['mail_address'];
+    // } else {
+    //     echo "User not found.";
     //     exit;
-        // if($_POST['id'],$row['account_id']){
-        //     $_SESSION['account'] = [
-        //         'account_name'=>$row['account_name'],
-        //         'mail_address'=>$row['mail_address']
-        //     ];
-        
-        // }
-
     // }
-    // echo '<label><p1 style="font-size:20px;"></p1></label>name<br>';
-    // echo 
-    // echo '<label><p1 style="font-size:20px;"></p1></label>email address<br>';
-    // echo 
-?>
+
+    // 接続を閉じる
+    // $pdo->close();
+    ?>
 
 <button class="user_button" type="submit" name="garbage_can" value="ユーザー削除">🗑️</button>
 
 <?php require 'default/footer.php'; ?>
-
-

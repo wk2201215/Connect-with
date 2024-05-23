@@ -1,3 +1,5 @@
+
+
 <?php
 echo '<form action="post-delete.php" method="post">';
 echo '<input type="text" name="keyword">';
@@ -16,6 +18,8 @@ echo '<input type="submit" value="＃">';
   <tr>
     <td></td><td><button>user2</button></td><td><button>delete</button></td>
   </tr>
+
+ 
 </table>
 
 
