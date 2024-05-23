@@ -1,6 +1,7 @@
 <?php require 'function/not-access.php'; ?>
 <?php require 'db/db-connect.php';?>
 <?php
+session_start();
 unset($_SESSION['account']);
 $pdo=new PDO($connect, USER, PASS);
 $sql=$pdo->prepare('select * from account where mail_address=?');
@@ -20,7 +21,11 @@ foreach($sql as $row) {
     }
 }
 if(isset($_SESSION['account'])){
-header('Location:top.php');
+    if($_SESSION[$authority] == 2){
+    header('Location: admin-dashboard.php');
+    }else{
+    header('Location:top.php');
+    }
 exit();    
 }else{
 header('Location:login-input.php?hogeA=ログイン名またはパスワードが違います');
