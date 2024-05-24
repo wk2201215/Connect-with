@@ -1,6 +1,6 @@
 CREATE TABLE photograph(
-    photograph_id   INT(7)  NOT NULL,
-    photograph_path VARCHAR(40) NOT NULL,
+    photograph_id   INT(7) AUTO_INCREMENT NOT NULL,
+    photograph_path VARCHAR(40)           NOT NULL,
     PRIMARY KEY(photograph_id)
 );
 
@@ -30,7 +30,7 @@ CREATE TABLE post(
     post_time     DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
     post_content  VARCHAR(40)                        NOT NULL,
     photograph_id INT(7)                             NOT NULL,
-    good_count    INT(6)                             NOT NULL,
+    good_count    INT(6) DEFAULT 0                   NOT NULL,
     delete_flag   BIT(1) DEFAULT 0                   NOT NULL,
     PRIMARY KEY(post_id),
     FOREIGN KEY(account_id)    REFERENCES account(account_id),
