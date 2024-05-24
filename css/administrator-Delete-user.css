@@ -8,4 +8,13 @@
     border-radius:3px;
     text-align: center;
     text-decoration: none;
+    padding: 2%;
+}
+
+.userDelete_button {
+    margin-left: 10%;
+}
+
+.keyword {
+    padding: 2%;
 }
