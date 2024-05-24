@@ -1,28 +1,25 @@
 <?php
-session_start();
+session_start();  
 
 require 'db/db-connect.php';  
-
-if (!isset($_SESSION['account'])) {
-    echo 'ログインしてください。';
-  
-    exit;
-}
 
 try {
     $pdo = new PDO($connect, USER, PASS);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // セッションからユーザーIDを取得
-    $userId = $_SESSION['account']['account_id'];
+    // セッション変数がセットされていることを確認します
+    if (isset($_SESSION['account']['account_id'])) {
+        $userId = $_SESSION['account']['account_id'];
+    } else {
+        echo 'セッションが開始されていないか、アカウントIDが見つかりません。';
+        exit;
+    }
 
-    // ユーザー情報を取得するSQLクエリ
     $sql = 'SELECT mail_address, photograph_id, account_name, self_introduction FROM account WHERE account_id = ?';
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$userId]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // ユーザー情報が取得できたか確認
     if ($user) {
         $mailAddress = htmlspecialchars($user['mail_address']);
         $photographId = htmlspecialchars($user['photograph_id']);

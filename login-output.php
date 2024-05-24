@@ -8,6 +8,7 @@ $sql=$pdo->prepare('select * from account where mail_address=?');
 $sql->execute([$_POST['mail_address']]);
 foreach($sql as $row) {
     if(password_verify($_POST['password'],$row['account_password'])){
+        $authority = $row['authority'];
         $_SESSION['account']=[
             'account_id'=>$row['account_id'],
             'mail_address'=>$row['mail_address'],
@@ -18,11 +19,19 @@ foreach($sql as $row) {
             'authority'=>$row['authority'],
             'delete_flag'=>$row['delete_flag']
         ];
+if($authority == 1){
+    $_SESSION['role'] ='user';
+}else if($authority == 2){
+    $_SESSION['role'] = 'admin';
+}
+break;
+
     }
 }
 if(isset($_SESSION['account'])){
-    if($_SESSION[$authority] == 2){
+    if($_SESSION['role'] == 'admin'){
     header('Location: admin-dashboard.php');
+    
     }else{
     header('Location:top.php');
     }

@@ -78,21 +78,23 @@
 </head>
 <body>
 <div class="container">
+    <form action="mypage.php" method="post">
     <div class="profile-pic">
         <img id="profile-image" src="" alt="プロフィール画像">
         <input type="file" id="image-upload" accept="image/*">
         <label for="image-upload">＋</label>
     </div><br>
     <div class="form-group">
-        <input type="text" id="name" placeholder="名前">
+        <input type="text" name="account_name" id="name" placeholder="名前" required>
     </div>
     <div class="form-group">
-        <input type="email" id="email" placeholder="メールアドレス">
+        <input type="email" name="mail_address" id="email" placeholder="メールアドレス" required>
     </div>
     <div class="form-group">
-        <textarea id="bio" placeholder="自己紹介文"></textarea>
+        <textarea name="self_introduction" id="bio" placeholder="自己紹介文" require></textarea>
     </div><br>
-    <button class="submit-btn" onclick="location.href='mypage.php'">確定</button>
+    <button type="submit" class="submit-btn">確定</button>
+    </form>
 </div>
 
 <script>
@@ -125,6 +127,35 @@
         echo "</div>";
     } else {
 ?>
+
+<?php
+    <?php require 'db/db-connect.php';?>
+
+    // ユーザーIDは仮に1としています。実際のアプリケーションでは適切な方法で取得する必要があります。
+    $account_id = 1;
+ 
+    $sql = "UPDATE account SET account_name=?, mail_address=?, self_introduction=? WHERE account_id=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sssi", $account_name, $mail_address, $self_introduction, $account_id);
+ 
+    if ($stmt->execute()) {
+        echo "<div class='container'>";
+        echo "<h2>プロフィールが更新されました:</h2>";
+        echo "<p><strong>名前:</strong> $account_name</p>";
+        echo "<p><strong>メールアドレス:</strong> $mail_address</p>";
+        echo "<p><strong>自己紹介文:</strong> $self_introduction</p>";
+        echo "</div>";
+    } else {
+        echo "エラー: " . $stmt->error;
+    }
+ 
+    $stmt->close();
+    $conn->close();
+}
+?>
+
+?>
+
 <div class="container">
     <form action="" method="post" enctype="multipart/form-data">
         <div class="profile-pic">
