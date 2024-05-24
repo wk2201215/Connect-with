@@ -4,16 +4,31 @@
 
 <?php
 $pdo=new PDO($connect,USER,PASS);
-$sql=$pdo->query('select * from post INNER JOIN account ON post.account_id = account.account_id');
+$sql=$pdo->query('select * from post');
 echo '<div id="container">';
 foreach($sql as $row){
+    $sql_a=$pdo->prepare('SELECT * FROM account INNER JOIN photograph ON account.photograph_id = photograph.photograph_id where account_id = ?');
+    $sql_a->execute([$row['account_id']]);
     // パスから画像データを取得
-    $filePath = 'images/'.$row['photograph_path'];
-    $data = file_get_contents($filePath);
+    $filePath1 = 'images/'.$sql_a['photograph_path'];
+    $data1 = file_get_contents($filePath1);
     // header関数でコンテンツの形式が画像であると宣言
     header('Content-type: image/jpg');
     //データを出力
-    echo $data;
+    echo $data1;
+    echo '<br>';
+    echo $row['account_id'];
+    echo '<br>';
+    echo $row['post_time'];
+    echo '<br>';
+    echo $row['post_content'];
+    echo '<br>';
+    $sql_p=$pdo->prepare('SELECT * FROM photograph where photograph_id = ?');
+    $sql_p->execute([$row['photograph_id']]);
+    $filePath2 = 'images/'.$sql_p['photograph_path'];
+    $data2 = file_get_contents($filePath2);
+    header('Content-type: image/jpg');
+    echo $data2;
     echo '<br>';
 }
 ?>
