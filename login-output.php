@@ -31,6 +31,7 @@ break;
 if(isset($_SESSION['account'])){
     if($_SESSION['role'] == 'admin'){
     header('Location: admin-dashboard.php');
+    
     }else{
     header('Location:top.php');
     }

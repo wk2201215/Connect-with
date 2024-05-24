@@ -78,21 +78,23 @@
 </head>
 <body>
 <div class="container">
+    <form action="mypage.php" method="post">
     <div class="profile-pic">
         <img id="profile-image" src="" alt="プロフィール画像">
         <input type="file" id="image-upload" accept="image/*">
         <label for="image-upload">＋</label>
     </div><br>
     <div class="form-group">
-        <input type="text" id="name" placeholder="名前">
+        <input type="text" name="account_name" id="name" placeholder="名前" required>
     </div>
     <div class="form-group">
-        <input type="email" id="email" placeholder="メールアドレス">
+        <input type="email" name="mail_address" id="email" placeholder="メールアドレス" required>
     </div>
     <div class="form-group">
-        <textarea id="bio" placeholder="自己紹介文"></textarea>
+        <textarea name="self_introduction" id="bio" placeholder="自己紹介文" require></textarea>
     </div><br>
-    <button class="submit-btn" onclick="location.href='mypage.php'">確定</button>
+    <button type="submit" class="submit-btn">確定</button>
+    </form>
 </div>
 
 <script>
@@ -125,6 +127,8 @@
         echo "</div>";
     } else {
 ?>
+<?php
+
 <div class="container">
     <form action="" method="post" enctype="multipart/form-data">
         <div class="profile-pic">
