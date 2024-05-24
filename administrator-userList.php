@@ -1,7 +1,7 @@
 <?php require 'function/not-access.php'; ?>
 <?php require 'db/db-connect.php';?>
 <?php
-session_start();
+
 unset($_SESSION['account']);
 $pdo=new PDO($connect, USER, PASS);
 $sql=$pdo->prepare('select * from account where account_name=?');
