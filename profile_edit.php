@@ -127,7 +127,34 @@
         echo "</div>";
     } else {
 ?>
+
 <?php
+    <?php require 'db/db-connect.php';?>
+
+    // ユーザーIDは仮に1としています。実際のアプリケーションでは適切な方法で取得する必要があります。
+    $account_id = 1;
+ 
+    $sql = "UPDATE account SET account_name=?, mail_address=?, self_introduction=? WHERE account_id=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sssi", $account_name, $mail_address, $self_introduction, $account_id);
+ 
+    if ($stmt->execute()) {
+        echo "<div class='container'>";
+        echo "<h2>プロフィールが更新されました:</h2>";
+        echo "<p><strong>名前:</strong> $account_name</p>";
+        echo "<p><strong>メールアドレス:</strong> $mail_address</p>";
+        echo "<p><strong>自己紹介文:</strong> $self_introduction</p>";
+        echo "</div>";
+    } else {
+        echo "エラー: " . $stmt->error;
+    }
+ 
+    $stmt->close();
+    $conn->close();
+}
+?>
+
+?>
 
 <div class="container">
     <form action="" method="post" enctype="multipart/form-data">
