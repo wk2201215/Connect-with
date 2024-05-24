@@ -1,3 +1,22 @@
+<?php require 'function/not-access.php'; ?>
+<?php require 'db/db-connect.php';?>
+<?php
+session_start();
+unset($_SESSION['account']);
+$pdo=new PDO($connect, USER, PASS);
+$sql=$pdo->prepare('select * from account where account_name=?');
+$sql->execute([$_POST['account_name']]);
+foreach($sql as $row) {
+        $_SESSION['account']=[
+            'account_name'=>$row['account_name']
+        ];
+}
+?>
+
+
+
+
+
 
 <div class="search">
 <input class="keyword" type="text" name="keyword" placeholder="  キーワード検索  ">
