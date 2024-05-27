@@ -5,8 +5,10 @@
 <?php
 
     echo '<p style="font-size:100px;">ログイン</p><br>';
+    var_dump($_SESSION);
     unset($_SESSION['account']);
-
+    var_dump($_SESSION);
+    echo session_id();
     echo '<label><p1 style="font-size:50px;">メールアドレス</p1></label><br>';
     echo '<input type="text" name="mail_address" id="mail_address"><br>';
 

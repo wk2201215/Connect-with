@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php require 'default/header-top.php'; ?>
 <?php require 'default/header-menu.php'; ?>
 
@@ -8,6 +9,8 @@ echo '<div id="container" role="main">';
     echo '<p>3top</p>';
     echo '<p>4top</p>';
     echo '<p>5top</p>';
+    var_dump($_SESSION['account']);
+    echo session_id();
     echo '<p>top</p>';
     echo '<p>top</p>';
     echo '<p>top</p>';

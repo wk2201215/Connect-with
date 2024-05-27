@@ -1,4 +1,5 @@
 <?php require 'db/db-connect.php'; ?>
+<?php session_start(); ?>
 <?php require 'default/header-top.php'; ?>
 <?php require 'default/header-menu.php'; ?>
 <?php
@@ -6,11 +7,12 @@ $pdo=new PDO($connect,USER,PASS);
 $sql=$pdo->query('select * from post');
 echo '<div id="container">';
 foreach($sql as $row){
-    var_dump($_SESSION);
-    $sql_a=$pdo->prepare('SELECT * FROM account INNER JOIN photograph ON account.photograph_id = photograph.photograph_id where account_id = ?');
+    // var_dump($_SESSION['account']);
+    $sql_a=$pdo->prepare('SELECT * FROM account INNER JOIN photograph ON account.photograph_id = photograph.photograph_id WHERE account_id = ?');
     $sql_a->execute([$row['account_id']]);
+    // var_dump($sql_a);
     // パスから画像データを取得
-    $item1=$sql_a->fetchAll();
+    $item1=$sql_a->fetch();
     var_dump($item1);
     $filePath1 = 'images/'.$item1['photograph_path'];
     $data1 = file_get_contents($filePath1);
