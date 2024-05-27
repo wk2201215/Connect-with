@@ -1,12 +1,12 @@
 <?php require 'db/db-connect.php'; ?>
 <?php require 'default/header-top.php'; ?>
 <?php require 'default/header-menu.php'; ?>
-
 <?php
 $pdo=new PDO($connect,USER,PASS);
 $sql=$pdo->query('select * from post');
 echo '<div id="container">';
 foreach($sql as $row){
+    var_dump($_SESSION);
     $sql_a=$pdo->prepare('SELECT * FROM account INNER JOIN photograph ON account.photograph_id = photograph.photograph_id where account_id = ?');
     $sql_a->execute([$row['account_id']]);
     // パスから画像データを取得
