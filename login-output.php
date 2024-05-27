@@ -22,8 +22,8 @@ foreach($sql as $row) {
 }
 if(isset($_SESSION['account'])){
     if($_SESSION['account']['authority'] == 1){
-    header('Location: admin-dashboard.php');
-    
+    header('Location:administrator-userList.php');
+
     }else{
     header('Location:top.php');
     }
