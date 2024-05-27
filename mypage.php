@@ -1,13 +1,12 @@
 <?php
-session_start();  
+session_start();
 
-require 'db/db-connect.php';  
+require 'db/db-connect.php';
 
 try {
     $pdo = new PDO($connect, USER, PASS);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // セッション変数がセットされていることを確認します
     if (isset($_SESSION['account']['account_id'])) {
         $userId = $_SESSION['account']['account_id'];
     } else {
@@ -56,7 +55,7 @@ try {
             background-color: #ccc;
             border-radius: 50%;
             margin: 0 auto;
-            background-image: url('path/to/images/<?php echo $photographId; ?>');  /* ここに写真のパスを入れる */
+            background-image: url('path/to/images/<?php echo $photographId; ?>');
             background-size: cover;
         }
         .profile-edit {
@@ -81,7 +80,7 @@ try {
 <body>
     <div class="profile-username">@<?php echo $mailAddress; ?></div>
     <div class="profile-picture"></div>
-    <a href="#" class="profile-edit">プロフィール編集</a>
+    <a href="profile_edit.php" class="profile-edit">プロフィール編集</a>
     <div class="profile-name"><?php echo $accountName; ?></div>
     <div class="profile-details"><?php echo $selfIntroduction; ?></div>
 </body>
