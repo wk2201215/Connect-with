@@ -4,9 +4,36 @@ session_start(); // Start the session
 require 'function/not-access.php';
 require 'db/db-connect.php';
 
-//var_dump($_SESSION);
+unset($_SESSION['account']);
 
-//echo $_SESSION['account']['account_name'];
+// Check if account_name is set in POST request
+if (isset($_POST['account_name']) && !empty($_POST['account_name'])) {
+    try {
+        // Establish a PDO connection
+        $pdo = new PDO($connect, USER, PASS);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        // Prepare and execute the SQL query
+        $sql = $pdo->prepare('SELECT * FROM account WHERE account_name = ?');
+        $sql->execute([$_POST['account_name']]);
+        
+        // Fetch the result
+        $row = $sql->fetch(PDO::FETCH_ASSOC);
+        if ($row) {
+            // Set the session account if a row is found
+            $_SESSION['account'] = [
+                'account_name' => $row['account_name']
+            ];
+        } else {
+            echo "No account found with the provided account name.";
+        }
+    } catch (PDOException $e) {
+        // Handle potential errors
+        echo "Database error: " . $e->getMessage();
+    }
+} else {
+    echo "Account name is not provided.";
+}
 
 // Retrieve all user accounts from the database for display
 try {
@@ -20,6 +47,36 @@ try {
     $accounts = [];
 }
 ?>
+
+
+
+
+<?php require 'db/db-connect.php';?>
+<?php
+// 接続をチェック
+if ($conn->connect_error) {
+    die("接続に失敗しました: " . $conn->connect_error);
+}
+
+// POSTリクエストから送信されたデータを取得
+$id = $_POST['account_id']; // 更新対象のレコードのID
+$newValue = $_POST['new_value']; // 新しい値
+
+// データを更新するSQLクエリを作成
+$sql = "UPDATE account SET account_id = '$newValue' WHERE id = $id";
+
+// クエリを実行して結果を確認
+if ($conn->query($sql) === TRUE) {
+    echo "レコードが正常に更新されました";
+} else {
+    echo "エラー: " . $sql . "<br>" . $conn->error;
+}
+
+// データベース接続を閉じる
+$conn->close();
+?>
+
+
 
 
 
