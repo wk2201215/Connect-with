@@ -4,36 +4,9 @@ session_start(); // Start the session
 require 'function/not-access.php';
 require 'db/db-connect.php';
 
-unset($_SESSION['account']);
+//var_dump($_SESSION);
 
-// Check if account_name is set in POST request
-if (isset($_POST['account_name']) && !empty($_POST['account_name'])) {
-    try {
-        // Establish a PDO connection
-        $pdo = new PDO($connect, USER, PASS);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        // Prepare and execute the SQL query
-        $sql = $pdo->prepare('SELECT * FROM account WHERE account_name = ?');
-        $sql->execute([$_POST['account_name']]);
-        
-        // Fetch the result
-        $row = $sql->fetch(PDO::FETCH_ASSOC);
-        if ($row) {
-            // Set the session account if a row is found
-            $_SESSION['account'] = [
-                'account_name' => $row['account_name']
-            ];
-        } else {
-            echo "No account found with the provided account name.";
-        }
-    } catch (PDOException $e) {
-        // Handle potential errors
-        echo "Database error: " . $e->getMessage();
-    }
-} else {
-    echo "Account name is not provided.";
-}
+//echo $_SESSION['account']['account_name'];
 
 // Retrieve all user accounts from the database for display
 try {
