@@ -13,13 +13,9 @@ foreach($sql as $row){
     // var_dump($sql_a);
     // パスから画像データを取得
     $item1=$sql_a->fetch();
-    var_dump($item1);
+    // var_dump($item1);
     $filePath1 = 'images/'.$item1['photograph_path'];
-    $data1 = file_get_contents($filePath1);
-    // header関数でコンテンツの形式が画像であると宣言
-    header('Content-type: image/jpg');
-    //データを出力
-    echo $data1;
+    echo '<img src="Image display.php?hogeA='.$filePath1.'" alt="アカウント写真" />';
     echo '<br>';
     echo $row['account_id'];
     echo '<br>';
@@ -29,11 +25,9 @@ foreach($sql as $row){
     echo '<br>';
     $sql_p=$pdo->prepare('SELECT * FROM photograph where photograph_id = ?');
     $sql_p->execute([$row['photograph_id']]);
-    $item2=$sql_p->fetchAll();
+    $item2=$sql_p->fetch();
     $filePath2 = 'images/'.$item2['photograph_path'];
-    $data2 = file_get_contents($filePath2);
-    header('Content-type: image/jpg');
-    echo $data2;
+    echo '<img src="Image display.php?hogeA='.$filePath2.'" alt="投稿写真" />';
     echo '<br>';
 }
 ?>
