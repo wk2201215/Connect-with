@@ -154,7 +154,7 @@ a:hover {
     </header>
     <main>
         <div class="profile">
-            <div class="avatar">人</div>
+            <div class="avatar">管</div>
             <div class="info">
 <?php
     // ユーザー情報を取得
@@ -184,33 +184,53 @@ a:hover {
             </thead>
             <tbody>
                 <tr>
-                    <td>地震速報</td>
-                    <td><a href="#">#ニュース</a></td>
+                    <td>アップデートversion3.22.4</td>
+                    <td><a href="#">#通知</a></td>
                     <td><a style="color: red" href="#">delete</a></td>
                 </tr>
                 <tr>
-                    <td>わー</td>
-                    <td><a href="#">#？？？？</a></td>
+                    <td>アップデートversion3.22.0</td>
+                    <td><a href="#">#通知</a></td>
                     <td><a style="color: red" href="#">delete</a></td>
                 </tr>
                 <tr>
-                    <td>地震速報</td>
-                    <td><a href="#">#ニュース</a></td>
+                    <td>アップデートversion3.11.1</td>
+                    <td><a href="#">#通知</a></td>
                     <td><a style="color: red" href="#">delete</a></td>
                 </tr>
                 <tr>
-                    <td>わー</td>
-                    <td><a href="#">#？？？？</a></td>
+                    <td>アップデートversion3.00</td>
+                    <td><a href="#">#通知</a></td>
                     <td><a style="color: red" href="#">delete</a></td>
                 </tr>
                 <tr>
-                    <td>地震速報</td>
-                    <td><a href="#">#ニュース</a></td>
+                    <td>アップデートversion2.62</td>
+                    <td><a href="#">#通知</a></td>
                     <td><a style="color: red" href="#">delete</a></td>
                 </tr>
                 <tr>
-                    <td>わー</td>
-                    <td><a href="#">#？？？？</a></td>
+                    <td>アップデートversion2.1</td>
+                    <td><a href="#">#通知</a></td>
+                    <td><a style="color: red" href="#">delete</a></td>
+                </tr>
+                <tr>
+                    <td>アップデートversion2.0</td>
+                    <td><a href="#">#通知</a></td>
+                    <td><a style="color: red" href="#">delete</a></td>
+                </tr>
+                <tr>
+                    <td>アップデートversion1.2</td>
+                    <td><a href="#">#通知</a></td>
+                    <td><a style="color: red" href="#">delete</a></td>
+                </tr>
+                <tr>
+                    <td>アップデートversion1.1</td>
+                    <td><a href="#">#通知</a></td>
+                    <td><a style="color: red" href="#">delete</a></td>
+                </tr>
+                <tr>
+                    <td>アップデートversion1</td>
+                    <td><a href="#">#通知</a></td>
                     <td><a style="color: red" href="#">delete</a></td>
                 </tr>
             </tbody>
