@@ -82,6 +82,6 @@ try {
     <div class="profile-picture"></div>
     <a href="profile_edit.php" class="profile-edit">プロフィール編集</a>
     <div class="profile-name"><?php echo $accountName; ?></div>
-    <div class="profile-details"><?php echo $selfIntroduction; ?></div>
+    <div class="profile-details">【自己紹介】<?php echo $selfIntroduction; ?></div>
 </body>
 </html>
