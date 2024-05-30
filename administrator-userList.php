@@ -51,6 +51,36 @@ try {
 
 
 
+<?php require 'db/db-connect.php';?>
+<?php
+// 接続をチェック
+if ($conn->connect_error) {
+    die("接続に失敗しました: " . $conn->connect_error);
+}
+
+// POSTリクエストから送信されたデータを取得
+$id = $_POST['account_id']; // 更新対象のレコードのID
+$newValue = $_POST['new_value']; // 新しい値
+
+// データを更新するSQLクエリを作成
+$sql = "UPDATE account SET account_id = '$newValue' WHERE id = $id";
+
+// クエリを実行して結果を確認
+if ($conn->query($sql) === TRUE) {
+    echo "レコードが正常に更新されました";
+} else {
+    echo "エラー: " . $sql . "<br>" . $conn->error;
+}
+
+// データベース接続を閉じる
+$conn->close();
+?>
+
+
+
+
+
+
 
 <!DOCTYPE html>
 <html lang="ja">

@@ -179,5 +179,26 @@ try {
         </div>
         <button type="submit">確定</button>
     </form>
+</div>
+
+<script>
+    const imageUpload = document.getElementById('image-upload');
+    const profileImage = document.getElementById('profile-image');
+
+    imageUpload.addEventListener('change', function() {
+        const file = this.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                profileImage.src = e.target.result;
+            }
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
+<?php
+    
+?> -->
+
 </body>
 </html>
