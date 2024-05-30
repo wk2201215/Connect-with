@@ -8,7 +8,7 @@ foreach($sql as $row){
     $item1=$sql_a->fetch();
     // var_dump($item1);
     $filePath1 = 'images/'.$item1['photograph_path'];
-    echo '<img src="Image display.php?hogeA='.$filePath1.'" alt="アカウント写真" />';
+    echo '<img src="./Image-display.php?hogeA='.$filePath1.'" alt="アカウント写真" />';
     echo '<br>';
     echo $row['account_id'];
     echo '<br>';
@@ -21,7 +21,7 @@ foreach($sql as $row){
         $sql_p->execute([$row['photograph_id']]);
         $item2=$sql_p->fetch();
         $filePath2 = 'images/'.$item2['photograph_path'];
-        echo '<img src="Image display.php?hogeA='.$filePath2.'" alt="投稿写真" />';
+        echo '<img src="./Image-display.php?hogeA='.$filePath2.'" alt="投稿写真" />';
         echo '<br>';
     }
 }
