@@ -1,199 +1,183 @@
+<?php
+session_start();
+
+require 'db/db-connect.php';
+
+try {
+    $pdo = new PDO($connect, USER, PASS);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // セッション変数がセットされていることを確認します
+    if (isset($_SESSION['account']['account_id'])) {
+        $userId = $_SESSION['account']['account_id'];
+    } else {
+        echo 'セッションが開始されていないか、アカウントIDが見つかりません。';
+        exit;
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $accountName = $_POST['account_name'];
+        $mailAddress = $_POST['mail_address'];
+        $selfIntroduction = $_POST['self_introduction'];
+
+        $pdo->beginTransaction();
+
+        try {
+            // プロフィール画像のアップロード処理
+            if (isset($_FILES['profile_picture']) && $_FILES['profile_picture']['error'] == 0) {
+                $uploadDir = '/home/users/0/mods.jp-aso2201215/web/Connect_with/program/images/';
+                if (!is_dir($uploadDir)) {
+                    mkdir($uploadDir, 0777, true);  // ディレクトリが存在しない場合は作成
+                }
+                $uploadFile = $uploadDir . basename($_FILES['profile_picture']['name']);
+
+                if (move_uploaded_file($_FILES['profile_picture']['tmp_name'], $uploadFile)) {
+                    // photographテーブルに写真情報を挿入
+                    $sql = 'INSERT INTO photograph (photograph_path) VALUES (?)';
+                    $stmt = $pdo->prepare($sql);
+                    $stmt->execute([basename($_FILES['profile_picture']['name'])]);
+
+                    // 挿入した写真のIDを取得
+                    $photographId = $pdo->lastInsertId();
+
+                    // accountテーブルを更新
+                    $sql = 'UPDATE account SET photograph_id = ? WHERE account_id = ?';
+                    $stmt = $pdo->prepare($sql);
+                    $stmt->execute([$photographId, $userId]);
+                } else {
+                    throw new Exception('ファイルのアップロードに失敗しました。');
+                }
+            }
+
+            // accountテーブルを更新
+            $sql = 'UPDATE account SET account_name = ?, mail_address = ?, self_introduction = ? WHERE account_id = ?';
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([$accountName, $mailAddress, $selfIntroduction, $userId]);
+
+            $pdo->commit();
+        } catch (Exception $e) {
+            $pdo->rollBack();
+            throw $e;
+        }
+
+        // プロフィールが更新された後、mypage.phpにリダイレクト
+        header("Location: mypage.php");
+        exit;
+    } else {
+        $sql = 'SELECT mail_address, photograph_id, account_name, self_introduction FROM account WHERE account_id = ?';
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$userId]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($user) {
+            $mailAddress = htmlspecialchars($user['mail_address']);
+            $photographId = htmlspecialchars($user['photograph_id']);
+            $accountName = htmlspecialchars($user['account_name']);
+            $selfIntroduction = htmlspecialchars($user['self_introduction']);
+        } else {
+            echo 'ユーザー情報が見つかりません。';
+            exit;
+        }
+    }
+} catch (PDOException $e) {
+    ob_start(); // 出力バッファリングを開始
+    echo "エラー: " . $e->getMessage();
+    ob_end_flush(); // 出力バッファリングを終了してバッファ内容を出力
+    exit; // スクリプトの実行を停止
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>プロフィール編集画面</title>
+    <title>プロフィール編集</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f8e9f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            padding: 10px;
-        }
-        .container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
             text-align: center;
+            padding: 20px;
         }
-        .profile-pic {
-            position: relative;
+        .profile-picture {
             width: 100px;
             height: 100px;
+            background-color: #ccc;
             border-radius: 50%;
-            background-color: #d3d3d3;
-            margin: 0 auto 20px;
-            overflow: hidden;
+            margin: 0 auto;
+            background-image: url('images/<?php echo $photographId; ?>');  /* ここに写真のパスを入れる */
+            background-size: cover;
+            position: relative;
         }
-        .profile-pic img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .profile-pic input {
+        .profile-picture input {
             display: none;
         }
-        .profile-pic label {
+        .profile-picture label {
             position: absolute;
-            bottom: 5px;
-            right: 5px;
-            background-color: #dff3f4;
+            bottom: 0;
+            right: 0;
+            background: #5cb85c;
             border-radius: 50%;
             padding: 5px;
             cursor: pointer;
         }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .form-group input, .form-group textarea {
-            width: calc(100% - 20px);
-            padding: 8px;
+        .profile-edit-form {
+            max-width: 400px;
             margin: 0 auto;
+            text-align: left;
+        }
+        .profile-edit-form div {
+            margin-bottom: 10px;
+        }
+        .profile-edit-form label {
             display: block;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            margin-bottom: 5px;
         }
-        .form-group textarea {
-            height: 80px;
-            resize: none;
+        .profile-edit-form input[type="text"],
+        .profile-edit-form textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
         }
-        .submit-btn {
-            background-color: #ff6fb4;
+        .profile-edit-form button {
+            background-color: #ff69b4;
             color: white;
-            padding: 10px 20px;
             border: none;
-            border-radius: 15px;
+            padding: 10px 20px;
             cursor: pointer;
-            float: right;
-            margin-top: 20px;
         }
     </style>
+    <script>
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function(){
+                const output = document.getElementById('profile-picture-preview');
+                output.style.backgroundImage = `url(${reader.result})`;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
 </head>
 <body>
-<div class="container">
-    <form action="mypage.php" method="post">
-    <div class="profile-pic">
-        <img id="profile-image" src="" alt="プロフィール画像">
-        <input type="file" id="image-upload" accept="image/*">
-        <label for="image-upload">＋</label>
-    </div><br>
-    <div class="form-group">
-        <input type="text" name="account_name" id="name" placeholder="名前" required>
-    </div>
-    <div class="form-group">
-        <input type="email" name="mail_address" id="email" placeholder="メールアドレス" required>
-    </div>
-    <div class="form-group">
-        <textarea name="self_introduction" id="bio" placeholder="自己紹介文" require></textarea>
-    </div><br>
-    <button type="submit" class="submit-btn">確定</button>
-    </form>
-</div>
-
-<script>
-    const imageUpload = document.getElementById('image-upload');
-    const profileImage = document.getElementById('profile-image');
-
-    imageUpload.addEventListener('change', function() {
-        const file = this.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                profileImage.src = e.target.result;
-            }
-            reader.readAsDataURL(file);
-        }
-    });
-</script>
-
-<!-- ↓↓ PHP ↓↓
-<?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $name = htmlspecialchars($_POST['account_name']);
-        $email = htmlspecialchars($_POST['email_address']);
-        $bio = htmlspecialchars($_POST['bio']);
-        echo "<div class='container'>";
-        echo "<h2>入力された情報:</h2>";
-        echo "<p><strong>名前:</strong> $name</p>";
-        echo "<p><strong>メールアドレス:</strong> $email</p>";
-        echo "<p><strong>自己紹介文:</strong> $bio</p>";
-        echo "</div>";
-    } else {
-?>
-
-<?php
-    <?php require 'db/db-connect.php';?>
-
-    // ユーザーIDは仮に1としています。実際のアプリケーションでは適切な方法で取得する必要があります。
-    $account_id = 1;
- 
-    $sql = "UPDATE account SET account_name=?, mail_address=?, self_introduction=? WHERE account_id=?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sssi", $account_name, $mail_address, $self_introduction, $account_id);
- 
-    if ($stmt->execute()) {
-        echo "<div class='container'>";
-        echo "<h2>プロフィールが更新されました:</h2>";
-        echo "<p><strong>名前:</strong> $account_name</p>";
-        echo "<p><strong>メールアドレス:</strong> $mail_address</p>";
-        echo "<p><strong>自己紹介文:</strong> $self_introduction</p>";
-        echo "</div>";
-    } else {
-        echo "エラー: " . $stmt->error;
-    }
- 
-    $stmt->close();
-    $conn->close();
-}
-?>
-
-?>
-
-<div class="container">
-    <form action="" method="post" enctype="multipart/form-data">
-        <div class="profile-pic">
-            <img id="profile-image" src="" alt="プロフィール画像">
-            <input type="file" id="image-upload" accept="image/*">
-            <label for="image-upload">＋</label>
-        </div><br>
-        <div class="form-group">
-            <input type="text" name="name" id="name" placeholder="名前" required>
+    <h1>プロフィール編集</h1>
+    <form action="profile_edit.php" method="post" class="profile-edit-form" enctype="multipart/form-data">
+        <div class="profile-picture" id="profile-picture-preview">
+            <input type="file" id="profile_picture" name="profile_picture" onchange="previewImage(event)">
+            <label for="profile_picture">+</label>
         </div>
-        <div class="form-group">
-            <input type="email" name="email" id="email" placeholder="メールアドレス" required>
+        <div>
+            <label for="account_name">名前</label>
+            <input type="text" id="account_name" name="account_name" value="<?php echo $accountName; ?>">
         </div>
-        <div class="form-group">
-            <textarea name="bio" id="bio" placeholder="自己紹介文" required></textarea>
-        </div><br>
-        <button type="submit" class="submit-btn">確定</button>
+        <div>
+            <label for="mail_address">メールアドレス</label>
+            <input type="text" id="mail_address" name="mail_address" value="<?php echo $mailAddress; ?>">
+        </div>
+        <div>
+            <label for="self_introduction">自己紹介文</label>
+            <textarea id="self_introduction" name="self_introduction"><?php echo $selfIntroduction; ?></textarea>
+        </div>
+        <button type="submit">確定</button>
     </form>
-</div>
-
-<script>
-    const imageUpload = document.getElementById('image-upload');
-    const profileImage = document.getElementById('profile-image');
-
-    imageUpload.addEventListener('change', function() {
-        const file = this.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                profileImage.src = e.target.result;
-            }
-            reader.readAsDataURL(file);
-        }
-    });
-</script>
-<?php
-    }
-?> -->
-
 </body>
 </html>
