@@ -23,12 +23,14 @@ foreach($sql as $row){
     echo '<br>';
     echo $row['post_content'];
     echo '<br>';
-    $sql_p=$pdo->prepare('SELECT * FROM photograph where photograph_id = ?');
-    $sql_p->execute([$row['photograph_id']]);
-    $item2=$sql_p->fetch();
-    $filePath2 = 'images/'.$item2['photograph_path'];
-    echo '<img src="Image display.php?hogeA='.$filePath2.'" alt="投稿写真" />';
-    echo '<br>';
+    if(isset($row['photograph_id'])){
+        $sql_p=$pdo->prepare('SELECT * FROM photograph where photograph_id = ?');
+        $sql_p->execute([$row['photograph_id']]);
+        $item2=$sql_p->fetch();
+        $filePath2 = 'images/'.$item2['photograph_path'];
+        echo '<img src="Image display.php?hogeA='.$filePath2.'" alt="投稿写真" />';
+        echo '<br>';
+    }
 }
 ?>
 
