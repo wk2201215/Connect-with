@@ -1,4 +1,5 @@
 <?php
+ob_start(); // 出力バッファリングを開始
 session_start();
 
 require 'db/db-connect.php';
@@ -14,41 +15,28 @@ try {
     $sql_check->execute([$_POST['mail_address']]);
     $existing_account = $sql_check->fetch(PDO::FETCH_ASSOC);
 
-    if (!$existing_account || (isset($_SESSION['account']) && $_SESSION['account']['mail_address'] === $_POST['mail_address'])) {
-        if (isset($_SESSION['account'])) {
-            $id = $_SESSION['account']['account_id'];
+    if (!$existing_account) {
+        // パスワードをハッシュ化
+        $hashed_password = password_hash($_POST['account_password'], PASSWORD_DEFAULT);
 
-            // パスワードをハッシュ化
-            $hashed_password = password_hash($_POST['account_password'], PASSWORD_DEFAULT);
+        $sql = $pdo->prepare('INSERT INTO account (account_name, mail_address, account_password) VALUES (?, ?, ?)');
+        $sql->execute([
+            $_POST['account_name'], $_POST['mail_address'], $hashed_password
+        ]);
 
-            $sql = $pdo->prepare('UPDATE account SET account_name=?, mail_address=?, account_password=? WHERE account_id=?');
-            $sql->execute([
-                $_POST['account_name'], $_POST['mail_address'], $hashed_password, $id
-            ]);
-            $_SESSION['account'] = [
-                'account_id' => $id,
-                'account_name' => $_POST['account_name'],
-                'mail_address' => $_POST['mail_address'],
-                'account_password' => $hashed_password
-            ];
-            echo 'お客様の情報を更新しました。';
-        } else {
-            // パスワードをハッシュ化
-            $hashed_password = password_hash($_POST['account_password'], PASSWORD_DEFAULT);
-
-            $sql = $pdo->prepare('INSERT INTO account (account_name, mail_address, account_password) VALUES (?, ?, ?)');
-            $sql->execute([
-                $_POST['account_name'], $_POST['mail_address'], $hashed_password
-            ]);
-
-            echo 'お客様情報を登録しました。';
-        }
+        // 登録完了後、top.phpにリダイレクト
+        header('Location: login-input.php');
+        exit();
     } else {
-        echo 'そのメールアドレスは既に登録されています。別のメールアドレスを使用してください。';
+        // 既にメールアドレスが登録されている場合、エラーメッセージを表示し、リダイレクト
+        header('Location: error.php?message=そのメールアドレスは既に登録されています。別のメールアドレスを使用してください。');
+        exit();
     }
 } catch (PDOException $e) {
     echo "エラー: " . $e->getMessage();
 }
 
 require 'default/footer.php';
+
+ob_end_flush(); // 出力バッファの内容を出力し、バッファを終了
 ?>
