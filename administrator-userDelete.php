@@ -14,6 +14,7 @@ body {
 header {
     display: flex;
     justify-content: center;
+    margin: 0% 10% 0% 10%;
     align-items: center;
     padding: 15px;
     /* background-color: #f5f5f5;
@@ -37,9 +38,9 @@ header {
 }
 
 .search {
-    display: flex;
+    /* display: flex; */
     align-items: center;
-    margin: 0% 10% 0% 10%;
+    /* margin: 0% 10% 0% 10%; */
     text-align: center;
     position: relative;
 }
@@ -58,6 +59,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 30px;
     margin-bottom: 30px;
 }
 
@@ -90,9 +92,9 @@ table {
 }
 
 th, td {
-    padding: 15px;
+    padding: 10px;
     border: 1px solid #ddd;
-    text-align: left;
+    text-align: center;
 }
 
 th {
@@ -103,6 +105,10 @@ a {
     color: #007bff;
     text-decoration: none;
     font-size: 18px;
+}
+
+.post {
+    text-align: left;
 }
 
 a:hover {
@@ -145,14 +151,15 @@ a:hover {
             <!-- <div class="icon">■</div>
             <div class="icon">■</div> -->
         </div>
-        <div class="search">
+</header>
+    <main>
+    <div class="search">
         <form action="search.php" method="POST">
             <input class="keyword" type="text" name="keyword" placeholder="  キーワード検索  ">
             <button class="user_button" type="submit" name="user_search" value="ユーザー検索">🔍</button>
             <button class="user_button" type="submit" name="hashtag" value="ハッシュタグ検索">＃</button>
+        </form>
         </div>
-    </header>
-    <main>
         <div class="profile">
             <div class="avatar">人</div>
             <div class="info">
@@ -184,32 +191,32 @@ a:hover {
             </thead>
             <tbody>
                 <tr>
-                    <td>地震速報</td>
+                    <td class="post">地震速報</td>
                     <td><a href="#">#ニュース</a></td>
                     <td><a style="color: red" href="#">delete</a></td>
                 </tr>
                 <tr>
-                    <td>わー</td>
+                    <td class="post">わー</td>
                     <td><a href="#">#？？？？</a></td>
                     <td><a style="color: red" href="#">delete</a></td>
                 </tr>
                 <tr>
-                    <td>地震速報</td>
+                    <td class="post">地震速報</td>
                     <td><a href="#">#ニュース</a></td>
                     <td><a style="color: red" href="#">delete</a></td>
                 </tr>
                 <tr>
-                    <td>わー</td>
+                    <td class="post">わー</td>
                     <td><a href="#">#？？？？</a></td>
                     <td><a style="color: red" href="#">delete</a></td>
                 </tr>
                 <tr>
-                    <td>地震速報</td>
+                    <td class="post">地震速報</td>
                     <td><a href="#">#ニュース</a></td>
                     <td><a style="color: red" href="#">delete</a></td>
                 </tr>
                 <tr>
-                    <td>わー</td>
+                    <td class="post">わー</td>
                     <td><a href="#">#？？？？</a></td>
                     <td><a style="color: red" href="#">delete</a></td>
                 </tr>
