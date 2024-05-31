@@ -7,6 +7,7 @@ try {
     $pdo = new PDO($connect, USER, PASS);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+    // セッション変数がセットされていることを確認します
     if (isset($_SESSION['account']['account_id'])) {
         $userId = $_SESSION['account']['account_id'];
     } else {
@@ -28,17 +29,30 @@ try {
         echo 'ユーザー情報が見つかりません。';
         exit;
     }
+
+    // photograph_pathを取得
+    $sql = 'SELECT photograph_path FROM photograph WHERE photograph_id = ?';
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$photographId]);
+    $photograph = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($photograph) {
+        $photographPath = htmlspecialchars($photograph['photograph_path']);
+    } else {
+        $photographPath = 'default.png';  // デフォルト画像のパス
+    }
 } catch (PDOException $e) {
     echo "エラー: " . $e->getMessage();
     exit;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>プロフィールレイアウト</title>
+    <title>マイページ</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -55,7 +69,7 @@ try {
             background-color: #ccc;
             border-radius: 50%;
             margin: 0 auto;
-            background-image: url('path/to/images/<?php echo $photographId; ?>');
+            background-image: url('images/<?php echo $photographPath; ?>');  /* ここに写真のパスを入れる */
             background-size: cover;
         }
         .profile-edit {
@@ -82,6 +96,6 @@ try {
     <div class="profile-picture"></div>
     <a href="profile_edit.php" class="profile-edit">プロフィール編集</a>
     <div class="profile-name"><?php echo $accountName; ?></div>
-    <div class="profile-details">【自己紹介】<?php echo $selfIntroduction; ?></div>
+    <div class="profile-details"><?php echo $selfIntroduction; ?></div>
 </body>
 </html>
