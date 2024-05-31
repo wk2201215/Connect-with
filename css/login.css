@@ -24,7 +24,10 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: linear-gradient(to bottom, #ff5252, #b81c1c);
+    /* background: linear-gradient(to bottom, #ff5252, #b81c1c); */
+    /* background: linear-gradient(to bottom, #52d7ff, #1c62b8); */
+    background: linear-gradient(to bottom, #ffcccc, #ff86b2);
+    /* background: linear-gradient(to bottom, #ffc489, #ff9742); */
     color: #fff;
 }
 
@@ -71,7 +74,8 @@ body {
 }
 
 .btn {
-    background-color: #4CAF50;
+    /* background-color: #4CAF50; */
+    background-color: #6adf6e;
     color: white;
 }
 
