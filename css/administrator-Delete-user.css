@@ -2,7 +2,7 @@
     display: inline-block;
     /* width:20px;
     height:20px; */
-    line-height: 20px;
+    line-height: 18px;
     border: 1px solid #333;
     background-color: #ffffff;
     border-radius:3px;
@@ -13,6 +13,7 @@
 
 .userDelete_button {
     margin-left: 10%;
+    line-height: 18px;
 }
 
 .keyword {

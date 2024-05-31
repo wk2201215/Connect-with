@@ -37,9 +37,7 @@ header {
 }
 
 .search {
-    display: flex;
     align-items: center;
-    margin: 0% 10% 0% 10%;
     text-align: center;
     position: relative;
 }
@@ -58,6 +56,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 30px;
     margin-bottom: 30px;
 }
 
@@ -90,9 +89,9 @@ table {
 }
 
 th, td {
-    padding: 15px;
+    padding: 8px;
     border: 1px solid #ddd;
-    text-align: left;
+    text-align: center;
 }
 
 th {
@@ -103,6 +102,11 @@ a {
     color: #007bff;
     text-decoration: none;
     font-size: 18px;
+}
+
+.post {
+    text-align: left;
+    font-size: 15px;
 }
 
 a:hover {
@@ -145,14 +149,15 @@ a:hover {
             <!-- <div class="icon">■</div>
             <div class="icon">■</div> -->
         </div>
+    </header>
+    <main>
         <div class="search">
         <form action="search.php" method="POST">
             <input class="keyword" type="text" name="keyword" placeholder="  キーワード検索  ">
             <button class="user_button" type="submit" name="user_search" value="ユーザー検索">🔍</button>
             <button class="user_button" type="submit" name="hashtag" value="ハッシュタグ検索">＃</button>
+        </form>
         </div>
-    </header>
-    <main>
         <div class="profile">
             <div class="avatar">管</div>
             <div class="info">
@@ -184,52 +189,52 @@ a:hover {
             </thead>
             <tbody>
                 <tr>
-                    <td>アップデートversion3.22.4</td>
+                    <td class="post">アップデートversion3.22.4</td>
                     <td><a href="#">#通知</a></td>
                     <td><a style="color: red" href="#">delete</a></td>
                 </tr>
                 <tr>
-                    <td>アップデートversion3.22.0</td>
+                    <td class="post">アップデートversion3.22.0</td>
                     <td><a href="#">#通知</a></td>
                     <td><a style="color: red" href="#">delete</a></td>
                 </tr>
                 <tr>
-                    <td>アップデートversion3.11.1</td>
+                    <td class="post">アップデートversion3.11.1</td>
                     <td><a href="#">#通知</a></td>
                     <td><a style="color: red" href="#">delete</a></td>
                 </tr>
                 <tr>
-                    <td>アップデートversion3.00</td>
+                    <td class="post">アップデートversion3.00</td>
                     <td><a href="#">#通知</a></td>
                     <td><a style="color: red" href="#">delete</a></td>
                 </tr>
                 <tr>
-                    <td>アップデートversion2.62</td>
+                    <td class="post">アップデートversion2.62</td>
                     <td><a href="#">#通知</a></td>
                     <td><a style="color: red" href="#">delete</a></td>
                 </tr>
                 <tr>
-                    <td>アップデートversion2.1</td>
+                    <td class="post">アップデートversion2.1</td>
                     <td><a href="#">#通知</a></td>
                     <td><a style="color: red" href="#">delete</a></td>
                 </tr>
                 <tr>
-                    <td>アップデートversion2.0</td>
+                    <td class="post">アップデートversion2.0</td>
                     <td><a href="#">#通知</a></td>
                     <td><a style="color: red" href="#">delete</a></td>
                 </tr>
                 <tr>
-                    <td>アップデートversion1.2</td>
+                    <td class="post">アップデートversion1.2</td>
                     <td><a href="#">#通知</a></td>
                     <td><a style="color: red" href="#">delete</a></td>
                 </tr>
                 <tr>
-                    <td>アップデートversion1.1</td>
+                    <td class="post">アップデートversion1.1</td>
                     <td><a href="#">#通知</a></td>
                     <td><a style="color: red" href="#">delete</a></td>
                 </tr>
                 <tr>
-                    <td>アップデートversion1</td>
+                    <td class="post">アップデートversion1</td>
                     <td><a href="#">#通知</a></td>
                     <td><a style="color: red" href="#">delete</a></td>
                 </tr>
