@@ -1,6 +1,6 @@
 <?php require 'db/db-connect.php'; ?>
 <?php session_start(); ?>
-<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="css/view.css">
 <?php require 'default/header-top.php'; ?>
 <?php require 'default/header-menu.php'; ?>
 <?php
