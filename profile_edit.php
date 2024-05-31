@@ -78,6 +78,18 @@ try {
             echo 'ユーザー情報が見つかりません。';
             exit;
         }
+
+        // photograph_pathを取得
+        $sql = 'SELECT photograph_path FROM photograph WHERE photograph_id = ?';
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$photographId]);
+        $photograph = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($photograph) {
+            $photographPath = htmlspecialchars($photograph['photograph_path']);
+        } else {
+            $photographPath = 'default.png';  // デフォルト画像のパス
+        }
     }
 } catch (PDOException $e) {
     ob_start(); // 出力バッファリングを開始
@@ -105,7 +117,7 @@ try {
             background-color: #ccc;
             border-radius: 50%;
             margin: 0 auto;
-            background-image: url('images/<?php echo $photographId; ?>');  /* ここに写真のパスを入れる */
+            background-image: url('images/<?php echo $photographPath; ?>');  /* ここに写真のパスを入れる */
             background-size: cover;
             position: relative;
         }
@@ -179,26 +191,5 @@ try {
         </div>
         <button type="submit">確定</button>
     </form>
-</div>
-
-<script>
-    const imageUpload = document.getElementById('image-upload');
-    const profileImage = document.getElementById('profile-image');
-
-    imageUpload.addEventListener('change', function() {
-        const file = this.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                profileImage.src = e.target.result;
-            }
-            reader.readAsDataURL(file);
-        }
-    });
-</script>
-<?php
-    
-?> -->
-
 </body>
 </html>
