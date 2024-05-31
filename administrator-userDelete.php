@@ -148,8 +148,6 @@ a:hover {
 
 <header>
         <div class="header-icons">
-            <!-- <div class="icon">■</div>
-            <div class="icon">■</div> -->
         </div>
 </header>
     <main>
