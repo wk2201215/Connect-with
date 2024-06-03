@@ -1,12 +1,12 @@
 <?php
 session_start();
-
+ 
 require 'db/db-connect.php';
-
+ 
 try {
     $pdo = new PDO($connect, USER, PASS);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+ 
     // セッション変数がセットされていることを確認します
     if (isset($_SESSION['account']['account_id'])) {
         $userId = $_SESSION['account']['account_id'];
@@ -14,14 +14,14 @@ try {
         echo 'セッションが開始されていないか、アカウントIDが見つかりません。';
         exit;
     }
-
+ 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $accountName = $_POST['account_name'];
         $mailAddress = $_POST['mail_address'];
         $selfIntroduction = $_POST['self_introduction'];
-
+ 
         $pdo->beginTransaction();
-
+ 
         try {
             // プロフィール画像のアップロード処理
             if (isset($_FILES['profile_picture']) && $_FILES['profile_picture']['error'] == 0) {
@@ -30,16 +30,16 @@ try {
                     mkdir($uploadDir, 0777, true);  // ディレクトリが存在しない場合は作成
                 }
                 $uploadFile = $uploadDir . basename($_FILES['profile_picture']['name']);
-
+ 
                 if (move_uploaded_file($_FILES['profile_picture']['tmp_name'], $uploadFile)) {
                     // photographテーブルに写真情報を挿入
                     $sql = 'INSERT INTO photograph (photograph_path) VALUES (?)';
                     $stmt = $pdo->prepare($sql);
                     $stmt->execute([basename($_FILES['profile_picture']['name'])]);
-
+ 
                     // 挿入した写真のIDを取得
                     $photographId = $pdo->lastInsertId();
-
+ 
                     // accountテーブルを更新
                     $sql = 'UPDATE account SET photograph_id = ? WHERE account_id = ?';
                     $stmt = $pdo->prepare($sql);
@@ -48,18 +48,18 @@ try {
                     throw new Exception('ファイルのアップロードに失敗しました。');
                 }
             }
-
+ 
             // accountテーブルを更新
             $sql = 'UPDATE account SET account_name = ?, mail_address = ?, self_introduction = ? WHERE account_id = ?';
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$accountName, $mailAddress, $selfIntroduction, $userId]);
-
+ 
             $pdo->commit();
         } catch (Exception $e) {
             $pdo->rollBack();
             throw $e;
         }
-
+ 
         // プロフィールが更新された後、mypage.phpにリダイレクト
         header("Location: mypage.php");
         exit;
@@ -68,7 +68,7 @@ try {
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$userId]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
+ 
         if ($user) {
             $mailAddress = htmlspecialchars($user['mail_address']);
             $photographId = htmlspecialchars($user['photograph_id']);
@@ -78,13 +78,13 @@ try {
             echo 'ユーザー情報が見つかりません。';
             exit;
         }
-
+ 
         // photograph_pathを取得
         $sql = 'SELECT photograph_path FROM photograph WHERE photograph_id = ?';
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$photographId]);
         $photograph = $stmt->fetch(PDO::FETCH_ASSOC);
-
+ 
         if ($photograph) {
             $photographPath = htmlspecialchars($photograph['photograph_path']);
         } else {
@@ -98,7 +98,7 @@ try {
     exit; // スクリプトの実行を停止
 }
 ?>
-
+ 
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -193,3 +193,4 @@ try {
     </form>
 </body>
 </html>
+ 
