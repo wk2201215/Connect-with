@@ -12,7 +12,7 @@ foreach($sql as $row){
     echo '<br>';
     echo $item1['account_name'];
     echo '<br>';
-    echo '<div class="hoge" id-data="'.$row['post_id'].'">';
+    echo '<div class="post" data-id="'.$row['post_id'].'">';
     echo $row['post_time'];
     echo '<br>';
     echo $row['post_content'];
@@ -26,5 +26,11 @@ foreach($sql as $row){
         echo '<br>';
     }
     echo '</div>';
+    echo $row['good_count'];
+    
+    echo '<button class="reply" data-id="'.$row['post_id'].'>返信</button>';
+    echo '<br>';
+    
+    echo '<HR>';
 }
 ?>

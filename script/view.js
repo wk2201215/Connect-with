@@ -1,10 +1,14 @@
-$(".hoge").on("click", function() {
+$("div.post").on("click", function() {
     // var id = document.getElementById('');
     // alert();
     // var id = $('div.hoge').attr('id');
     var post_id = $(this).data('id');
-    var p = 0;
     // alert(id);
-    location.href='./reply.php?post_id='+post_id+'&p='+p;
+    location.href='./reply.php?post_id='+post_id;
 	// location.href='http://yahoo.co.jp';
 });
+
+// $("button.reply").on("click", function() {
+//     var post_id = $(this).data('id');
+//     location.href='./post.php?post_id='+post_id;
+// });

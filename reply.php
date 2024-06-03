@@ -8,16 +8,14 @@ $pdo=new PDO($connect,USER,PASS);
 echo '<div id="container">';
 
 $post_id=$_GET['post_id'];
-$p=$_GET['p'];
-if($p=0):
-    $sql=$pdo->prepare('SELECT * FROM post WHERE post_id = ?');
-else:
-    $sql=$pdo->prepare('SELECT * FROM reply WHERE reply_id = ?');
-endif;
+$sql=$pdo->prepare('SELECT * FROM post WHERE post_id = ?');
 $sql->execute([$post_id]);
 require 'default/post.php';
+
+echo '<HR>';
 echo '返信';
-$sql=$pdo->prepare('SELECT * FROM reply WHERE post_id = ?');
+
+$sql=$pdo->prepare('SELECT * FROM post WHERE reply_id = ?');
 $sql->execute([$post_id]);
 require 'default/post.php';
 ?>

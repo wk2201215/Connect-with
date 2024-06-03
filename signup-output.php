@@ -25,7 +25,7 @@ try {
         ]);
 
         // 登録完了後、top.phpにリダイレクト
-        header('Location: login-input.php');
+        header('Location: category.php');
         exit();
     } else {
         // 既にメールアドレスが登録されている場合、エラーメッセージを表示し、リダイレクト
