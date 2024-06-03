@@ -8,6 +8,7 @@ $pdo=new PDO($connect,USER,PASS);
 $sql=$pdo->query('select * from post');
 echo '<div id="container">';
 require 'default/post.php';
+echo '</div>';
 ?>
 
 <?php require 'default/footer-menu.php'; ?>
