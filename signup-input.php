@@ -18,7 +18,7 @@
             flex-direction: column;
             align-items: center;
             background-color: #FFFFFF;
-            padding: 40px; /* Padding size increased */
+            /* padding: 40px; Padding size increased */
             border-radius: 10px;
         }
         input[type="text"], input[type="password"] {

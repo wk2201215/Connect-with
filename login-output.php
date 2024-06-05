@@ -30,6 +30,12 @@ try {
                     'authority' => $row['authority'],
                     'delete_flag' => $row['delete_flag']
                 ];
+                $sql2 = $pdo->prepare('SELECT * FROM photograph WHERE photograph_id = ?');
+                $sql2->execute([$_SESSION['photograph_id']]);
+                $path=$sql2->fetch();
+                $_SESSION['account'] = [
+                    'photograph_path' => $path['photograph_path']
+                ];
             }
         }
     }
@@ -45,7 +51,7 @@ try {
         exit();
     } else {
         // Redirect to the login page with an error message
-        header('Location:login-input.php?hogeA=ログイン名またはパスワードが違います');
+        header('Location:login-input.php?hogeA=※ログイン名またはパスワードが違います');
         exit();
     }
 } catch (PDOException $e) {
