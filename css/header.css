@@ -14,6 +14,8 @@ header{
     top:0;
     transition: 0.5s;/* アニメーション表示時間 */
     background-color:rgb(208, 250, 0);
+    /* 画面の最前列にする */
+    z-index: 1000;
 }
 
 footer{
