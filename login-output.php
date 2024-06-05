@@ -30,6 +30,12 @@ try {
                     'authority' => $row['authority'],
                     'delete_flag' => $row['delete_flag']
                 ];
+                $sql2 = $pdo->prepare('SELECT * FROM photograph WHERE photograph_id = ?');
+                $sql2->execute([$_SESSION['photograph_id']]);
+                $path=$sql2->fetch();
+                $_SESSION['account'] = [
+                    'photograph_path' => $path['photograph_path']
+                ];
             }
         }
     }

@@ -7,8 +7,8 @@
     <input type="hidden" name="post_id" value="<?php $_GET['post_id']?>" />
     <h1>post</h1>
         <input type="submit" value="投稿"/>
-        <img src="Image-display.php?hogeA='+$filePath2+'" alt="アイコン写真" />
-        <label>メールアドレス</label>  
+        <img src="Image-display.php?hogeA='<?php $_SESSION['']?>'" alt="アイコン写真" />
+        <label>メールアドレス</label>
         <textarea name="" cols="50" rows="5"></textarea>
         <input type="file" name="file" />
         
