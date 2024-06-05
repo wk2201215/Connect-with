@@ -32,18 +32,32 @@ try {
                 $uploadFile = $uploadDir . basename($_FILES['profile_picture']['name']);
 
                 if (move_uploaded_file($_FILES['profile_picture']['tmp_name'], $uploadFile)) {
-                    // photographテーブルに写真情報を挿入
-                    $sql = 'INSERT INTO photograph (photograph_path) VALUES (?)';
+                    // accountテーブルから現在のphotograph_idを取得
+                    $sql = 'SELECT photograph_id FROM account WHERE account_id = ?';
                     $stmt = $pdo->prepare($sql);
-                    $stmt->execute([basename($_FILES['profile_picture']['name'])]);
+                    $stmt->execute([$userId]);
+                    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+                    $currentPhotographId = $user['photograph_id'];
 
-                    // 挿入した写真のIDを取得
-                    $photographId = $pdo->lastInsertId();
+                    if ($currentPhotographId) {
+                        // photographテーブルのレコードを更新
+                        $sql = 'UPDATE photograph SET photograph_path = ? WHERE photograph_id = ?';
+                        $stmt = $pdo->prepare($sql);
+                        $stmt->execute([basename($_FILES['profile_picture']['name']), $currentPhotographId]);
+                    } else {
+                        // photographテーブルに写真情報を挿入
+                        $sql = 'INSERT INTO photograph (photograph_path) VALUES (?)';
+                        $stmt = $pdo->prepare($sql);
+                        $stmt->execute([basename($_FILES['profile_picture']['name'])]);
 
-                    // accountテーブルを更新
-                    $sql = 'UPDATE account SET photograph_id = ? WHERE account_id = ?';
-                    $stmt = $pdo->prepare($sql);
-                    $stmt->execute([$photographId, $userId]);
+                        // 挿入した写真のIDを取得
+                        $photographId = $pdo->lastInsertId();
+
+                        // accountテーブルを更新
+                        $sql = 'UPDATE account SET photograph_id = ? WHERE account_id = ?';
+                        $stmt = $pdo->prepare($sql);
+                        $stmt->execute([$photographId, $userId]);
+                    }
                 } else {
                     throw new Exception('ファイルのアップロードに失敗しました。');
                 }

@@ -45,7 +45,7 @@ try {
         exit();
     } else {
         // Redirect to the login page with an error message
-        header('Location:login-input.php?hogeA=ログイン名またはパスワードが違います');
+        header('Location:login-input.php?hogeA=※ログイン名またはパスワードが違います');
         exit();
     }
 } catch (PDOException $e) {
