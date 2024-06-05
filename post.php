@@ -1,18 +1,19 @@
 <?php session_start(); ?>
 <?php require 'default/header-top.php'; ?>
 <?php require 'default/header-menu.php'; ?>
-echo '<div id="container">';
+<div id="container">
 
 <form action="login-output.php" method="post">
+    <input type="hidden" name="post_id" value="<?php $_GET['post_id']?>" />
     <h1>post</h1>
-        <label>メールアドレス</label>
-        <input type="text" name="mail_address" id="mail_address" required>
-            </div>
-            <button type="submit" class="btn">ログイン</button>
-            <?php if(isset($_GET['hogeA'])): ?>
-                <p class="error"><?php echo $_GET['hogeA']; ?></p>
-            <?php endif; ?>
+        <input type="submit" value="投稿"/>
+        <img src="Image-display.php?hogeA='+$filePath2+'" alt="アイコン写真" />
+        <label>メールアドレス</label>  
+        <textarea name="" cols="50" rows="5"></textarea>
+        <input type="file" name="file" />
+        
 </form>
 
+</div>
 <?php require 'default/footer-menu.php'; ?>
 <?php require 'default/footer-top.php'; ?>
