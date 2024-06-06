@@ -164,7 +164,6 @@ try {
         .profile-edit-form textarea {
             width: 100%;
             padding: 8px;
-            border-radius: 30%;
             box-sizing: border-box;
         }
         .profile-edit-form button {
