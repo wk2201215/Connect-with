@@ -78,6 +78,6 @@ try {
         </tr>
         <?php endforeach; ?>
     </table>
-    <button type="button" onclick="location.href='administrator-Delete-post'">遷移[post]</button>
+    <button type="button" onclick="location.href='administrator-Delete-post.php'">遷移[post]</button>
 </body>
 </html>
