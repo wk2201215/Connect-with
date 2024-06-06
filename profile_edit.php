@@ -162,7 +162,7 @@ try {
         }
         .profile-edit-form input[type="text"],
         .profile-edit-form textarea {
-            width: 50%;
+            width: 70%;
             padding: 8px;
             border-radius: 30px;
             box-sizing: border-box;
