@@ -168,14 +168,34 @@ try {
             border-
             box-sizing: border-box;
         }
+
+
+
+
         .profile-edit-form button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 10px;
+            border: 1px solid #ff69b4;
+            border-radius: 20px;
+            color: #ff69b4;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .profile-edit-form button :hover {
             background-color: #d6adff;
             color: white;
-            border-radius: 40px;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
         }
+
+
+
+
+
+
+
+
+
+
 
     </style>
     <script>
@@ -210,7 +230,8 @@ try {
         </div>
 
 
-        <button type="submit">確定</button>
+
+        <a href="mypage.php" class="profile-edit">確定</a>
 
     </form>
 </body>
