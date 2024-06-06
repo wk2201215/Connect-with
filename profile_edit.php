@@ -165,6 +165,7 @@ try {
             width: 100%;
             padding: 8px;
             border-radius: 30px;
+            border: none;
             box-sizing: border-box;
         }
         .profile-edit-form button {
