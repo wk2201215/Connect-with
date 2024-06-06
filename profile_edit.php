@@ -168,52 +168,14 @@ try {
             border-
             box-sizing: border-box;
         }
-        
-
-
-
-
-        .profile-edit-form button a {
-            background: #d6adff;
+        .profile-edit-form button {
+            background-color: #d6adff;
+            color: white;
             border-radius: 40px;
-            position: relative;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            margin: 0 auto;
-            max-width: 260px;
-            padding: 10px 25px;
-            color: #313131;
-            transition: 0.3s ease-in-out;
-            font-weight: 500;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
         }
-        .profile-edit-form button a:hover {
-            background: #313131;
-            color: #FFF;
-        }
-        .profile-edit-form button a:after {
-            content: '';
-            width: 5px;
-            height: 5px;
-            border-top: 3px solid #313131;
-            border-right: 3px solid #313131;
-            transform: rotate(45deg) translateY(-50%);
-            position: absolute;
-            top: 50%;
-            right: 20px;
-            border-radius: 1px;
-            transition: 0.3s ease-in-out;
-        }
-        .profile-edit-form button a:hover:after {
-            border-color: #FFF;
-        }
-
-
-
-
-
-
-
 
     </style>
     <script>
@@ -248,10 +210,7 @@ try {
         </div>
 
 
-        <div class="profile-edit-form button">
-	    <a href="./mypage.php">確定</a>
-        </div>
-
+        <button type="submit">確定</button>
 
     </form>
 </body>
