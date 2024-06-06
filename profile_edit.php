@@ -249,7 +249,7 @@ try {
 
 
         <div class="profile-edit-form button">
-	    <a href="./Connect_with/program/mypage.php">確定</a>
+	    <a href="./mypage.php">確定</a>
         </div>
 
 
