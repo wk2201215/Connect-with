@@ -231,7 +231,7 @@ try {
 
 
 
-        <a href="mypage.php" class="profile-edit-form">確定</a>
+        <a href="mypage.php" class="profile-edit-form button">確定</a>
 
     </form>
 </body>
