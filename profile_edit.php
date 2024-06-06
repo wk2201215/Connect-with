@@ -167,7 +167,7 @@ try {
             box-sizing: border-box;
         }
         .profile-edit-form button {
-            background-color: #ff69b4;
+            background-color: #ff6BA9;
             color: white;
             border: none;
             padding: 10px 20px;
