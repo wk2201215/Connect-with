@@ -122,6 +122,7 @@ try {
     <style>
         body {
             font-family: Arial, sans-serif;
+            font-weight: bold;
             text-align: center;
             padding: 20px;
         }
@@ -161,13 +162,15 @@ try {
         }
         .profile-edit-form input[type="text"],
         .profile-edit-form textarea {
-            width: 100%;
+            width: 70%;
             padding: 8px;
+            border-radius: 30px;
             box-sizing: border-box;
         }
         .profile-edit-form button {
-            background-color: #ff69b4;
+            background-color: #d6adff;
             color: white;
+            border-radius: 40px;
             border: none;
             padding: 10px 20px;
             cursor: pointer;

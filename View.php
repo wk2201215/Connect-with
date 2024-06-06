@@ -5,7 +5,7 @@
 <?php require 'default/header-menu.php'; ?>
 <?php
 $pdo=new PDO($connect,USER,PASS);
-$sql=$pdo->query('select * from post');
+$sql=$pdo->query('SELECT * FROM post WHERE delete_flag=0');
 echo '<div id="container">';
 require 'default/post.php';
 echo '</div>';

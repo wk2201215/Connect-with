@@ -31,15 +31,13 @@ try {
                     'delete_flag' => $row['delete_flag']
                 ];
                 $sql2 = $pdo->prepare('SELECT * FROM photograph WHERE photograph_id = ?');
-                $sql2->execute([$_SESSION['photograph_id']]);
+                $sql2->execute([$_SESSION['account']['photograph_id']]);
                 $path=$sql2->fetch();
-                $_SESSION['account'] = [
-                    'photograph_path' => $path['photograph_path']
-                ];
+                $_SESSION['account']['photograph_path'] = $path['photograph_path'];
             }
         }
     }
-
+    // var_dump($_SESSION);
     // Check if the account session is set
     if (isset($_SESSION['account'])) {
         // Redirect based on user authority
