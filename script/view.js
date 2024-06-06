@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 
 $(document).ready(function () {
     
@@ -17,14 +16,3 @@ $(document).ready(function () {
         location.href='./post-reply.php?post_id='+post_id;
     });
 })
-=======
-$(".hoge").on("click", function() {
-    // var id = document.getElementById('');
-    // alert();
-    // var id = $('div.hoge').attr('id');
-    var id = $(this).data('id');
-    // alert(id);
-    location.href='./reply.php?hogeA='+id;
-	// location.href='http://yahoo.co.jp';
-});
->>>>>>> Stashed changes
