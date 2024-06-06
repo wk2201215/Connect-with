@@ -3,13 +3,19 @@
 
 <link rel="stylesheet" href="css/login.css">
 
+<!-- 動画を背景に設定 -->
+<div class="video-background">
+    <video autoplay muted loop id="background-video">
+        <source src="movie/Connect With.mp4" type="video/mp4">
+        お使いのブラウザは動画タグに対応していません。
+    </video>
+</div>
+
 <div class="container">
     <div class="login-form">
         <form action="login-output.php" method="post">
             <h1>ログイン</h1>
-            <?php
-                unset($_SESSION);
-            ?>
+            <?php unset($_SESSION); ?>
             <div class="form-group">
                 <label for="mail_address">メールアドレス</label>
                 <input type="text" name="mail_address" id="mail_address" required>
