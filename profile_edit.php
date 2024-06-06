@@ -122,6 +122,7 @@ try {
     <style>
         body {
             font-family: Arial, sans-serif;
+            font-weight: bold;
             text-align: center;
             padding: 20px;
         }
@@ -166,9 +167,9 @@ try {
             box-sizing: border-box;
         }
         .profile-edit-form button {
-            background-color: #ff69b4;
+            background-color: #ff6BA9;
             color: white;
-            border: none;
+            border-radius: 40px;
             padding: 10px 20px;
             cursor: pointer;
         }
