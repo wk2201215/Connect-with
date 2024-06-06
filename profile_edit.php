@@ -169,7 +169,7 @@ try {
         .profile-edit-form button {
             background-color: #ff6BA9;
             color: white;
-            border-radius: 30%;
+            border-radius: 40px;
             padding: 10px 20px;
             cursor: pointer;
         }
