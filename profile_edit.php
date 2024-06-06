@@ -175,6 +175,37 @@ try {
             padding: 10px 20px;
             cursor: pointer;
         }
+
+
+
+        
+
+
+        .centered-border {
+            position: relative;
+            padding: 10px;
+            background: white;
+        }
+
+        .centered-border::before {
+            content: '';
+            position: absolute;
+            top: -5px;    /* ここをborder-widthの半分に */
+            right: -5px;  /* ここをborder-widthの半分に */
+            bottom: -5px; /* ここをborder-widthの半分に */
+            left: -5px;   /* ここをborder-widthの半分に */
+            border: 5px solid black; /* 任意の枠線の太さと色 */
+            pointer-events: none; /* 枠線が要素の上にあってもクリックなどの操作を妨げないようにする */
+        }
+
+
+
+
+
+
+
+
+
     </style>
     <script>
         function previewImage(event) {
