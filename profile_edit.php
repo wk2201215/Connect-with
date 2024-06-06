@@ -156,46 +156,36 @@ try {
         .profile-edit-form div {
             margin-bottom: 10px;
         }
+
         .profile-edit-form label {
-            display: block;
-            margin-bottom: 5px;
+            display: black;
+            margin-bottom: 0spx;
         }
+        
         .profile-edit-form input[type="text"],
         .profile-edit-form textarea {
             width: 100%;
+	        margin: 1px auto;
             padding: 8px;
-            border: 1px;
+	        background-color:#ffffff;
+	        box-shadow: 0 0 6px 1px #d6adff, 0 0 6px 1px #d6adff inset;
+	        border-radius: 30px;
+            border-color: #d6adff;
             box-sizing: border-box;
         }
-
-
-
-
         .profile-edit-form button {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 5px 10px;
-            border: 1px solid #ff69b4;
-            border-radius: 20px;
-            color: #ff69b4;
-            text-decoration: none;
-            font-size: 14px;
-        }
-        .profile-edit-form button :hover {
             background-color: #d6adff;
             color: white;
+            border-radius: 40px;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
         }
-
-
-
-
-
-
-
-
-
-
-
+        .button-container {
+            display: flex;
+            justify-content: center;
+        }
+        
     </style>
     <script>
         function previewImage(event) {
@@ -229,8 +219,8 @@ try {
         </div>
 
 
-
-        <a href="mypage.php" class="profile-edit-form button">確定</a>
+        <div class="button-container">
+        <button type="submit">確定</button>
 
     </form>
 </body>
