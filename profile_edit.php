@@ -122,6 +122,7 @@ try {
     <style>
         body {
             font-family: Arial, sans-serif;
+            font-weight: bold;
             text-align: center;
             padding: 20px;
         }
