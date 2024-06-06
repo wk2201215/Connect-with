@@ -168,9 +168,10 @@ try {
             box-sizing: border-box;
         }
         .profile-edit-form button {
-            background-color: #ff6BA9;
+            background-color: #d6adff;
             color: white;
             border-radius: 40px;
+            border: none;
             padding: 10px 20px;
             cursor: pointer;
         }
