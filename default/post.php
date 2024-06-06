@@ -29,7 +29,8 @@ foreach($sql as $row){
         echo '<br>';
     }
     echo '</div>';
-    echo $row['good_count'];
+
+    echo '<div class="good" data-id="'.$row['post_id'].'">'.$row['good_count'].'</div>';
     
     // echo '<p class="reply" data-id="'.$row['post_id'].'/>';
     // echo '<p class="reply" data-id="'.$row['post_id'].'>botan</p>';
