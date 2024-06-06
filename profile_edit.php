@@ -166,6 +166,7 @@ try {
             padding: 8px;
             border-radius: 30px;
             box-sizing: border-box;
+            position: relative;
         }
         .profile-edit-form button {
             background-color: #d6adff;
@@ -178,7 +179,7 @@ try {
 
 
 
-        
+
 
 
         .centered-border {
