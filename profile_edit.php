@@ -168,14 +168,53 @@ try {
             border-
             box-sizing: border-box;
         }
-        .profile-edit-form button {
-            background-color: #d6adff;
-            color: white;
+        
+
+
+
+
+        .profile-edit-form button a {
+            background: #d6adff;
             border-radius: 40px;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
+            position: relative;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 0 auto;
+            max-width: 260px;
+            padding: 10px 25px;
+            color: #313131;
+            transition: 0.3s ease-in-out;
+            font-weight: 500;
         }
+        .profile-edit-form button a:hover {
+            background: #313131;
+            color: #FFF;
+        }
+        .profile-edit-form button a:after {
+            content: '';
+            width: 5px;
+            height: 5px;
+            border-top: 3px solid #313131;
+            border-right: 3px solid #313131;
+            transform: rotate(45deg) translateY(-50%);
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            border-radius: 1px;
+            transition: 0.3s ease-in-out;
+        }
+        .profile-edit-form button a:hover:after {
+            border-color: #FFF;
+        }
+
+
+
+
+
+
+
+
     </style>
     <script>
         function previewImage(event) {
@@ -207,7 +246,13 @@ try {
             <label for="self_introduction">自己紹介文</label>
             <textarea id="self_introduction" name="self_introduction"><?php echo $selfIntroduction; ?></textarea>
         </div>
-        <button type="submit">確定</button>
+
+
+        <div class="profile-edit-form button">
+	    <a href="#">確定</a>
+        </div>
+
+
     </form>
 </body>
 </html>
