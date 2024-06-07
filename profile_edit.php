@@ -143,8 +143,10 @@ try {
             position: absolute;
             bottom: 0;
             right: 0;
-            background: #5cb85c;
-            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            background: #e0e0e0;
+            border-radius: 100%;
             padding: 5px;
             cursor: pointer;
         }
@@ -172,20 +174,25 @@ try {
 	        border-radius: 30px;
             border-color: #d6adff;
             box-sizing: border-box;
+            border: 1px solid #d6adff;
         }
-        .profile-edit-form button {
-            background-color: #d6adff;
-            color: white;
-            border-radius: 40px;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-        }
-        .button-container {
+
+        .profile-edit {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 10px;
+            border: 2px solid #d6adff;
+            border-radius: 20px;
+            color: #d6adff;
+            text-decoration: none;
+            font-size: 14px;
             display: flex;
             justify-content: center;
         }
-        
+        .profile-edit:hover {
+            background-color: #d6adff;
+            color: white;
+        }
     </style>
     <script>
         function previewImage(event) {
@@ -203,7 +210,7 @@ try {
     <form action="profile_edit.php" method="post" class="profile-edit-form" enctype="multipart/form-data">
         <div class="profile-picture" id="profile-picture-preview">
             <input type="file" id="profile_picture" name="profile_picture" onchange="previewImage(event)">
-            <label for="profile_picture">+</label>
+            <label for="profile_picture">＋</label>
         </div>
         <div>
             <label for="account_name">名前</label>
@@ -219,8 +226,7 @@ try {
         </div>
 
 
-        <div class="button-container">
-        <button type="submit">確定</button>
+        <a href="mypage.php" class="profile-edit">確定</a>
 
     </form>
 </body>
