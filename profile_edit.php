@@ -228,7 +228,7 @@ try {
         </div>
 
 
-        <a href="mypage.php" class="profile-edit">確定</a>
+        <button type="submit" class="profile-edit">確定</button>
 
     </form>
 </body>
