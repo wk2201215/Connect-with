@@ -2,6 +2,10 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .container {
@@ -9,7 +13,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
+    width: 100%;
 }
 
 .video-background {
@@ -29,26 +34,30 @@ body {
 }
 
 .login-form {
-    position: absolute;
     z-index: 1;
     background: rgba(255, 255, 255, 0.9);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    max-width: 400px;
-    left: 20px; /* 左から20pxの位置に配置 */
-    top: 50%;
-    transform: translateY(-50%);
+    max-width: 280px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px; /* フォームをさらに下に下げるためのマージンを追加 */
 }
 
 .login-form h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: 20px;
-    text-align: center;
+    width: 100%;
+    height: 80%;
 }
 
 .form-group {
     margin-bottom: 20px;
+    width: 100%;
 }
 
 .form-group label {
@@ -60,16 +69,17 @@ body {
 .form-group input {
     width: 100%;
     padding: 12px;
-    border: none;
+    border: 1px solid #000;  /* 常に黒い枠を表示 */
     border-radius: 5px;
     font-size: 1rem;
     background-color: rgba(255, 255, 255, 0.1);
-    color: #fff;
+    color: #000;  /* 文字色を黒に変更 */
     transition: background-color 0.3s;
 }
 
 .form-group input:focus {
     background-color: rgba(255, 255, 255, 0.3);
+    border: 1px solid #000;  /* フォーカス時も黒い枠を表示 */
 }
 
 .btn, .btn-secondary {

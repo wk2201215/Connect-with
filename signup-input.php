@@ -54,7 +54,7 @@
             font-size: 1rem;
             background-color: rgba(255, 255, 255, 0.1);
             color: #000; /* Changed text color to black for better visibility */
-            transition: background-color 0.3s;
+            transition: 0.3s;
             box-shadow: none; /* Remove shadow effect */
         }
 

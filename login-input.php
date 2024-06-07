@@ -6,7 +6,7 @@
 <!-- 動画を背景に設定 -->
 <div class="video-background">
     <video autoplay muted loop id="background-video">
-        <source src="movie/Connect With.mp4" type="video/mp4">
+        <source src="movie/Connect With_login.mp4" type="video/mp4">
         お使いのブラウザは動画タグに対応していません。
     </video>
 </div>
@@ -14,7 +14,6 @@
 <div class="container">
     <div class="login-form">
         <form action="login-output.php" method="post">
-            <h1>ログイン</h1>
             <?php unset($_SESSION); ?>
             <div class="form-group">
                 <label for="mail_address">メールアドレス</label>
