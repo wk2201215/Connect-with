@@ -103,12 +103,12 @@ body {
 }
 
 .btn-secondary {
-    background-color: #fff;
-    color: #333;
+    background-color: #fca7d2; /* ピンク色に変更 */
+    color: white;
 }
 
 .btn-secondary:hover {
-    background-color: #eee;
+    background-color: #f0b0d2; /* ピンクの濃い色に変更 */
 }
 
 .error {
