@@ -30,7 +30,11 @@ foreach($sql as $row){
     }
     echo '</div>';
 
-    echo '<div class="good" data-id="'.$row['post_id'].'">'.$row['good_count'].'</div>';
+    echo '<div id="result">';
+    echo '<p>goodを押してください。</p>';
+    echo '</div>';
+    echo '<button class="ajax" data-id="'.$row['post_id'].'">ボタン</button>';
+    echo $row['good_count'];
     
     // echo '<p class="reply" data-id="'.$row['post_id'].'/>';
     // echo '<p class="reply" data-id="'.$row['post_id'].'>botan</p>';
