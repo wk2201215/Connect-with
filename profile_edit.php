@@ -121,7 +121,7 @@ try {
     <title>プロフィール編集</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            
             font-weight: bold;
             text-align: center;
             padding: 20px;
@@ -183,15 +183,17 @@ try {
             padding: 5px 10px;
             border: 2px solid #d6adff;
             border-radius: 20px;
-            color: #d6adff;
+            color: #ffffff;
             text-decoration: none;
             font-size: 14px;
             display: flex;
             justify-content: center;
+            background-color: #d6adff;
+
         }
         .profile-edit:hover {
-            background-color: #d6adff;
-            color: white;
+            background-color: #ffffff;
+            color: #d6adff;
         }
     </style>
     <script>
