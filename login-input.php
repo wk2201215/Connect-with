@@ -10,7 +10,6 @@
         お使いのブラウザは動画タグに対応していません。
     </video>
 </div>
-
 <div class="container">
     <div class="login-form">
         <form action="login-output.php" method="post">
