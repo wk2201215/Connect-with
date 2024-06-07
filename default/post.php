@@ -19,6 +19,8 @@ foreach($sql as $row){
     echo '<br>';
     echo $row['post_content'];
     echo '<br>';
+    echo $row['category_name'];
+    echo '<br>';
     if(isset($row['photograph_id'])){
         $sql_p=$pdo->prepare('SELECT * FROM photograph where photograph_id = ?');
         $sql_p->execute([$row['photograph_id']]);

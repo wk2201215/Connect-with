@@ -5,7 +5,7 @@
 <?php require 'default/header-menu.php'; ?>
 <?php
 $pdo=new PDO($connect,USER,PASS);
-$sql=$pdo->query('SELECT * FROM post WHERE delete_flag=0');
+$sql=$pdo->query('SELECT * FROM post INNER JOIN category ON post.category_id = category.category_id WHERE delete_flag=0');
 echo '<div id="container">';
 require 'default/post.php';
 echo '</div>';
