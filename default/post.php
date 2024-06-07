@@ -19,6 +19,8 @@ foreach($sql as $row){
     echo '<br>';
     echo $row['post_content'];
     echo '<br>';
+    echo $row['category_name'];
+    echo '<br>';
     if(isset($row['photograph_id'])){
         $sql_p=$pdo->prepare('SELECT * FROM photograph where photograph_id = ?');
         $sql_p->execute([$row['photograph_id']]);
@@ -30,7 +32,11 @@ foreach($sql as $row){
     }
     echo '</div>';
 
-    echo '<div class="good" data-id="'.$row['post_id'].'">'.$row['good_count'].'</div>';
+    echo '<div class="result" id="'.$row['post_id'].'">';
+    echo '<p>good数：'.$row['good_count'].'</p>';
+    echo '</div>';
+    echo '<button class="ajax" data-id="'.$row['post_id'].'">ボタン</button>';
+    // echo $row['good_count'];
     
     // echo '<p class="reply" data-id="'.$row['post_id'].'/>';
     // echo '<p class="reply" data-id="'.$row['post_id'].'>botan</p>';
