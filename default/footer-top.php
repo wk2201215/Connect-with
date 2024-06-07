@@ -5,6 +5,7 @@
 <!-- headerjs -->
 <script src="./script/header.js"></script>
 <script src="./script/view.js"></script>
+<script src="./script/ajax.js"></script>
 <?php
  $pdo = null;   //DB切断
  ?>

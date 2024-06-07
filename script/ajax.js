@@ -13,7 +13,7 @@ $(function(){
       })
       // Ajax通信が成功した時
       .done( function(data) {
-      $('#result').html(data[0].good_count);
+      $('.result#'+data[0].post_id).html("good数："+data[0].good_count);
       console.log('通信成功');
       console.log(data);
       })
