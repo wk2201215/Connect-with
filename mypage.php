@@ -76,14 +76,14 @@ try {
             display: inline-block;
             margin-top: 10px;
             padding: 5px 10px;
-            border: 1px solid #ff69b4;
+            border: 2px solid #d6adff;
             border-radius: 20px;
-            color: #ff69b4;
+            color: #d6adff;
             text-decoration: none;
             font-size: 14px;
         }
         .profile-edit:hover {
-            background-color: #ff69b4;
+            background-color: #d6adff;
             color: white;
         }
         .profile-name, .profile-details {
