@@ -58,7 +58,7 @@ try {
         </tr>
         <?php foreach ($accounts as $account): ?>
         <tr>
-            <td><?php echo htmlspecialchars($account['account_name'], ENT_QUOTES, 'UTF-8'); ?></td>
+            <td><a href="administrator-userDelete.php?account_id=<?php echo $account['account_id']; ?>"><?php echo htmlspecialchars($account['account_name'], ENT_QUOTES, 'UTF-8'); ?></a></td>
             <td>
                 <?php if ($account['delete_flag'] == 1): ?>
                 <form method="POST" style="display:inline;">
