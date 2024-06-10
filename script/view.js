@@ -13,6 +13,7 @@ $(document).ready(function () {
     
     $(".reply").on("click", function() {
         var post_id = $(this).data('id');
-        location.href='./post-reply-input.php?post_id='+post_id;
+        var category_id = $(this).data('c');
+        location.href='./post-reply-input.php?post_id='+post_id+'&category_id='+category_id;
     });
 })
