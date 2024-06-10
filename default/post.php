@@ -40,7 +40,7 @@ foreach($sql as $row){
     
     // echo '<p class="reply" data-id="'.$row['post_id'].'/>';
     // echo '<p class="reply" data-id="'.$row['post_id'].'>botan</p>';
-    echo '<input class="reply" type="button" value="返信" data-id="'.$row['post_id'].'"/>';
+    echo '<input class="reply" type="button" value="返信" data-id="'.$row['post_id'].'" data-c="'.$row['category_id'].'"/>';
     
     echo '<HR>';
     echo '</div>';
