@@ -50,13 +50,12 @@
             width: 90%;
             padding: 12px;
             border: 1px solid #000; /* Ensure the border is a solid color */
-            border-color: #d6adff;
+            border-color: #fca7d2;
             border-radius: 20px;
             font-size: 1rem;
             background-color: rgba(255, 255, 255, 0.1);
             color: #000; /* Changed text color to black for better visibility */
             transition: 0.3s;
-            box-shadow: 0 0 6px 1px #d6adff, 0 0 6px 1px #d6adff inset; /* Remove shadow effect */
         }
 
         .form-group input:focus {
@@ -65,12 +64,13 @@
         }
 
         .btn {
-            background-color: #d6adff;
+            /* background-color: #d6adff; */
+            background-color: #fca7d2;
             color: white;
             display: inline-block;
             width: 100%;
             padding: 11px;
-            border: 2px solid #d6adff;
+            border: 2px solid #fca7d2;
             border-radius: 20px;
             font-size: 1.2rem;
             cursor: pointer;
@@ -79,7 +79,7 @@
 
         .btn:hover {
             background-color: white;
-            color: #d6adff;
+            color: #fca7d2;
         }
 
     </style>
