@@ -2,6 +2,8 @@
 session_start();
 
 require 'db/db-connect.php';
+require 'default/header-top.php'; 
+
 
 try {
     $pdo = new PDO($connect, USER, PASS);
@@ -99,3 +101,6 @@ try {
     <div class="profile-details"><?php echo $selfIntroduction; ?></div>
 </body>
 </html>
+
+<?php require 'default/footer-menu.php'; ?>
+<?php require 'default/footer-top.php'; ?>
