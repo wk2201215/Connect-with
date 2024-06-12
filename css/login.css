@@ -67,14 +67,17 @@ body {
 }
 
 .form-group input {
+    text-align: center;
     width: 100%;
     padding: 12px;
     border: 1px solid #000;  /* 常に黒い枠を表示 */
-    border-radius: 5px;
+    border-color: #fca7d2;
+    border-radius: 20px;
     font-size: 1rem;
     background-color: rgba(255, 255, 255, 0.1);
     color: #000;  /* 文字色を黒に変更 */
     transition: background-color 0.3s;
+    box-shadow: 0 0 6px 1px #fca7d2, 0 0 6px 1px #fca7d2 inset; /* Remove shadow effect */
 }
 
 .form-group input:focus {
