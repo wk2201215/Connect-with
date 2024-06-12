@@ -89,13 +89,22 @@ try {
         .profile-name, .profile-details {
             margin-top: 10px;
         }
+        .big{
+            zoom:1.2;
+        }
     </style>
 </head>
 <body>
+
+    <div class="big">
+
     <div class="profile-username">@<?php echo $mailAddress; ?></div>
     <div class="profile-picture"></div>
     <a href="profile_edit.php" class="profile-edit">プロフィール編集</a>
     <div class="profile-name"><?php echo $accountName; ?></div>
     <div class="profile-details"><?php echo $selfIntroduction; ?></div>
+
+    </div>
+
 </body>
 </html>
