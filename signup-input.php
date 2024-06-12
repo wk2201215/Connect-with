@@ -99,15 +99,15 @@
             <h1>新規登録</h1>
             <div class="form-group">
                 <label for="name">名前</label>
-                <input type="text" name="account_name" id="name" value="<?php echo $name; ?>">
+                <input type="text" name="account_name" id="name" value="<?php echo $name; ?>" required>
             </div>
             <div class="form-group">
                 <label for="email">メールアドレス</label>
-                <input type="text" name="mail_address" id="email" value="<?php echo $address; ?>">
+                <input type="email" name="mail_address" id="email" value="<?php echo $address; ?>" required>
             </div>
             <div class="form-group">
                 <label for="password">パスワード</label>
-                <input type="password" name="account_password" id="password" value="<?php echo $password; ?>">
+                <input type="password" name="account_password" id="password" value="<?php echo $password; ?>" required>
             </div><br>
             <button type="submit" class="btn">新規登録</button>
         </form>
