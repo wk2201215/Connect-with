@@ -7,6 +7,7 @@ require 'db/db-connect.php';
 $pdo=new PDO($connect,USER,PASS);
 // $sql=$pdo->query('INSERT INTO post values (NULL, ?, ?,NULL,?,NULL,NULL,0);');
 
+if(isset($_FILES['image'])):
 $image = uniqid(mt_rand(), true);//ファイル名をユニーク化
 $image .= '.' . substr(strrchr($_FILES['image']['name'], '.'), 1);//アップロードされたファイルの拡張子を取得
 $file = "images/$image";
@@ -24,6 +25,7 @@ move_uploaded_file($_FILES['image']['tmp_name'], './images/' . $image);//images�
         exit();
     }
 }
+endif;
 
 $sql3=$pdo->prepare('SELECT post_id FROM post ORDER BY post_id DESC
 LIMIT 10;');

@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
     
-    $(".post").on("click", function() {
+    $(".view").on("click", function() {
         // var id = document.getElementById('');
         // alert();
         // var id = $('div.hoge').attr('id');
@@ -13,7 +13,10 @@ $(document).ready(function () {
     
     $(".reply").on("click", function() {
         var post_id = $(this).data('id');
-        var category_id = $(this).data('c');
-        location.href='./post-reply-input.php?post_id='+post_id+'&category_id='+category_id;
+        var category_name = $(this).data('c');
+        location.href='./post-reply-input.php?post_id='+post_id+'&category_name='+category_name;
+    });
+    $(".post").on("click", function() {
+        location.href='./post-reply-input.php';
     });
 })
