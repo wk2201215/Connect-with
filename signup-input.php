@@ -56,6 +56,7 @@
             background-color: rgba(255, 255, 255, 0.1);
             color: #000; /* Changed text color to black for better visibility */
             transition: 0.3s;
+            box-shadow: 0 0 6px 1px #fca7d2, 0 0 6px 1px #fca7d2 inset; /* Remove shadow effect */
         }
 
         .form-group input:focus {
