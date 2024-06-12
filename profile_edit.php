@@ -186,15 +186,21 @@ try {
             color: #ffffff;
             text-decoration: none;
             font-size: 14px;
-            display: flex;
             justify-content: center;
             background-color: #d6adff;
+           
 
         }
         .profile-edit:hover {
             background-color: #ffffff;
             color: #d6adff;
         }
+
+        .container{
+            text-align:right;
+        }
+
+    
     </style>
     <script>
         function previewImage(event) {
@@ -227,9 +233,9 @@ try {
             <textarea id="self_introduction" name="self_introduction"><?php echo $selfIntroduction; ?></textarea>
         </div>
 
-
+        <div class="container">
         <button type="submit" class="profile-edit">確定</button>
-
+    </div>
     </form>
 </body>
 </html>

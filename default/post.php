@@ -14,7 +14,7 @@ foreach($sql as $row){
     echo '<br>';
     echo $item1['account_name'];
     echo '<br>';
-    echo '<div class="post" data-id="'.$row['post_id'].'">';
+    echo '<div class="view" data-id="'.$row['post_id'].'">';
     echo $row['post_time'];
     echo '<br>';
     echo $row['post_content'];
@@ -40,7 +40,7 @@ foreach($sql as $row){
     
     // echo '<p class="reply" data-id="'.$row['post_id'].'/>';
     // echo '<p class="reply" data-id="'.$row['post_id'].'>botan</p>';
-    echo '<input class="reply" type="button" value="返信" data-id="'.$row['post_id'].'" data-c="'.$row['category_id'].'"/>';
+    echo '<input class="reply" type="button" value="返信" data-id="'.$row['post_id'].'" data-c="'.$row['category_name'].'"/>';
     
     echo '<HR>';
     echo '</div>';
