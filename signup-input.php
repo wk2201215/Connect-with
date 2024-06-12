@@ -56,6 +56,7 @@
             background-color: rgba(255, 255, 255, 0.1);
             color: #000; /* Changed text color to black for better visibility */
             transition: 0.3s;
+            box-shadow: 0 0 6px 1px #fca7d2, 0 0 6px 1px #fca7d2 inset; /* Remove shadow effect */
         }
 
         .form-group input:focus {
@@ -98,15 +99,15 @@
             <h1>新規登録</h1>
             <div class="form-group">
                 <label for="name">名前</label>
-                <input type="text" name="account_name" id="name" value="<?php echo $name; ?>">
+                <input type="text" name="account_name" id="name" value="<?php echo $name; ?>" required>
             </div>
             <div class="form-group">
                 <label for="email">メールアドレス</label>
-                <input type="text" name="mail_address" id="email" value="<?php echo $address; ?>">
+                <input type="email" name="mail_address" id="email" value="<?php echo $address; ?>" required>
             </div>
             <div class="form-group">
                 <label for="password">パスワード</label>
-                <input type="password" name="account_password" id="password" value="<?php echo $password; ?>">
+                <input type="password" name="account_password" id="password" value="<?php echo $password; ?>" required>
             </div><br>
             <button type="submit" class="btn">新規登録</button>
         </form>

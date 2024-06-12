@@ -144,7 +144,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <p><strong>メールアドレス:</strong> <?php echo htmlspecialchars($user['mail_address'], ENT_QUOTES, 'UTF-8'); ?></p>
                 </div>
             </div>
-            <button class="userDelete_button" type="submit" name="garbage_can" value="ユーザー削除">🗑️</button>
+            <a href="administrator-userList.php">戻る↩</a>
         </div>
         <table>
             <thead>
