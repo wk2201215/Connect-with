@@ -27,17 +27,20 @@ move_uploaded_file($_FILES['image']['tmp_name'], './images/' . $image);//imagesã
         exit();
     }
     $sql=$pdo->prepare('INSERT INTO post values (NULL, ?, ?,DEFAULT,?,?,DEFAULT,?,0)');
-$sql->execute([
+    $sql->execute([
     $_SESSION['account']['account_id'],
     $_POST['category_id'],
     $_POST['post_content'],
     $item['photograph'],
     $_POST['post_id']]);
 }else{
+    var_dump($_POST);
+    var_dump($_SESSION);
     $sql=$pdo->prepare('INSERT INTO post values (NULL, ?, ?,DEFAULT,?,NULL,DEFAULT,?,0)');
     $sql->execute([
         $_SESSION['account']['account_id'],
-        $_POST['category_id'],
+        // $_POST['category_id'],
+        1,
         $_POST['post_content'],
         $_POST['post_id']]);
 }

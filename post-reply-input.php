@@ -13,7 +13,7 @@
         category:<?=$_GET['category_name']?>
         
         <input type="hidden" name="post_id" value="<?php $_GET['post_id'];?>" />
-        <input type="hidden" name="category_id" value="<?php $_GET['category_name'];?>" />
+        <input type="hidden" name="category_id" value="<?php $_GET['category_id'];?>" />
     <?php else:?>
         <?='<input type="submit" value="POST"/>'?>
         account_name:<?=$_SESSION['account']['account_name']?>
