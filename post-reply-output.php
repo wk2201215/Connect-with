@@ -17,35 +17,60 @@ move_uploaded_file($_FILES['image']['tmp_name'], './images/' . $image);//images�
     if (exif_imagetype($file)) {//画像ファイルかのチェック
         $message = '画像をアップロードしました';
         $stmt->execute();
-        $sql3=$pdo->prepare('SELECT photograph_id FROM photograph ORDER BY photograph_id DESC
-        LIMIT 1;');
+        $sql3=$pdo->query('SELECT photograph_id FROM photograph ORDER BY photograph_id DESC
+        LIMIT 1');
         $item=$sql3->fetch();
-        echo '1';
     } else {
         $message = '画像ファイルではありません';
         header('Location:post-reply-input.php?post_id='+$_POST['post_id']+'&category_id='+$_POST['category_id']+'&message='+$message);
         exit();
     }
-    $sql=$pdo->prepare('INSERT INTO post values (NULL, ?, ?,DEFAULT,?,?,DEFAULT,?,0)');
-$sql->execute([
-    $_SESSION['account']['account_id'],
-    $_POST['category_id'],
-    $_POST['post_content'],
-    $item['photograph'],
-    $_POST['post_id']]);
+    // var_dump($item);
+    if(isset($_POST['post_id'])){
+        $sql=$pdo->prepare('INSERT INTO post values (NULL, ?, ?,DEFAULT,?,?,DEFAULT,?,0)');
+        $sql->execute([
+            $_SESSION['account']['account_id'],
+            $_POST['category_id'],
+            $_POST['post_content'],
+            $item['photograph_id'],
+            $_POST['post_id']
+        ]);
+    }else{
+        $sql=$pdo->prepare('INSERT INTO post values (NULL, ?, ?,DEFAULT,?,?,DEFAULT,NULL,0)');
+        $sql->execute([
+            $_SESSION['account']['account_id'],
+            $_POST['category'],
+            $_POST['post_content'],
+            $item['photograph_id']
+        ]);
+    }
+    
 }else{
-    $sql=$pdo->prepare('INSERT INTO post values (NULL, ?, ?,DEFAULT,?,NULL,DEFAULT,?,0)');
-    $sql->execute([
-        $_SESSION['account']['account_id'],
-        $_POST['category_id'],
-        $_POST['post_content'],
-        $_POST['post_id']]);
+    if(isset($_POST['post_id'])){
+        // var_dump($_POST);
+        // var_dump($_SESSION);
+        $sql=$pdo->prepare('INSERT INTO post values (NULL, ?, ?,DEFAULT,?,NULL,DEFAULT,?,0)');
+        $sql->execute([
+            $_SESSION['account']['account_id'],
+            $_POST['category_id'],
+            $_POST['post_content'],
+            $_POST['post_id']
+        ]);
+    }else{
+        $sql=$pdo->prepare('INSERT INTO post values (NULL, ?, ?,DEFAULT,?,NULL,DEFAULT,NULL,0)');
+        $sql->execute([
+            $_SESSION['account']['account_id'],
+            $_POST['category'],
+            $_POST['post_content']
+        ]);
+    }
+    
 }
 
 
 
 if(isset($_POST['post_id'])){
-    header('Location:reply.php?');
+    header('Location:reply.php? post_id='.$_POST['post_id']);
     exit();
 }else{
     header('Location:view.php?');

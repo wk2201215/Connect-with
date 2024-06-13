@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css"/>
 <!-- ヘッダーCSS -->
 <link rel="stylesheet" href="css/header.css"/>
-
+<link rel="stylesheet" href="css/post.css"/>
 
 </head>
 <body>
