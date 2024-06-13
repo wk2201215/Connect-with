@@ -222,11 +222,11 @@ try {
         </div>
         <div>
             <label for="account_name">名前</label>
-            <input type="text" id="account_name" name="account_name" value="<?php echo $accountName; ?>">
+            <input type="text" id="account_name" name="account_name" value="<?php echo $accountName; ?>" required>
         </div>
         <div>
             <label for="mail_address">メールアドレス</label>
-            <input type="text" id="mail_address" name="mail_address" value="<?php echo $mailAddress; ?>">
+            <input type="text" id="mail_address" name="mail_address" value="<?php echo $mailAddress; ?>" required>
         </div>
         <div>
             <label for="self_introduction">自己紹介文</label>
