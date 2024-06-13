@@ -7,7 +7,7 @@
 
     <div class="video-background">
     <video autoplay muted loop id="background-video">
-        <source src="movie/Connect With_signup.mp4" type="video/mp4">
+        <source src="movie/Connect With_signup2.mp4" type="video/mp4">
         お使いのブラウザは動画タグに対応していません。
     </video>
     </div>
