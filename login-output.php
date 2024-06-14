@@ -27,6 +27,7 @@ try {
                     'account_name' => $row['account_name'],
                     'photograph_id' => $row['photograph_id'],
                     'self_introduction' => $row['self_introduction'],
+                    'category_id' => $row['category_id'],
                     'authority' => $row['authority'],
                     'delete_flag' => $row['delete_flag']
                 ];
@@ -34,6 +35,10 @@ try {
                 $sql2->execute([$_SESSION['account']['photograph_id']]);
                 $path=$sql2->fetch();
                 $_SESSION['account']['photograph_path'] = $path['photograph_path'];
+                $sql3 = $pdo->prepare('SELECT * FROM category WHERE category_id = ?');
+                $sql3->execute([$_SESSION['account']['category_id']]);
+                $path=$sql3->fetch();
+                $_SESSION['account']['category_name'] = $path['category_name'];
             }
         }
     }
