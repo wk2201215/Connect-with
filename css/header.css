@@ -48,6 +48,29 @@ footer{
     font-weight: bold;
 }
 
+/*コンテンツ部分*/
+.box{
+  background:#ddd;
+  width:100%;
+  height:800px;
+}
+/*追従ボタン*/
+.fix-btn{
+  position:fixed;
+  z-index:1;
+  background:#2dd8c8;
+  width:150px;
+  border-radius:15px;
+  text-decoration:none;
+  font-size:14px;
+  text-align:center;
+  color:#333;
+  padding:20px 0;
+  right:20px;
+  bottom:20px;
+  box-shadow:1px 1px 5px #aaa;
+}
+
 /* バーガーメニュー */
 /* html{
     box-sizing: border-box;

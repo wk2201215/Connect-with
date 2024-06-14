@@ -1,3 +1,9 @@
+<div class="wrapper">
+  <header>
+    <a href="#" class="fix-btn">問い合わせはこちら</a>
+  </header>
+  <div class="box">&nbsp;</div>
+</div>
 <footer>
     <div>
       <ul id="nav">
