@@ -60,7 +60,7 @@ try {
             font-family: Arial, sans-serif;
             text-align: center;
             padding: 20px;
-        }
+            }
         .profile-username {
             font-size: 20px;
             margin-bottom: 10px;
@@ -92,7 +92,7 @@ try {
             margin-top: 10px;
         }
         .big{
-            zoom:1.2;
+            zoom:1.3;
         }
         .h3-left{
             padding-right:220px;
