@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php require 'db/db-connect.php'; ?>
 <link rel="stylesheet" href="css/view.css">
 <?php require 'default/header-top.php'; ?>

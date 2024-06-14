@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php require 'db/db-connect.php'; ?>
 <?php require 'default/header-top.php'; ?>
 <?php require 'default/header-menu.php'; ?>
@@ -18,7 +19,7 @@ echo '<div class="button-container">';
   foreach($sql as $row){
     echo $row['category_name'];
     
-    echo '<a href="category4.php?category_id='.$row['category_id'].'">'.$row['category_name'].'</a>';
+    echo '<a href="category4.php?category_id='.$row['category_id'].'& category_name='.$row['category_name'].'">'.$row['category_name'].'</a>';
   }
 echo '</div>';
 
