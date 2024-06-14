@@ -94,6 +94,9 @@ try {
         .big{
             zoom:1.3;
         }
+        .h3-left{
+            padding-right:220px;
+        }
     </style>
 </head>
 <body>
@@ -107,6 +110,17 @@ try {
     <div class="profile-details"><?php echo $selfIntroduction; ?></div>
 
     </div>
+    <h3 class="h3-left">~投稿一覧~</h3>
+<?php
+$sql=$pdo->prepare('SELECT * FROM post INNER JOIN category ON post.category_id = category.category_id WHERE delete_flag=0 AND account_id = ?');
+$sql->execute([
+    $_SESSION['account']['account_id']
+]);
+echo '<div id="container">';
+require 'default/post.php';
+echo '</div>';
+?>
+
 
 </body>
 </html>
