@@ -17,10 +17,12 @@ CREATE TABLE account(
     account_name      VARCHAR(40)                NOT NULL,
     photograph_id     INT(7)                     NOT NULL,
     self_introduction VARCHAR(500)               NOT NULL,
+    category_id       INT(3)                     NOT NULL,
     authority         TINYINT                    NOT NULL,
     delete_flag       BIT(1) DEFAULT 0           NOT NULL,
     PRIMARY KEY(account_id),
-    FOREIGN KEY(photograph_id) REFERENCES photograph(photograph_id)
+    FOREIGN KEY(photograph_id) REFERENCES photograph(photograph_id),
+    FOREIGN KEY(category_id) REFERENCES category(category_id)
 );
 
 

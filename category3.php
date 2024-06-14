@@ -10,8 +10,8 @@ echo '<div class="header">';
   echo '<a href="javascript:history.back()">&larr;</a>';
 echo '</div>';
 echo '<div class="content">';
-echo '<h1>カテゴリー</h1>'
-echo '<p>興味のあるカテゴリーを選択してください。</p>'
+echo '<h1>カテゴリー</h1>';
+echo '<p>興味のあるカテゴリーを選択してください。</p>';
 echo '<div class="button-container">';
   $pdo=new PDO($connect,USER,PASS);
   $sql=$pdo->query('select * from category');
