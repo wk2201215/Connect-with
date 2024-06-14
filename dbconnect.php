@@ -15,7 +15,7 @@ $dbh = new PDO("mysql:host={$host};dbname={$dbname};charset=utf8mb4", $dbuser,$d
  exit;
 }
 //データ更新
-$sql2 = "UPDATE post SET good_count = good_count+1 WHERE post_id=?;";
+$sql2 = "UPDATE post SET good_count = good_count+1 WHERE post_id=?";
 $stmt = ($dbh->prepare($sql2));
 $stmt->execute(array($id));
 // データ取得
