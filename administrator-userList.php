@@ -44,6 +44,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <title>User Accounts</title>
+    <link rel="stylesheet" href="css/administrator-userList.css">
 </head>
 <body>
     <div class="search">
@@ -59,7 +60,7 @@ try {
         <?php foreach ($accounts as $account): ?>
         <tr>
             <td><a href="administrator-userDelete.php?account_id=<?php echo $account['account_id']; ?>"><?php echo htmlspecialchars($account['account_name'], ENT_QUOTES, 'UTF-8'); ?></a></td>
-            <td>
+            <td class="restoration">
                 <?php if ($account['delete_flag'] == 1): ?>
                 <form method="POST" style="display:inline;">
                     <input type="hidden" name="account_id" value="<?php echo $account['account_id']; ?>">
@@ -67,7 +68,7 @@ try {
                 </form>
                 <?php endif; ?>
             </td>
-            <td>
+            <td class="delete">
                 <?php if ($account['delete_flag'] == 0): ?>
                 <form method="POST" style="display:inline;">
                     <input type="hidden" name="account_id" value="<?php echo $account['account_id']; ?>">
@@ -78,6 +79,8 @@ try {
         </tr>
         <?php endforeach; ?>
     </table>
-    <button type="button" onclick="location.href='administrator-Delete-post.php'">遷移[post]</button>
+    <div class="center-button">
+        <button type="button" onclick="location.href='administrator-Delete-post.php'">遷移[post]</button>
+    </div>
 </body>
 </html>
