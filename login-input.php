@@ -26,9 +26,10 @@
             <?php if(isset($_GET['hogeA'])): ?>
                 <p class="error"><?php echo $_GET['hogeA']; ?></p>
             <?php endif; ?>
-        </form>
-        <form action="signup-input.php" method="post">
+         </form>
+            <form action="signup-input.php" method="post">
             <button type="submit" class="btn-secondary">新規登録</button>
+        </form>
         </form>
     </div>
 </div>

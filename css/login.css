@@ -67,7 +67,6 @@ body {
 }
 
 .form-group input {
-    text-align: center;
     width: 100%;
     padding: 12px;
     border: 1px solid #000;  /* 常に黒い枠を表示 */
@@ -85,15 +84,27 @@ body {
     border: 1px solid #000;  /* フォーカス時も黒い枠を表示 */
 }
 
-.btn, .btn-secondary {
+.btn{
     display: block;
-    width: 100%;
+    width: 100%; /* 両方のボタンがコンテナの幅いっぱいになるように設定 */
     padding: 12px;
     border: none;
     border-radius: 20px;
     font-size: 1.2rem;
     cursor: pointer;
     margin-top: 10px;
+}
+
+.btn-secondary{
+    display: block;
+    width: 200%; /* 両方のボタンがコンテナの幅いっぱいになるように設定 */
+    padding: 12px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 10px;
+    align: center;
 }
 
 .btn {
