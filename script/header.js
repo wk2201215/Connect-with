@@ -2,8 +2,9 @@ let start_position = 0,     //初期位置０
     window_position,
     $window = $(window),
     $header = $('header'),
-    $footer = $('footer');
-
+    $footer = $('footer'),
+    $fixbtn = $('fix-btn');
+    
 // スクロールイベントを設定
 $window.on( 'scroll' , function(){
     // スクロール量の取得
@@ -14,9 +15,12 @@ $window.on( 'scroll' , function(){
     if (window_position <= start_position) {
         $header.css('top','0');
         $footer.css('bottom','0');
+        $fixbtn.css('bottom','40');
+        $wrapper
     } else {
         $header.css('top','-70px');
         $footer.css('bottom','-70px');
+        $fixbtn.css('bottom','-70px');
     }
     // 現在の位置を更新する
     start_position = window_position;

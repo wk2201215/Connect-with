@@ -1,10 +1,10 @@
+<footer>
 <div class="wrapper">
   <header>
     <a href="#" class="fix-btn">問い合わせはこちら</a>
   </header>
-  <div class="box">&nbsp;</div>
+  <!-- <div class="box">&nbsp;</div> -->
 </div>
-<footer>
     <div>
       <ul id="nav">
         <li><a href="view.php">投稿</a></li>
