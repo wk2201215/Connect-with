@@ -51,8 +51,7 @@ CREATE TABLE good(
     post_time     DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
 
     PRIMARY KEY(post_id),
-    FOREIGN KEY(account_id)    REFERENCES account(account_id),
-    FOREIGN KEY(photograph_id) REFERENCES photograph(photograph_id),
-    FOREIGN KEY(category_id)   REFERENCES category(category_id),
-    FOREIGN KEY(reply_id) REFERENCES post(post_id)
+    PRIMARY KEY(account_id),
+    FOREIGN KEY(post_id)    REFERENCES post(post_id),
+    FOREIGN KEY(account_id)    REFERENCES account(account_id)
 );
