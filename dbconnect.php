@@ -1,5 +1,6 @@
 <?php
 $id = $_POST['id'];
+$gj = $_POST['gj'];
 
 // データベース接続
 
@@ -14,10 +15,14 @@ $dbh = new PDO("mysql:host={$host};dbname={$dbname};charset=utf8mb4", $dbuser,$d
  var_dump($e->getMessage());
  exit;
 }
-//データ更新
-$sql2 = "UPDATE post SET good_count = good_count+1 WHERE post_id=?";
-$stmt = ($dbh->prepare($sql2));
-$stmt->execute(array($id));
+
+if($gj == 2){
+    //データ更新
+    $sql2 = "UPDATE post SET good_count = good_count+1 WHERE post_id=?";
+    $stmt = ($dbh->prepare($sql2));
+    $stmt->execute(array($id));
+}
+
 // データ取得
 $sql = "SELECT * FROM post WHERE post_id = ?";
 $stmt = ($dbh->prepare($sql));

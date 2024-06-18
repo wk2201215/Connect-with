@@ -3,7 +3,7 @@ let start_position = 0,     //初期位置０
     $window = $(window),
     $header = $('header'),
     $footer = $('footer'),
-    $fixbtn = $('fix-btn');
+    $fixbtn = $('.fix-btn');
     
 // スクロールイベントを設定
 $window.on( 'scroll' , function(){
@@ -16,7 +16,6 @@ $window.on( 'scroll' , function(){
         $header.css('top','0');
         $footer.css('bottom','0');
         $fixbtn.css('bottom','40');
-        $wrapper
     } else {
         $header.css('top','-70px');
         $footer.css('bottom','-70px');
@@ -28,19 +27,3 @@ $window.on( 'scroll' , function(){
 });
 // 中途半端なところでロードされても良いようにスクロールイベントを発生させる
 $window.trigger('scroll');
-
-
-// バーガーメニュー
-// $(document).ready(function() {
-//     $(document).delegate('.open', 'click', function(event){
-//       $(this).addClass('oppenned');
-//       event.stopPropagation();
-//     })
-//     $(document).delegate('body', 'click', function(event) {
-//       $('.open').removeClass('oppenned');
-//     })
-//     $(document).delegate('.cls', 'click', function(event){
-//       $('.open').removeClass('oppenned');
-//       event.stopPropagation();
-//     });
-//   });

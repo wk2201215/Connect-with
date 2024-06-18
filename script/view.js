@@ -17,7 +17,7 @@ $(document).ready(function () {
         var category_id = $(this).data('ci');
         location.href='./post-reply-input.php?post_id='+post_id+'&category_name='+category_name+'&category_id='+category_id;
     });
-    $(".post").on("click", function() {
+    $(".fix-btn").on("click", function() {
         location.href='./post-reply-input.php';
     });
 })
