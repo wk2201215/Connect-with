@@ -33,7 +33,8 @@
         type:'POST', //送信方法
         datatype: 'json', //受け取りデータの種類
         data:{
-          'id' : $(this).data('id')
+          'id' : $('.ajax').data('id'),
+          'gj' : 1
         }
       })
     .then(
@@ -41,7 +42,6 @@
           $('.result#'+data[0].post_id).html("good数："+data[0].good_count);
           console.log('通信成功');
           console.log(data);
-          alert("読み込成功");
         },
         function () {
           $('#result').html(data);
@@ -53,13 +53,14 @@
 }
 
 
-function writeMessage() {
+function writeMessage(id) {
     $.ajax({
       url:'./dbconnect.php', //送信先
       type:'POST', //送信方法
       datatype: 'json', //受け取りデータの種類
       data:{
-        'id' : $(this).data('id')
+        'id' : id,
+        'gj' : 2
       }
     })
     .then(
@@ -76,7 +77,7 @@ function writeMessage() {
 
 $(".ajax").on("click", function() {
   var post_id = $(this).data('id');
-  readMessage();
+  writeMessage(post_id);
 });
 
 
