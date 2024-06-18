@@ -35,7 +35,7 @@ foreach($sql as $row){
     echo '<div class="result" id="'.$row['post_id'].'">';
     echo '<p>good数：'.$row['good_count'].'</p>';
     echo '</div>';
-    echo '<button class="ajax" data-id="'.$row['post_id'].'">ボタン</button>';
+    echo '<button class="ajax" id="'.$row['post_id'].'" data-id="'.$row['post_id'].'">ボタン</button>';
     // echo $row['good_count'];
     
     // echo '<p class="reply" data-id="'.$row['post_id'].'/>';

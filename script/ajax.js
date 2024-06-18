@@ -89,7 +89,7 @@ function writeMessage(id) {
 
 $(".ajax").on("click", function() {
   var post_id = $(this).data('id');
-  $('.ajax#'+data[0].post_id).html("good数："+data[0].good_count);
+  $(this).text('いいね済み');
   writeMessage(post_id);
 });
 
