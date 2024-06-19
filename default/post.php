@@ -24,7 +24,15 @@ foreach($sql as $row){
     echo '<div class="result" id="'.$row['post_id'].'">';
     echo '<p>good数：'.$row['good_count'].'</p>';
     echo '</div>';
-    echo '<button class="ajax" id="'.$row['post_id'].'" data-id="'.$row['post_id'].'">いいね</button>';
+    $sql_g=$pdo->prepare('SELECT * FROM good WHERE post_id = ? AND account_id = ? LIMIT 1');
+    $sql_g->execute([$row['post_id'],$_SESSION['account']['account_id']]);
+    $resultCount = $sql_g->rowCount();
+    if($resultCount == 1){
+        echo '<button class="ajax" id="'.$row['post_id'].'" data-id="'.$row['post_id'].'">いいね済み</button>';
+    }else{
+        echo '<button class="ajax" id="'.$row['post_id'].'" data-id="'.$row['post_id'].'">いいね</button>';
+    }
+    // echo '<button class="ajax" id="'.$row['post_id'].'" data-id="'.$row['post_id'].'">いいね</button>';
     // echo $row['good_count'];
     
     echo '<input class="reply" type="button" value="返信" data-id="'.$row['post_id'].'" data-cn="'.$row['category_name'].'" data-ci="'.$row['category_id'].'"/>';
