@@ -12,7 +12,10 @@ try {
 // データ取得 good判定
 $sql3=$pdo->prepare('SELECT * FROM good WHERE post_id = ? AND account_id = ? LIMIT 1');
 $sql3->execute([$post_id,$_SESSION['account']['account_id']]);
-if(!empty($sql3)){
+$resultCount = $sql3->rowCount();
+
+
+if($resultCount == 1){
     //データ更新 -
     $sql2=$pdo->prepare('UPDATE post SET good_count = good_count-1 WHERE post_id=?');
     $sql2->execute([$post_id]);
@@ -48,7 +51,6 @@ while($row = $sql->fetch(PDO::FETCH_ASSOC)){
   'delete_flag'=>$row['delete_flag']
  );
 }
-
 //jsonとして出力
 header('Content-type: application/json');
 echo json_encode($memberList,JSON_UNESCAPED_UNICODE);

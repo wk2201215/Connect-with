@@ -90,7 +90,12 @@ function writeMessage(post_id) {
 
 $(".ajax").on("click", function() {
   var post_id = $(this).data('id');
-  // $(this).text('いいね済み');
+  // alert(post_id);
+  if ($(this).text() === 'いいね') {
+    $(this).text('いいね済み');
+  } else {
+    $(this).text('いいね');
+  }
   writeMessage(post_id);
 });
 
