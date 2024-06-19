@@ -81,14 +81,16 @@ try {
             display: inline-block;
             margin-top: 10px;
             padding: 5px 10px;
-            border: 2px solid #d6adff;
+            /* border: 2px solid #d6adff; */
+            /* border: 2px solid #ba55d3; */
+            border: 2px solid rgb(171,135,241);
             border-radius: 20px;
-            color: #d6adff;
+            color: rgb(171,135,241);
             text-decoration: none;
             font-size: 14px;
         }
         .profile-edit:hover {
-            background-color: #d6adff;
+            background-color: rgb(171,135,241);
             color: white;
         }
         .profile-name, .profile-details {
