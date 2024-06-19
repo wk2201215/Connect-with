@@ -79,14 +79,15 @@ try {
             margin-top: 10px;
             padding: 5px 10px;
             /* border: 2px solid #d6adff; */
-            border: 2px solid #ba55d3;
+            /* border: 2px solid #ba55d3; */
+            border: 2px solid rgb(171,135,241);
             border-radius: 20px;
-            color: #ba55d3;
+            color: rgb(171,135,241);
             text-decoration: none;
             font-size: 14px;
         }
         .profile-edit:hover {
-            background-color: #ba55d3;
+            background-color: rgb(171,135,241);
             color: white;
         }
         .profile-name, .profile-details {
