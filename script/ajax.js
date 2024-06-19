@@ -37,15 +37,15 @@ function readMessage2() {
   });
 }
 
-   function readMessage(id) {
+   function readMessage(post_id) {
     $.ajax({
         url:'./dbconnect.php', //送信先
         type:'POST', //送信方法
         datatype: 'json', //受け取りデータの種類
         data:{
           // 'id' : $('.ajax').data('id'),
-          'id' : id,
-          'gj' : 1
+          'post_id' : post_id
+          // 'gj' : 1
         }
       })
     .then(
@@ -64,21 +64,22 @@ function readMessage2() {
 }
 
 
-function writeMessage(id) {
+function writeMessage(post_id) {
     $.ajax({
-      url:'./dbconnect.php', //送信先
+      url:'./dbconnect2.php', //送信先
       type:'POST', //送信方法
       datatype: 'json', //受け取りデータの種類
       data:{
-        'id' : id,
-        'gj' : 2
+        'post_id' : post_id
+        // 'gj' : gj
       }
     })
     .then(
         function (data) {
-            readMessage(data[0].post_id);
-            console.log(data);
-            // $("#message").val('');
+
+          readMessage(data[0].post_id);
+          console.log(data);
+          // $("#message").val('');
         },
         function () {
             alert("書き込み失敗");
@@ -89,7 +90,7 @@ function writeMessage(id) {
 
 $(".ajax").on("click", function() {
   var post_id = $(this).data('id');
-  $(this).text('いいね済み');
+  // $(this).text('いいね済み');
   writeMessage(post_id);
 });
 
