@@ -1,47 +1,41 @@
+<?php require 'db/db-connect.php'; ?>
 <?php
 session_start();
 $post_id = $_POST['post_id'];
-// $gj = $_POST['gj'];
-
-// データベース接続
-
-$host = 'mysql302.phy.lolipop.lan';
-$dbname = 'LAA1517442-postingapp24';
-$dbuser = 'LAA1517442';
-$dbpass = 'post0418';
-
 try {
-$dbh = new PDO("mysql:host={$host};dbname={$dbname};charset=utf8mb4", $dbuser,$dbpass, array(PDO::ATTR_EMULATE_PREPARES => false));
+    $pdo=new PDO($connect,USER,PASS);
 } catch (PDOException $e) {
  var_dump($e->getMessage());
  exit;
 }
 
 // データ取得 good判定
-$sql3 = "SELECT * FROM good WHERE account_id = ? LIMIT 1";
-$stmt3 = ($dbh->prepare($sql3));
-$stmt3->execute(array($_SESSION['account']['account_id']));
-if(isset($stem3)){
+$sql3=$pdo->prepare('SELECT * FROM good WHERE post_id = ? AND account_id = ? LIMIT 1');
+$sql3->execute([$post_id,$_SESSION['account']['account_id']]);
+if(!empty($sql3)){
     //データ更新 -
-    $sql2 = "UPDATE post SET good_count = good_count-1 WHERE post_id=?";
-    $stmt2 = ($dbh->prepare($sql2));
-    $stmt2->execute(array($post_id));
+    $sql2=$pdo->prepare('UPDATE post SET good_count = good_count-1 WHERE post_id=?');
+    $sql2->execute([$post_id]);
+    //
+    $sql4=$pdo->prepare('DELETE FROM good WHERE post_id = ? AND account_id = ?');
+    $sql4->execute([$post_id, $_SESSION['account']['account_id']]);
 }else{
     //データ更新 +
-    $sql2 = "UPDATE post SET good_count = good_count+1 WHERE post_id=?";
-    $stmt2 = ($dbh->prepare($sql2));
-    $stmt2->execute(array($post_id));
+    $sql2=$pdo->prepare('UPDATE post SET good_count = good_count+1 WHERE post_id=?');
+    $sql2->execute([$post_id]);
+    //
+    $sql4=$pdo->prepare('INSERT INTO good values (?, ?,DEFAULT)');
+    $sql4->execute([$post_id, $_SESSION['account']['account_id']]);
 }
 
 // データ取得 good数
-$sql = "SELECT * FROM post WHERE post_id = ?";
-$stmt = ($dbh->prepare($sql));
-$stmt->execute(array($post_id));
+$sql=$pdo->prepare('SELECT * FROM post WHERE post_id = ?');
+$sql->execute([$post_id]);
 
 
 //あらかじめ配列を生成しておき、while文で回します。
 $memberList = array();
-while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+while($row = $sql->fetch(PDO::FETCH_ASSOC)){
  $memberList[]=array(
   'post_id' =>$row['post_id'],
   'account_id'=>$row['account_id'],

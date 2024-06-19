@@ -1,17 +1,10 @@
+<?php require 'db/db-connect.php'; ?>
 <?php
 session_start();
 $post_id = $_POST['post_id'];
-// $gj = $_POST['gj'];
-
-// データベース接続
-
-$host = 'mysql302.phy.lolipop.lan';
-$dbname = 'LAA1517442-postingapp24';
-$dbuser = 'LAA1517442';
-$dbpass = 'post0418';
 
 try {
-$dbh = new PDO("mysql:host={$host};dbname={$dbname};charset=utf8mb4", $dbuser,$dbpass, array(PDO::ATTR_EMULATE_PREPARES => false));
+    $pdo=new PDO($connect,USER,PASS);
 } catch (PDOException $e) {
  var_dump($e->getMessage());
  exit;
