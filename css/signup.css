@@ -71,12 +71,12 @@ body {
 }
 
 .form-group input:focus {
-    border-color: white;
+    border-color: #fca7d2;
 }
 
 .btn {
-    background-color: #fca7d2;
-    color: white;
+    background-color: white;
+    color: #fca7d2;
     display: inline-block;
     width: 100%;
     padding: 11px;
@@ -88,6 +88,6 @@ body {
 }
 
 .btn:hover {
-    background-color: white;
-    color: #fca7d2;
+    background-color: #fca7d2;
+    color: white;
 }
