@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <title>Connect with</title>
 
+
+
 <!-- リセットCSS -->
 <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css"/>
 <!-- ヘッダーCSS -->

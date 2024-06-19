@@ -42,3 +42,15 @@ CREATE TABLE post(
     FOREIGN KEY(category_id)   REFERENCES category(category_id),
     FOREIGN KEY(reply_id) REFERENCES post(post_id)
 );
+
+
+CREATE TABLE good(
+    post_id       INT(7)                             NOT NULL,
+    account_id    INT(6)                             NOT NULL,
+    
+    post_time     DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
+
+    PRIMARY KEY(post_id,account_id),
+    FOREIGN KEY(post_id)    REFERENCES post(post_id),
+    FOREIGN KEY(account_id)    REFERENCES account(account_id)
+);

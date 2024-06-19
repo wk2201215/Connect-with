@@ -1,5 +1,4 @@
 <?php require 'db/db-connect.php'; ?>
-<?php session_start(); ?>
 <?php require 'default/header-top.php'; ?>
 <?php require 'default/header-menu.php'; ?>
 <div id="container">

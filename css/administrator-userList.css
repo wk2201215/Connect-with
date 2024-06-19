@@ -1,0 +1,58 @@
+/* Make the entire table larger */
+table {
+    width: 100%;
+    font-size: 1.5em;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+/* Make the table header larger and bold */
+th {
+    padding: 10px;
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+/* Make the table cells larger */
+td {
+    padding: 10px;
+}
+
+/* Center align the restoration and delete cells */
+td.restoration, td.delete {
+    text-align: center;
+}
+
+/* Style the search bar and buttons */
+.search {
+    margin-bottom: 20px;
+    text-align: center; /* Center align the search bar */
+}
+
+.keyword {
+    width: 300px;
+    padding: 10px;
+    font-size: 1.2em;
+}
+
+.searchbutton {
+    padding: 10px 20px;
+    font-size: 1.2em;
+}
+
+/* Style the restore and delete buttons */
+button[type="submit"] {
+    padding: 10px 20px;
+    font-size: 1.2em;
+}
+
+/* Center align the navigation button */
+.center-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+button[type="button"] {
+    padding: 10px 20px;
+    font-size: 1.2em;
+}

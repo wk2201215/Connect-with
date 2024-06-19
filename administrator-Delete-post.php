@@ -97,5 +97,8 @@ try {
             </tr>
         <?php endforeach; ?>
     </table>
+    <div class="center-button">
+        <button type="button" onclick="location.href='administrator-userList.php'">遷移[post]</button>
+    </div>
 </body>
 </html>

@@ -17,6 +17,22 @@ $dbh = new PDO("mysql:host={$host};dbname={$dbname};charset=utf8mb4", $dbuser,$d
  exit;
 }
 
+// データ取得 good判定
+$sql3 = "SELECT * FROM good WHERE account_id = ? LIMIT 1";
+$stmt3 = ($dbh->prepare($sql3));
+$stmt3->execute(array($_SESSION['account']['account_id']));
+if(isset($stem3)){
+    //データ更新 -
+    $sql2 = "UPDATE post SET good_count = good_count-1 WHERE post_id=?";
+    $stmt2 = ($dbh->prepare($sql2));
+    $stmt2->execute(array($post_id));
+}else{
+    //データ更新 +
+    $sql2 = "UPDATE post SET good_count = good_count+1 WHERE post_id=?";
+    $stmt2 = ($dbh->prepare($sql2));
+    $stmt2->execute(array($post_id));
+}
+
 // データ取得 good数
 $sql = "SELECT * FROM post WHERE post_id = ?";
 $stmt = ($dbh->prepare($sql));
