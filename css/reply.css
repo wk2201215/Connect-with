@@ -1,0 +1,6 @@
+.profile-img {
+    width: 100px; /* 画像の幅を設定 */
+    height: 100px; /* 画像の高さを設定 */
+    border-radius: 50%; /* 丸くするために半径を設定 */
+    object-fit: cover; /* 画像を枠に収める */
+}
