@@ -1,8 +1,9 @@
 <?php require 'db/db-connect.php'; ?>
 <?php
   $pdo=new PDO($connect,USER,PASS);
-  $sql=$pdo->query('SELECT * FROM post INNER JOIN category ON post.category_id = category.category_id WHERE delete_flag=0 AND reply_id IS NULL');
-  
+  $sql=$pdo->prepare('INSERT INTO account_tentative (account_name, account_password, mail_address)
+  VALUES (value1, value2, DATE_ADD(NOW(), INTERVAL 1 MINUTE)); -- 例: 7日後に削除');
+  $sql->execute([$_POST['account_name'], $_POST['account_password'], $_POST['mail_address'],]);
 ?>
 <?php
     mb_language("Japanese");
@@ -18,7 +19,9 @@
     {
         echo "メール送信成功です";
         echo "<br>";
-        echo "1分以内に確認してください"
+        echo "まだ登録は完了していません"
+        echo "<br>";
+        echo "1分以内に登録を完了してください";
         
     }
     else
