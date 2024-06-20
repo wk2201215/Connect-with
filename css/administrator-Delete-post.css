@@ -1,4 +1,15 @@
 table {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
+            border: 1px solid black;
+            border-collapse: collapse;
+          
+        }
+        .center-button {
+            position: absolute;
+            bottom: 1600px; /* ボタンを下から10pxの位置に設定 */
+            right: 10px; /* ボタンを右から10pxの位置に設定 */
+        }
+        .center-button button {
+            padding: 10px 20px; /* ボタンの内側余白を設定 */
+            font-size: 30px; /* フォントサイズを大きく設定 */
+            cursor: pointer; /* カーソルをポインタに変更 */
+        }

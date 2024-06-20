@@ -47,11 +47,7 @@ try {
     <link rel="stylesheet" href="css/administrator-userList.css">
 </head>
 <body>
-    <div class="search">
-        <input class="keyword" type="text" name="keyword" placeholder="  キーワード検索  ">
-        <button class="searchbutton" type="submit" name="user_search" value="ユーザー検索">🔍</button>
-        <button class="searchbutton" type="submit" name="hashtag" value="ハッシュタグ検索">＃</button>
-    </div>
+    <h1>UserList</h1>
 
     <table border="1">
         <tr>
@@ -79,8 +75,6 @@ try {
         </tr>
         <?php endforeach; ?>
     </table>
-    <div class="center-button">
-        <button type="button" onclick="location.href='administrator-Delete-post.php'">遷移[post]</button>
-    </div>
-</body>
-</html>
+    <button type="button" class="top-right-button" onclick="location.href='administrator-Delete-post.php'">遷移[post]</button>
+    
+</body></html>

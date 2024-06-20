@@ -2,12 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url('images/sky3.png'); /* 背景画像の設定 */
-    background-size: cover; /* 画像が要素全体を覆う */
-    background-position: center; /* 画像の中心を要素の中心に合わせる */
-    background-repeat: no-repeat; /* 画像が繰り返されないようにする */
-    margin: 0; /* デフォルトの余白をなくす */
-    height: 100vh; /* ビューポート全体の高さを確保 */
+   
 }
 
 .toukou {

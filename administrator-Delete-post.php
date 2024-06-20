@@ -41,6 +41,7 @@ try {
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/administrator-Delete-post.css">
     <title>Post Management</title>
 </head>
 <body>
@@ -98,7 +99,7 @@ try {
         <?php endforeach; ?>
     </table>
     <div class="center-button">
-        <button type="button" onclick="location.href='administrator-userList.php'">遷移[post]</button>
+        <button type="button" onclick="location.href='administrator-userList.php'">遷移[user]</button>
     </div>
 </body>
 </html>

@@ -60,6 +60,9 @@ try {
             font-family: Arial, sans-serif;
             text-align: center;
             padding: 20px;
+            background-image: url('images/sky3.png'); 
+            background-size: cover; 
+            
             }
         .profile-username {
             font-size: 20px;
