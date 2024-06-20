@@ -12,7 +12,7 @@
 
     $mail_address = $_POST['mail_address'];
     $title = "メールアドレスの確認";
-    $message = $_POST['message'];
+    $message = ""
     $headers = "From: from@example.com";
 
     if(mb_send_mail($to, $title, $message, $headers))

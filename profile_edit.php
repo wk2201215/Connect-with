@@ -119,99 +119,7 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>プロフィール編集</title>
-    <style>
-        body {
-            
-            font-weight: bold;
-            text-align: center;
-            padding: 20px;
-        }
-        .profile-picture {
-            width: 100px;
-            height: 100px;
-            background-color: #ccc;
-            border-radius: 50%;
-            margin: 0 auto;
-            background-image: url('images/<?php echo $photographPath; ?>');  /* ここに写真のパスを入れる */
-            background-size: cover;
-            position: relative;
-        }
-        .profile-picture input {
-            display: none;
-        }
-        .profile-picture label {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 20px;
-            height: 20px;
-            background: #e0e0e0;
-            border-radius: 100%;
-            padding: 5px;
-            cursor: pointer;
-        }
-        .profile-edit-form {
-            max-width: 400px;
-            margin: 0 auto;
-            text-align: left;
-        }
-        .profile-edit-form div {
-            margin-bottom: 10px;
-        }
-
-        .profile-edit-form label {
-            display: black;
-            margin-bottom: 0spx;
-        }
-        
-        .profile-edit-form input[type="text"],
-        .profile-edit-form textarea {
-            width: 100%;
-	        margin: 1px auto;
-            padding: 8px;
-	        background-color:#ffffff;
-	        box-shadow: 0 0 6px 1px #d6adff, 0 0 6px 1px #d6adff inset;
-	        border-radius: 30px;
-            border-color: #d6adff;
-            box-sizing: border-box;
-            border: 1px solid #d6adff;
-        }
-
-        .profile-edit {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 5px 10px;
-            border: 2px solid #d6adff;
-            border-radius: 20px;
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 14px;
-            justify-content: center;
-            background-color: #d6adff;
-           
-
-        }
-        .profile-edit:hover {
-            background-color: #ffffff;
-            color: #d6adff;
-        }
-
-        .container{
-            text-align:right;
-        }
-
-    
-    </style>
-    <script>
-        function previewImage(event) {
-            const reader = new FileReader();
-            reader.onload = function(){
-                const output = document.getElementById('profile-picture-preview');
-                output.style.backgroundImage = `url(${reader.result})`;
-            };
-            reader.readAsDataURL(event.target.files[0]);
-        }
-    </script>
+    <link rel="stylesheet" href="css/profile_edit.css"/>
 </head>
 <body>
     <h1>プロフィール編集</h1>
@@ -239,3 +147,7 @@ try {
     </form>
 </body>
 </html>
+<script src="./script/profile_edit.js"></script>
+<?php
+ $pdo = null;   //DB切断
+ ?>
