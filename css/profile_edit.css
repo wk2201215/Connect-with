@@ -3,6 +3,10 @@ body {
     font-weight: bold;
     text-align: center;
     padding: 20px;
+    background-image: url('../images/sky3.png'); 
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
 }
 .profile-picture {
     width: 100px;
@@ -10,7 +14,7 @@ body {
     background-color: #ccc;
     border-radius: 50%;
     margin: 0 auto;
-    background-image: url('images/<?php echo $photographPath; ?>');  /* ここに写真のパスを入れる */
+   /* background-image: url('images/<?php echo $photographPath; ?>');  /* ここに写真のパスを入れる */
     background-size: cover;
     position: relative;
 }
