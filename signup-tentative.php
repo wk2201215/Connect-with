@@ -22,13 +22,13 @@ mb_internal_encoding("UTF-8");
 $mail_address = $_POST['mail_address'];
 $title = "メールアドレスの確認";
 $message = "アカウント作成の確定をしてください\r\n
-https://aso2201215.mods.jp/Connect_with/program/signup.php"
+https://aso2201215.mods.jp/Connect_with/program/signup.php";
 $headers = "From: from@example.com";
 
 if(mb_send_mail($to, $title, $message, $headers)){
     echo "メール送信成功です";
     echo "<br>";
-    echo "まだ登録は完了していません"
+    echo "まだ登録は完了していません";
     echo "<br>";
     echo "1分以内に登録を完了してください";
 }else{
