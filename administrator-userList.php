@@ -75,7 +75,6 @@ try {
         </tr>
         <?php endforeach; ?>
     </table>
-    <div class="center-button">
-        <button type="button" onclick="location.href='administrator-Delete-post.php'">遷移[post]</button>
-    </div>
+    <button type="button" class="top-right-button" onclick="location.href='administrator-Delete-post.php'">遷移[post]</button>
+    
 </body></html>
