@@ -1,4 +1,4 @@
-/* Make the entire table larger */
+/* テーブル全体を大きくする */
 table {
     width: 100%;
     font-size: 1.5em;
@@ -6,27 +6,23 @@ table {
     margin: 20px 0;
 }
 
-/* Make the table header larger and bold */
+/* テーブルヘッダーを大きくして太字にする */
 th {
     padding: 10px;
     background-color: #f2f2f2;
     font-weight: bold;
 }
 
-/* Make the table cells larger */
+/* テーブルセルを大きくする */
 td {
     padding: 10px;
 }
 
-/* Center align the restoration and delete cells */
-td.restoration, td.delete {
-    text-align: center;
-}
 
-/* Style the search bar and buttons */
+/* 検索バーとボタンをスタイルする */
 .search {
     margin-bottom: 20px;
-    text-align: center; /* Center align the search bar */
+    text-align: center; /* 検索バーを中央揃えにする */
 }
 
 .keyword {
@@ -40,17 +36,14 @@ td.restoration, td.delete {
     font-size: 1.2em;
 }
 
-/* Style the restore and delete buttons */
+/* 復元と削除のボタンをスタイルする */
 button[type="submit"] {
     padding: 10px 20px;
     font-size: 1.2em;
 }
 
-/* Center align the navigation button */
-.center-button {
-    text-align: center;
-    margin-top: 20px;
-}
+/* ナビゲーションボタンを中央揃えにする */
+
 
 button[type="button"] {
     padding: 10px 20px;

@@ -41,6 +41,7 @@ try {
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/administrator-Delete-post.css">
     <title>Post Management</title>
 </head>
 <body>
