@@ -22,7 +22,7 @@
         ?>
 <div class="container">
     <div class="signup-form">
-        <form action="signup-output.php" method="post">
+        <form action="signup-tentative.php" method="post">
             <div class="form-group">
                 <label for="name">名前</label>
                 <input type="text" name="account_name" id="name" value="<?php echo $name; ?>" required>

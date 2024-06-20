@@ -126,6 +126,7 @@ try {
     <form action="profile_edit.php" method="post" class="profile-edit-form" enctype="multipart/form-data">
         <div class="profile-picture" id="profile-picture-preview">
             <input type="file" id="profile_picture" name="profile_picture" onchange="previewImage(event)">
+            <img src="../images/<?php echo $photographPath; ?>" alt="アカウント写真" class="profile-picture" id="profile-picture-img" />
             <label for="profile_picture">＋</label>
         </div>
         <div>

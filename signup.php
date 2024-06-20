@@ -1,26 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>新規登録</title>
+    <link rel="stylesheet" href="./css/signup.css">
 
-<form action="mail-out.php" method="post">
-	<p>送り先</p><input type="text" name="to">
-	<p>件名</p><input type="text" name="title">
-    <p>メッセージ</p><textarea name="message" cols="60" rows="10"></textarea>
-    <p><input type="submit" name="send" value="送信"></p>
-</form>
-
-<?php
-    mb_language("Japanese");
-    mb_internal_encoding("UTF-8");
-
-    $mail_address = $_POST['mail_address'];
-    $title = "メールアドレスの確認";
-    $message = ""
-    $headers = "From: from@example.com";
-
-    if(mb_send_mail($to, $title, $message, $headers))
-    {
-        echo "メール送信成功です";
-    }
-    else
-    {
-        echo "メール送信失敗です";
-    }
-?>
+    <div class="video-background">
+    <video autoplay muted loop id="background-video">
+        <source src="movie/Connect With_signup2.mp4" type="video/mp4">
+        お使いのブラウザは動画タグに対応していません。
+    </video>
+    </div>
+</head>
+<body>
+    <?php require 'default/header.php'; ?>
+        <?php
+        $name = isset($_SESSION['account']['account_name']) ? htmlspecialchars($_SESSION['account']['account_name']) : '';
+        $address = isset($_SESSION['account']['mail_address']) ? htmlspecialchars($_SESSION['account']['mail_address']) : '';
+        // パスワードは表示しないことを推奨
+        $password = '';
+        ?>
+<div class="container">
+    <div class="signup-form">
+        <form action="signup-output.php" method="post">
+            <div class="form-group">
+                <label for="name">名前</label>
+                <input type="text" name="account_name" id="name" value="<?php echo $name; ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="email">メールアドレス</label>
+                <input type="email" name="mail_address" id="email" value="<?php echo $address; ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="password">パスワード</label>
+                <input type="password" name="account_password" id="password" value="<?php echo $password; ?>" required>
+            </div><br>
+            <button type="submit" class="btn">新規登録</button>
+        </form>
+    </div>
+</div>
+    <?php require 'default/footer.php'; ?>
+</body>
+</html>
