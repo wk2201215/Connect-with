@@ -62,7 +62,8 @@
         .button-container a {
             display: inline-block;
             padding: 10px 20px;
-            color: #ff0080;
+            background-color: rgba(255, 255, 255, 0.25);
+            color: #ff0000;
             border: 2px solid #ff0080;
             border-radius: 20px;
             text-decoration: none;

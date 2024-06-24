@@ -12,12 +12,12 @@ echo '<div class="header">';
 echo '</div>';
 echo '<div class="content">';
 echo '<h1>カテゴリー</h1><br>';
-echo '<p>興味のあるカテゴリーを選択してください。</p><br>';
+echo '<p>興味のあるカテゴリーを選択してください。</p><br><br>';
 echo '<div class="button-container">';
   $pdo=new PDO($connect,USER,PASS);
   $sql=$pdo->query('select * from category');
   foreach($sql as $row){
-    echo $row['category_name'];
+  //   echo $row['category_name'];
     
     echo '<button class=button-container>'.'<a href="category4.php?category_id='.$row['category_id'].'& category_name='.$row['category_name'].'">'.$row['category_name'].'</button>'.'</a>';
   }
@@ -36,8 +36,8 @@ echo '</div>';
   .button-container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
+            /* justify-content: center; */
+            gap: 11px;
             border: none;
             background: none;
         }
@@ -46,7 +46,7 @@ echo '</div>';
             padding: 10px 20px;
             color: #ff0080;
             border: 2px solid #ff0080;
-            border-radius: 20px;
+            border-radius: 25px;
             text-decoration: none;
             font-size: 16px;
             transition: background-color 0.3s, color 0.3s;
