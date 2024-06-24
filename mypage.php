@@ -85,9 +85,10 @@ try {
             padding: 5px 10px;
             /* border: 2px solid #d6adff; */
             /* border: 2px solid #ba55d3; */
-            border: 2px solid rgb(171,135,241);
+            /* border: 2px solid rgb(171,135,241); */
+            border: 2px solid rgb(137,26,226);
             border-radius: 20px;
-            color: rgb(171,135,241);
+            color: rgb(137,26,226);
             text-decoration: none;
             font-size: 14px;
         }
