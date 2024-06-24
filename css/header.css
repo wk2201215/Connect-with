@@ -1,6 +1,6 @@
 #container{
   margin: 0;
-  padding: 0;
+  padding: 12px;
   position: relative;
   top: 40px;
 }
@@ -13,7 +13,8 @@ header{
     /* position: sticky; */
     top:0;
     transition: 0.5s;/* アニメーション表示時間 */
-    background-color:rgb(208, 250, 0);
+    /* background-color: rgb(208, 250, 0); */
+    background-color: #d6adff;
     /* 画面の最前列にする */
     z-index: 1000;
 }
@@ -25,7 +26,8 @@ footer{
     bottom: 0;
     width: 100%;
     transition: 0.5s;
-    background-color:rgb(208, 250, 0);
+    /* background-color: rgb(208, 250, 0); */
+    background-color: #d6adff;
 }
 
 #nav {
@@ -37,7 +39,8 @@ footer{
 #nav li {
     width: 25%;
     text-align: center;
-    background-color: rgb(208, 250, 0);
+    /* background-color: rgb(208, 250, 0); */
+    background-color: #d6adff;
     display: inline-block;
     font-size: 16px;
 }
@@ -58,9 +61,12 @@ footer{
 .fix-btn{
   position:fixed;
   z-index:1;
-  background:#2dd8c8;
+  /* background: rgb(156, 155, 255); */
+  background:#d6adff;
   width:150px;
+  border: 2px solid #000;
   border-radius:15px;
+  border-color: rgb(137,26,226);
   text-decoration:none;
   font-size:14px;
   text-align:center;
