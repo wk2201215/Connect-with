@@ -1,5 +1,6 @@
 <?php require 'db/db-connect.php'; ?>
 <?php require 'default/header.php'; ?>
+<?php require 'default/header-top.php'; ?>
 <?php
 $pdo=new PDO($connect,USER,PASS);
 
@@ -27,13 +28,17 @@ https://aso2201215.mods.jp/Connect_with/program/signup.php";
 $headers = "From: from@example.com";
 
 if(mb_send_mail($mail_address, $title, $message, $headers)){
+    <div class="success">
     echo "メール送信成功です";
     echo "<br>";
     echo "まだ登録は完了していません";
     echo "<br>";
     echo "1分以内に登録を完了してください";
+    </div>
 }else{
+    <div class="failure">
     echo "メール送信失敗です";
+    </div>
 }
 ?>
 <?php require 'default/footer.php'; ?>
