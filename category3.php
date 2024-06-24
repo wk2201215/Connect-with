@@ -44,6 +44,7 @@ echo '</div>';
         .button-container a {
             display: inline-block;
             padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.25);
             color: #ff0080;
             border: 2px solid #ff0080;
             border-radius: 25px;
