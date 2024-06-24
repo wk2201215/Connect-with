@@ -26,7 +26,11 @@ $message = "アカウント作成の確定をしてください\r\n
 https://aso2201215.mods.jp/Connect_with/program/signup.php";
 $headers = "From: from@example.com";
 
-if(mb_send_mail($mail_address, $title, $message, $headers)){
+$returnMail = 'XXXXXXX@gmail.com';
+
+if(mb_send_mail($mail_address, $title, $message, $headers, '-f'.$returnMail)){
+    echo $mail_address.'にメールを送信しました';
+    echo "<br>";
     echo "メール送信成功です";
     echo "<br>";
     echo "まだ登録は完了していません";
