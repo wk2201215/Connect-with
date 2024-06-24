@@ -5,7 +5,7 @@ foreach($sql as $row){
     $sql_a->execute([$row['account_id']]);
     $item1 = $sql_a->fetch();
     
-    echo '<div class="account-info">';
+    echo '<div class="account-info" data-id="'.$_SESSION['account']['account_id'].'">';
     echo '<img src="Image-display.php?hogeA='.$item1['photograph_path'].'" alt="アカウント写真" class="fixed-size-img" />';
     echo '<div class="account-name">'.$item1['account_name'].'</div>';
     echo '<div class="post-time">'.$row['post_time'].'</div>';
