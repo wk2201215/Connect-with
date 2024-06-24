@@ -8,7 +8,7 @@ require 'default/header.php';
 //確認
 $pdo2=new PDO($connect,USER,PASS);
 $sql2=$pdo2->prepare('SELECT * FROM account_tentative WHERE account_name = ? AND account_password = ? AND mail_address = ? LIMIT 1');
-$sql2->execute([$_POST['account_name'], $_POST['account_password'], $_POST['mail_address'],]);
+$sql2->execute([$_POST['account_name'], $_POST['account_password'], $_POST['mail_address']]);
 $resultCount = $sql2->rowCount();
 if($resultCount == 1){
     try {
@@ -29,9 +29,10 @@ if($resultCount == 1){
             $sql->execute([
                 $_POST['account_name'], $_POST['mail_address'], $hashed_password
             ]);
-    
+            $sql3=$pdo->prepare('DELETE FROM account_tentative WHERE account_name = ? AND account_password = ? AND mail_address = ? LIMIT 1');
+            $sql3->execute([$_POST['account_name'], $_POST['account_password'], $_POST['mail_address']]);
             // 登録完了後、top.phpにリダイレクト
-            header('Location: category.php');
+            header('Location: category3.php');
             exit();
         } else {
             // 既にメールアドレスが登録されている場合、エラーメッセージを表示し、リダイレクト
