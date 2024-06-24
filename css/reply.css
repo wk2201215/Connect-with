@@ -1,6 +1,55 @@
-.profile-img {
-    width: 100px; /* 画像の幅を設定 */
-    height: 100px; /* 画像の高さを設定 */
-    border-radius: 50%; /* 丸くするために半径を設定 */
-    object-fit: cover; /* 画像を枠に収める */
+/* styles.css */
+.icon-image {
+    width: 100px; /* 適切なサイズに調整 */
+    height: 100px; /* 適切なサイズに調整 */
+    border-radius: 50%;
+    object-fit: cover; /* 画像を容器にフィットさせる */
+    display: block;
+        float: left;
+}
+
+/* 既存のスタイル */
+form {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+form input[type="submit"] {
+    display: block;
+    width: 100px;
+    margin: 10px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+form label, form select, form textarea, form input[type="file"] {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+}
+
+form select, form textarea, form input[type="file"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form img {
+    display: block;
+    margin: 10px 0;
+    max-width: 100%;
+    height: auto;
 }

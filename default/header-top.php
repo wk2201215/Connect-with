@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="css/header.css"/>
 <link rel="stylesheet" href="css/post.css"/>
 <link rel="stylesheet" href="css/reply.css"/>
+<link rel="stylesheet" href="css/signup-ten.css"/>
 
 
 </head>

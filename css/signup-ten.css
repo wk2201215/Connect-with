@@ -1,0 +1,22 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-image: url('./images/sky3.png'); 
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    
+    }
+ 
+ .success{
+    text-align: center;
+    font-weight: bold;
+ }
+
+
+
+ .failure{
+    text-align: center;
+    font-weight: bold;
+ }

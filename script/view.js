@@ -1,6 +1,10 @@
 
 $(document).ready(function () {
     
+    // $(".account-info").on("click", function() {
+    //     var account_id = $(this).data('id');
+    //     location.href='./reply.php?post_id='+account_id;
+    // });
     $(".view").on("click", function() {
         // var id = document.getElementById('');
         // alert();

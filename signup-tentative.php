@@ -1,5 +1,6 @@
 <?php require 'db/db-connect.php'; ?>
 <?php require 'default/header.php'; ?>
+<?php require 'default/header-top.php'; ?>
 <?php
 $pdo=new PDO($connect,USER,PASS);
 
@@ -11,8 +12,9 @@ if($resultCount == 1){
     exit();
 }
 
-$sql=$pdo->prepare('INSERT INTO account_tentative (account_name, account_password, mail_address)
-VALUES (value1, value2, DATE_ADD(NOW(), INTERVAL 1 MINUTE)); -- 例: 7日後に削除');
+$sql=$pdo->prepare('INSERT INTO account_tentative (account_name, account_password, mail_address, delete_at)
+VALUES (?, ?, ?, DATE_ADD(NOW(), INTERVAL 1 MINUTE))'); 
+// 1分後に削除
 $sql->execute([$_POST['account_name'], $_POST['account_password'], $_POST['mail_address']]);
 
 
@@ -25,14 +27,18 @@ $message = "アカウント作成の確定をしてください\r\n
 https://aso2201215.mods.jp/Connect_with/program/signup.php";
 $headers = "From: from@example.com";
 
-if(mb_send_mail($to, $title, $message, $headers)){
+if(mb_send_mail($mail_address, $title, $message, $headers)){
+    <div class="success">
     echo "メール送信成功です";
     echo "<br>";
     echo "まだ登録は完了していません";
     echo "<br>";
     echo "1分以内に登録を完了してください";
+    </div>
 }else{
+    <div class="failure">
     echo "メール送信失敗です";
+    </div>
 }
 ?>
 <?php require 'default/footer.php'; ?>
