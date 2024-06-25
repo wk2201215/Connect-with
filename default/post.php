@@ -19,7 +19,7 @@ foreach($sql as $row){
         $item2 = $sql_p->fetch();
         echo '<img src="Image-display.php?hogeA='.$item2['photograph_path'].'" alt="投稿写真" class="post-img" />';
     }
-    // echo '</div>';
+    echo '</div>';
 
     echo '<div class="result" id="'.$row['post_id'].'">';
     echo '<p>good数：'.$row['good_count'].'</p>';
@@ -36,8 +36,8 @@ foreach($sql as $row){
     // echo $row['good_count'];
     
     echo '<input class="reply" type="button" value="返信" data-id="'.$row['post_id'].'" data-cn="'.$row['category_name'].'" data-ci="'.$row['category_id'].'"/>';
-    
-    echo '</div>';
+
+    // echo '</div>';
 
     echo '<HR>';
     echo '</div>';
