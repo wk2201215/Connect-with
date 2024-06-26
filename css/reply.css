@@ -1,11 +1,12 @@
 /* styles.css */
 .icon-image {
-    width: 100px; /* 適切なサイズに調整 */
-    height: 100px; /* 適切なサイズに調整 */
+    width: 60px; /* 適切なサイズに調整 */
+    height: 60px; /* 適切なサイズに調整 */
     border-radius: 50%;
     object-fit: cover; /* 画像を容器にフィットさせる */
     display: block;
-        float: left;
+    float: left;
+    border: 2px solid black; 
 }
 
 /* 既存のスタイル */
@@ -18,10 +19,21 @@ form {
     background-color: #f9f9f9;
 }
 
+form {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    position: relative; /* 相対位置指定を追加 */
+}
+
 form input[type="submit"] {
-    display: block;
+    position: absolute; /* 絶対位置指定を追加 */
+    top: 5px; /* フォームの上からの位置を指定 */
+    right: 5px; /* フォームの右からの位置を指定 */
     width: 100px;
-    margin: 10px 0;
     padding: 10px;
     border: none;
     border-radius: 5px;
