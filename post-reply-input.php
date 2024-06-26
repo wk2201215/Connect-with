@@ -31,11 +31,11 @@
         
         <!-- <input type="submit" value=""/> -->
         
-        <?= '<img src="Image-display.php?hogeA='.$_SESSION['account']['photograph_path'].'" alt="投稿写真" class="icon-image"/>'?>
+        <?= '<img src="Image-display.php?hogeA='.$_SESSION['account']['photograph_path'].'" alt="投稿写真" />'?>
         
 
         <label>内容</label>
-        <textarea name="post_content" cols="50" rows="5"></textarea>
+        <textarea name="post_content" cols="50" rows="5" ></textarea>
         <input type="file" name="image" />
 </form>
 

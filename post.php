@@ -1,6 +1,5 @@
 <?php require 'default/header-top.php'; ?>
 <?php require 'default/header-menu.php'; ?>
-echo '<div id="container">';
 
 <form action="login-output.php" method="post">
     <h1>post</h1>
