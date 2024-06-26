@@ -16,8 +16,7 @@
         <input type="hidden" name="category_id" value="<?=$_GET['category_id']?>" />
     <?php else:?>
         <?='<input type="submit" value="POST"/>'?>
-        account_name:<?=$_SESSION['account']['account_name']?>
-        category:
+        
         <select name="category">
         <?php
         $pdo=new PDO($connect,USER,PASS);

@@ -17,6 +17,7 @@ form {
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
+    
 }
 
 form {
@@ -30,7 +31,8 @@ form {
 }
 
 form input[type="submit"] {
-    position: absolute; /* 絶対位置指定を追加 */
+   
+
     top: 5px; /* フォームの上からの位置を指定 */
     right: 5px; /* フォームの右からの位置を指定 */
     width: 100px;
