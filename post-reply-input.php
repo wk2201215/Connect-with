@@ -34,7 +34,7 @@
         
 
         <label>内容</label>
-        <textarea name="post_content" cols="50" rows="5" ></textarea>
+        <textarea name="post_content" cols="50" rows="5" required></textarea>
         <input type="file" name="image" />
 </form>
 
