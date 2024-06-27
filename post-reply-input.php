@@ -30,7 +30,7 @@
         
         <!-- <input type="submit" value=""/> -->
         
-        <?= '<img src="Image-display.php?hogeA='.$_SESSION['account']['photograph_path'].'" alt="投稿写真" />'?>
+        <?= '<img src="Image-display.php?hogeA='.$_SESSION['account']['photograph_path'].'" alt="投稿写真" class="icon-image"/>'?>
         
 
         <label>内容</label>
