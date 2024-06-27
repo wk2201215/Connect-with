@@ -89,20 +89,18 @@ function writeMessage(post_id) {
 
 
 $(".ajax").on("click", function() {
-  var post_id = $(this).data('id');
-  // alert(post_id);
-  if ($(this).text() === 'いいね') {
-    $(this).text('いいね済み');
+  var post_g = $(this).data('g');
+  if (post_g == 0) {
+      $(this).html('<i class="fas fa-thumbs-up"></i> ');
   } else {
-    $(this).text('いいね');
+      $(this).html('<i class="far fa-thumbs-up"></i> ');
   }
   writeMessage(post_id);
 });
 
-
 $(document).ready(function() {
-    readMessage();
-    setInterval('readMessage2()', 1000);
+  readMessage();
+  setInterval('readMessage2()', 1000);
 });
 
 // $(function(){

@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Post Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
 <?php
 foreach($sql as $row){
     echo '<div class="toukou">';
@@ -28,17 +35,11 @@ foreach($sql as $row){
     $sql_g->execute([$row['post_id'],$_SESSION['account']['account_id']]);
     $resultCount = $sql_g->rowCount();
     if($resultCount == 1){
-        echo '<button class="ajax" id="'.$row['post_id'].'" data-id="'.$row['post_id'].'">いいね済み</button>';
+        echo '<button class="ajax" id="'.$row['post_id'].'" data-id="'.$row['post_id'].'" data-g="1"><i class="fas fa-thumbs-up"></i></button>';
     }else{
-        echo '<button class="ajax" id="'.$row['post_id'].'" data-id="'.$row['post_id'].'">いいね</button>';
+        echo '<button class="ajax" id="'.$row['post_id'].'" data-id="'.$row['post_id'].'" data-g="0"><i class="far fa-thumbs-up"></i></button>';
     }
-    // echo '<button class="ajax" id="'.$row['post_id'].'" data-id="'.$row['post_id'].'">いいね</button>';
-    // echo $row['good_count'];
-    
     echo '<input class="reply" type="button" value="返信" data-id="'.$row['post_id'].'" data-cn="'.$row['category_name'].'" data-ci="'.$row['category_id'].'"/>';
-
-    // echo '</div>';
-
     echo '<HR>';
     echo '</div>';
 }
