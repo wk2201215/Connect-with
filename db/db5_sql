@@ -66,10 +66,10 @@ CREATE TABLE account_tentative(
 
 
 CREATE TABLE chatroom(
-    chatroom_id       INT(10)                             NOT NULL,
-    number_people     
-    1to1_judgement    INT(1)                              NOT NULL,
-    delete_at         DATETIME                            NOT NULL,
+    chatroom_id       INT(10) AUTO_INCREMENT           NOT NULL,
+    chatroom_name     VARCHAR(40)                      NOT NULL,
+    number_people     INT(10)                          NOT NULL,
+    delete_at         DATETIME                         NOT NULL,
     PRIMARY KEY(chatroom_id)
 );
 
@@ -77,15 +77,18 @@ CREATE TABLE chatroom(
 CREATE TABLE chatmember(
     chatroom_id       INT(10)                             NOT NULL,
     account_id        INT(6)                              NOT NULL,
-    delete_at         DATETIME                            NOT NULL,
-    PRIMARY KEY(chatroom_id,account_id)
+    PRIMARY KEY(chatroom_id,account_id),
+    FOREIGN KEY(chatroom_id)    REFERENCES chatroom(chatroom_id),
+    FOREIGN KEY(account_id)    REFERENCES account(account_id)
 );
 
 CREATE TABLE chatmessage(
-    chatmessage_id     VARCHAR(40)                        NOT NULL,
+    chatmessage_id     INT(100)                           NOT NULL,
+    chatroom_id        INT(10)                            NOT NULL,
     chat_text          VARCHAR(200)                       NOT NULL,
-    account_id         VARCHAR(40)                        NOT NULL,
+    account_id         INT(6)                             NOT NULL,
     chatmessage_time   DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    delete_at          DATETIME                           NOT NULL,
-    PRIMARY KEY(account_name,account_password,mail_address)
+    PRIMARY KEY(chatmessage_id),
+    FOREIGN KEY(chatroom_id)    REFERENCES chatroom(chatroom_id),
+    FOREIGN KEY(account_id)     REFERENCES account(account_id)
 );
