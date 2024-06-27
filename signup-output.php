@@ -31,6 +31,30 @@ if($resultCount == 1){
             ]);
             $sql3=$pdo->prepare('DELETE FROM account_tentative WHERE account_name = ? AND account_password = ? AND mail_address = ? LIMIT 1');
             $sql3->execute([$_POST['account_name'], $_POST['account_password'], $_POST['mail_address']]);
+            //セッション登録
+            $sql6 = $pdo->prepare('SELECT * FROM account WHERE mail_address = ?');
+            $sql6->execute([$_POST['mail_address']]);
+            foreach($sql6 as $row){
+                $_SESSION['account'] = [
+                    'account_id' => $row['account_id'],
+                    'mail_address' => $row['mail_address'],
+                    'account_password' => $row['account_password'],
+                    'account_name' => $row['account_name'],
+                    'photograph_id' => $row['photograph_id'],
+                    'self_introduction' => $row['self_introduction'],
+                    'category_id' => $row['category_id'],
+                    'authority' => $row['authority'],
+                    'delete_flag' => $row['delete_flag']
+                ];
+            }
+            $sql4 = $pdo->prepare('SELECT * FROM photograph WHERE photograph_id = ?');
+            $sql4->execute([$_SESSION['account']['photograph_id']]);
+            $path=$sql4->fetch();
+            $_SESSION['account']['photograph_path'] = $path['photograph_path'];
+            $sql5 = $pdo->prepare('SELECT * FROM category WHERE category_id = ?');
+            $sql5->execute([$_SESSION['account']['category_id']]);
+            $path=$sql5->fetch();
+            $_SESSION['account']['category_name'] = $path['category_name'];
             // 登録完了後、top.phpにリダイレクト
             header('Location: category3.php');
             exit();
