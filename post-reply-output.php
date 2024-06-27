@@ -77,5 +77,3 @@ if(isset($_POST['post_id'])){
     exit();
 }
 
-
-?>
