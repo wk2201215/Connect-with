@@ -40,6 +40,12 @@ foreach($sql as $row){
         echo '<button class="ajax" id="'.$row['post_id'].'" data-id="'.$row['post_id'].'" data-g="0"><i class="far fa-thumbs-up"></i></button>';
     }
     echo '<input class="reply" type="button" value="返信" data-id="'.$row['post_id'].'" data-cn="'.$row['category_name'].'" data-ci="'.$row['category_id'].'"/>';
+
+    if($row['account_id'] == $_SESSION['account']['account_id']){
+        echo '<button class="delete" id="'.$row['post_id'].'" data-id="'.$row['post_id'].'">削除</button>';
+    }
+    // echo '</div>';
+
     echo '<HR>';
     echo '</div>';
 }
