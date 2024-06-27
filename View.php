@@ -16,13 +16,13 @@ echo '</div>';
 
 
 <?php
-    $imageSrc = "post_button.png"; // 画像のパスを指定
-    ?>
-    <form action="post-reply-input.php" method="post">
-        <button class="image-button" type="submit" name="submit">
-            <img src="<?php echo $imageSrc; ?>" alt="Button Image">
-        </button>
-    </form>
+$imageSrc = "post_button.png"; // 画像のパスを指定
+?>
+<form action="post-reply-input.php" method="post">
+    <button class="image-button" type="submit" name="submit">
+        <img src="<?php echo $imageSrc; ?>" alt="Button Image">
+    </button>
+</form>
 
 
 
