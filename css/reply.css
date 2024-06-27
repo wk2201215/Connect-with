@@ -1,23 +1,12 @@
-/* styles.css */
 .icon-image {
-    width: 60px; /* 適切なサイズに調整 */
-    height: 60px; /* 適切なサイズに調整 */
-    border-radius: 50%;
-    object-fit: cover; /* 画像を容器にフィットさせる */
-    display: block;
-    float: left;
-    border: 2px solid black; 
-}
-
-/* 既存のスタイル */
-form {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    
+    width: 60px;         /* アイコンの幅 */
+    height: 60px;        /* アイコンの高さ */
+    border-radius: 50%;  /* 丸い形にするための設定 */
+    object-fit: cover;   /* 画像を容器にフィットさせる */
+    display: inline-block; /* ブロック要素として表示 */
+    border: 2px solid black; /* アイコンの周りに黒い枠を追加 */
+    margin-right: 15px;      /* 右側の余白を追加 */
+    vertical-align: middle;  /* 画像の垂直位置をテキストと同じに */
 }
 
 form {
@@ -27,14 +16,12 @@ form {
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
-    position: relative; /* 相対位置指定を追加 */
+    position: relative;
 }
 
 form input[type="submit"] {
-   
-
-    top: 5px; /* フォームの上からの位置を指定 */
-    right: 5px; /* フォームの右からの位置を指定 */
+    position: relative;  /* 親要素の位置を基準にする */
+    margin-top: 0px;    /* 上部に余白を追加 */
     width: 100px;
     padding: 10px;
     border: none;
@@ -43,6 +30,7 @@ form input[type="submit"] {
     color: white;
     font-size: 16px;
     cursor: pointer;
+    float: right;
 }
 
 form input[type="submit"]:hover {
@@ -59,6 +47,11 @@ form select, form textarea, form input[type="file"] {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+
+form select {
+    width: 50%; /* カテゴリーバーの幅を50%に設定 */
+    max-width: 300px; /* カテゴリーバーの最大幅を300pxに設定 */
 }
 
 form img {

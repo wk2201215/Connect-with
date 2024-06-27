@@ -77,7 +77,7 @@ function writeMessage(post_id) {
     .then(
         function (data) {
 
-          readMessage(data[0].post_id);
+          readPost(data[0].post_id);
           console.log(data);
           // $("#message").val('');
         },
@@ -88,44 +88,49 @@ function writeMessage(post_id) {
 }
 
 
+
 $(".ajax").on("click", function() {
   var post_id = $(this).data('id');
   // alert(post_id);
   if ($(this).text() === 'いいね') {
     $(this).text('いいね済み');
+
   } else {
     $(this).text('いいね');
   }
   writeMessage(post_id);
 });
+//delete_post
+$(".delete").on("click", function() {
+  var post_id = $(this).data('id');
+  deletePost(post_id);
+});
 
+function deletePost(post_id) {
+  $.ajax({
+    url:'./dbconnect3.php', //送信先
+    type:'POST', //送信方法
+    datatype: 'json', //受け取りデータの種類
+    data:{
+      'post_id' : post_id
+    }
+  })
+  .then(
+      function (data) {
+        readPost();
+        console.log(data);
+      },
+      function () {
+          alert("削除失敗");
+      }
+  );
+}
+
+function readPost() {
+  location.reload();
+}
 
 $(document).ready(function() {
     readMessage();
     setInterval('readMessage2()', 1000);
 });
-
-// $(function(){
-//   var name=Array.prototype.map.call($('.result'),function(x){
-//     return x.value;
-//   });
-//   console.log(result);
-// });
-
-
-
-// // reloadの応用方法
-// // キャッシュを利用してリロードする方法
-// function doReloadWithCache() {
- 
-//   // キャッシュを利用してリロード
-//   window.location.reload(false);
-
-// }
-
-// window.addEventListener('load', function () {
-
-//   // ページ表示完了した5秒後にリロード
-//   setTimeout(doReloadWithCache, 5000);
-
-// });

@@ -24,4 +24,6 @@ $(document).ready(function () {
     $(".fix-btn").on("click", function() {
         location.href='./post-reply-input.php';
     });
+
+    
 })
