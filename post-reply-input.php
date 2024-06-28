@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 <?php require 'db/db-connect.php'; ?>
 <?php require 'default/header-top.php'; ?>
-<?php require 'default/header-menu.php'; ?>
+
 <div id="container">
 
 <form action="post-reply-output.php" method="post" enctype="multipart/form-data">
