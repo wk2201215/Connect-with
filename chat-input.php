@@ -6,15 +6,12 @@
 echo '<div id="container">';
 echo 'チャットルーム追加(招待)';
 echo '<HR>';
-$pdo=new PDO($connect,USER,PASS);
-$sql=$pdo->prepare('SELECT * FROM chatmember WHERE account_id = ?');
-$sql->execute([$_SESSION['account']['account_id']]);
-foreach($sql as $row){
-    $sql2=$pdo->prepare('SELECT * FROM chatroom  WHERE chatroom_id');
-    $sql2->execute([$row['chatroom_id']]);
-    $item->$sql2->fetch();
-    echo $item['chatroom_name'];
-}
+echo '<form action="chat-output.php" method="post">';
+  echo '<input type="text" name="mail_address" required>';
+  echo '<input type="radio" name="to" class="to" value="on">個人';
+  echo '<input type="radio" name="to" class="to" value="multiple">複数';
+  echo '<button type="submit">招待</button>';
+echo '</form>';
 echo '</div>';
 ?>
 

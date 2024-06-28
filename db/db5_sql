@@ -69,6 +69,7 @@ CREATE TABLE chatroom(
     chatroom_id       INT(10) AUTO_INCREMENT           NOT NULL,
     chatroom_name     VARCHAR(40)                      NOT NULL,
     number_people     INT(10)                          NOT NULL,
+    one_on_one        BIT(1) DEFAULT 1                 NOT NULL,
     delete_at         DATETIME                         NOT NULL,
     PRIMARY KEY(chatroom_id)
 );
