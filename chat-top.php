@@ -5,8 +5,7 @@
 <?php
 echo '<div id="container">';
 echo 'チャットルーム';
-echo '<hr>'
-
+echo '<hr>';
 $pdo=new PDO($connect,USER,PASS);
 $sql=$pdo->prepare('SELECT * FROM chatmember WHERE account_id = ?');
 $sql->execute([$_SESSION['account']['account_id']]);
