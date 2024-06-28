@@ -22,13 +22,14 @@ echo '</div>';
 
 
 
-<?php
+<!-- <?php
 $imageSrc = "post_button.png"; // 画像のパスを指定
-?>
+?> -->
 <form action="post-reply-input.php" method="post">
-    <button class="image-button" type="submit" name="submit">
+    <!-- <button class="image-button" type="submit" name="submit">
         <img src="<?php echo $imageSrc; ?>" alt="Button Image">
-    </button>
+    </button> -->
+    <input type="image" src="./images/post_button.png" alt="投稿">
 </form>
 
 

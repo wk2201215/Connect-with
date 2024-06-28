@@ -6,7 +6,8 @@
 </div>  
 <div class="wrapper">
     <!-- <a href="#" class="fix-btn">問い合わせはこちら</a> -->
-    <input class="fix-btn" type="button" value="＋" width="100" height="100"/>
+    <!-- <input class="fix-btn" type="button" value="＋" width="100" height="100"/> -->
+    <input class="fix-btn" type="image" style="bottom: 40px;" src="./images/post_button.png" alt="投稿">
   <!-- <div class="box">&nbsp;</div> -->
 </div>
 </header>
