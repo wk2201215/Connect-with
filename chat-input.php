@@ -4,7 +4,7 @@
 <?php require 'default/header-menu-chat.php'; ?>
 <?php
 echo '<div id="container">';
-echo 'チャットルーム';
+echo 'チャットルーム追加(招待)';
 echo '<HR>';
 $pdo=new PDO($connect,USER,PASS);
 $sql=$pdo->prepare('SELECT * FROM chatmember WHERE account_id = ?');
