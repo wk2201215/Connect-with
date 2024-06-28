@@ -26,7 +26,7 @@ $(document).ready(function () {
     });
     $(".account-info").on("click", function() {
         var account_id = $(this).data('id');
-        location.href='./mypage.php?my=0 account='+account_id;
+        location.href='./mypage.php?my=0&account_id='+account_id;
     });
     
 })

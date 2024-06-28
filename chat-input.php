@@ -4,14 +4,8 @@
 <?php require 'default/header-menu-chat.php'; ?>
 <?php
 echo '<div id="container">';
-echo 'チャットルーム';
-echo '<hr>';
-echo '<div id="chatroom_input">';
-    echo 'chatroom追加（招待）';
-echo '</div>';
-echo '<div id="chatroom_invitation">';
-    echo '招待された';
-echo '</div>';
+echo 'チャットルーム追加(招待)';
+echo '<HR>';
 $pdo=new PDO($connect,USER,PASS);
 $sql=$pdo->prepare('SELECT * FROM chatmember WHERE account_id = ?');
 $sql->execute([$_SESSION['account']['account_id']]);
