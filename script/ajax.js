@@ -77,7 +77,7 @@ function writeMessage(post_id) {
     .then(
         function (data) {
 
-          readPost(data[0].post_id);
+          // readPost(data[0].post_id);
           console.log(data);
           // $("#message").val('');
         },
@@ -126,9 +126,9 @@ function deletePost(post_id) {
   );
 }
 
-function readPost() {
-  location.reload();
-}
+// function readPost() {
+//   location.reload();
+// }
 
 $(document).ready(function() {
     readMessage();
