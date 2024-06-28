@@ -8,13 +8,16 @@ require 'default/header-top.php';
 try {
     $pdo = new PDO($connect, USER, PASS);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    // セッション変数がセットされていることを確認します
-    if (isset($_SESSION['account']['account_id'])) {
-        $userId = $_SESSION['account']['account_id'];
-    } else {
-        echo 'セッションが開始されていないか、アカウントIDが見つかりません。';
-        exit;
+    if($_GET['my']==1){
+        // セッション変数がセットされていることを確認します
+        if (isset($_SESSION['account']['account_id'])) {
+            $userId = $_SESSION['account']['account_id'];
+        } else {
+            echo 'セッションが開始されていないか、アカウントIDが見つかりません。';
+            exit;
+        }  
+    }else{
+        $userId = $_GET['account_id'];
     }
 
     $sql = 'SELECT mail_address, photograph_id, account_name, self_introduction FROM account WHERE account_id = ?';
@@ -113,7 +116,9 @@ try {
 
     <div class="profile-username">@<?php echo $mailAddress; ?></div>
     <div class="profile-picture"></div>
-    <a href="profile_edit.php" class="profile-edit">プロフィール編集</a>
+    <?php if($_GET['my']==1) : ?>
+        <a href="profile_edit.php" class="profile-edit">プロフィール編集</a>
+    <?php endif; ?>
     <div class="profile-name"><?php echo $accountName; ?></div>
     <div class="profile-details"><?php echo $selfIntroduction; ?></div>
 
@@ -122,7 +127,7 @@ try {
 <?php
 $sql=$pdo->prepare('SELECT * FROM post INNER JOIN category ON post.category_id = category.category_id WHERE delete_flag=0 AND account_id = ?');
 $sql->execute([
-    $_SESSION['account']['account_id']
+    $userId
 ]);
 echo '<div id="container">';
 require 'default/post.php';
