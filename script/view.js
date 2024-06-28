@@ -24,7 +24,10 @@ $(document).ready(function () {
     $(".fix-btn").on("click", function() {
         location.href='./post-reply-input.php';
     });
-
+    $(".account-info").on("click", function() {
+        var account_id = $(this).data('id');
+        location.href='./mypage.php?my=0 account='+account_id;
+    });
     
 })
 
