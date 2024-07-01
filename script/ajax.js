@@ -126,9 +126,9 @@ function deletePost(post_id) {
   );
 }
 
-// function readPost() {
-//   location.reload();
-// }
+function readPost() {
+  location.reload();
+}
 
 $(document).ready(function() {
     readMessage();

@@ -17,16 +17,24 @@ if($_POST['to']==='on'){
     $sql_input=$pdo->prepare('INSERT INTO chatroom (chatroom_name, number_people, one_on_one) VALUES (?, ?, ?)');
     $sql_input->execute([$item['account_name'],2,$item['account_id']]);
 }else{
-    $sql_input=$pdo->prepare('INSERT INTO chatroom (chatroom_name, number_people, one_on_one) VALUES (?, ?, ?)');
-    $sql_input->execute([$_SESSION['account']['account_id'],2,$item['account_id']]);
+    $sql_input=$pdo->prepare('INSERT INTO chatroom (chatroom_name, number_people, one_on_one) VALUES (?, ?, DEFAULT)');
+    $sql_input->execute([$item['account_name'],2]);
 }
+
 foreach($sql_input as $row){
     $sql2=$pdo->prepare('SELECT * FROM chatroom  WHERE chatroom_id');
     $sql2->execute([$row['chatroom_id']]);
-    $item->$sql2->fetch();
-    echo $item['chatroom_name'];
+    $item2->$sql2->fetch();
+    // echo $item['chatroom_name'];
 }
-
+$member = [
+    $_SESSION['account']['account_id'],$item['account_id']
+];
+//memberテーブル
+foreach($member as $row){
+    $sql_input2=$pdo->prepare('INSERT INTO chatmember (chatroom_id, account_id) VALUES (?, ?)');
+    $sql_input->execute([$item2['chatroom_id'], $row]);
+}
 header('Location:chat-top.php');
 exit();
 ?>
