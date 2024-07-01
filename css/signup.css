@@ -25,7 +25,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 90vh;
 }
 
 .signup-form {
@@ -36,9 +36,8 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     max-width: 250px;
     width: 100%;
-    max-height:60%;
-    height: 60%;
-    margin-top: 200px; 
+    height: 62%;
+    margin-top: 230px; 
 }
 
 .signup-form h1 {
@@ -53,8 +52,8 @@ body {
 
 .form-group label {
     display: block;
-    margin-bottom: 8px;
-    font-size: 1.2rem;
+    margin-bottom: 2px;
+    font-size: 1rem;
 }
 
 .form-group input {
@@ -74,20 +73,37 @@ body {
     border-color: #fca7d2;
 }
 
-.btn {
+.btn1 {
     background-color: white;
     color: #fca7d2;
     display: inline-block;
     width: 100%;
-    padding: 11px;
+    padding: 9px;
     border: 2px solid #fca7d2;
     border-radius: 20px;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: -40px;
+}
+.btn2 {
+    background-color: white;
+    color: #fca7d2;
+    display: inline-block;
+    width: 100%;
+    padding: 8px;
+    border: 2px solid #fca7d2;
+    border-radius: 20px;
+    font-size: 1rem;
     cursor: pointer;
     margin-top: 10px;
+
 }
 
-.btn:hover {
+.btn1:hover {
+    background-color: #fca7d2;
+    color: white;
+}
+.btn2:hover {
     background-color: #fca7d2;
     color: white;
 }
