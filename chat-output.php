@@ -18,7 +18,7 @@ if($_POST['to']==='on'){
     $sql_input->execute([$item['account_name'],2,$item['account_id']]);
 }else{
     $sql_input=$pdo->prepare('INSERT INTO chatroom (chatroom_name, number_people, one_on_one) VALUES (?, ?, ?)');
-    $sql_input->execute([$_SESSION['account']['account_id']]);
+    $sql_input->execute([$_SESSION['account']['account_id'],2,$item['account_id']]);
 }
 foreach($sql_input as $row){
     $sql2=$pdo->prepare('SELECT * FROM chatroom  WHERE chatroom_id');
