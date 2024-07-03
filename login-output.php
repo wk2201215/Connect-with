@@ -50,7 +50,7 @@ try {
         if ($_SESSION['account']['authority'] == 1) {
             header('Location:administrator-userList.php');
         } else {
-            header('Location:top.php');
+            header('Location:.View.php');
         }
         exit();
     } else {
