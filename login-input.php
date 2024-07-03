@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <?php require 'default/header.php'; ?>
 
 <link rel="stylesheet" href="css/login.css">
@@ -13,7 +12,6 @@
 <div class="container">
     <div class="login-form">
         <form action="login-output.php" method="post">
-            <?php unset($_SESSION); ?>
             <div class="form-group">
                 <label for="mail_address">メールアドレス</label>
                 <input type="text" name="mail_address" id="mail_address" required>

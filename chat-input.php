@@ -21,6 +21,8 @@ echo '<form action="chat-output.php" method="post">';
   }
   echo '相手のメールアドレス';
   echo '<input type="text" name="mail_address" required>';
+  echo 'ルーム写真';
+  echo '<input type="file" name="image" />';
   echo '<button type="submit">招待</button>';
 echo '</form>';
 echo '</div>';

@@ -19,6 +19,7 @@ CREATE TABLE account(
     self_introduction VARCHAR(500)               NOT NULL,
     category_id       INT(3)                     NOT NULL,
     authority         TINYINT                    NOT NULL,
+    login_flag        BIT(1) DEFAULT 0           NOT NULL,
     delete_flag       BIT(1) DEFAULT 0           NOT NULL,
     PRIMARY KEY(account_id),
     FOREIGN KEY(photograph_id) REFERENCES photograph(photograph_id),

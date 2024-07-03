@@ -1,5 +1,6 @@
 <?php
 session_start(); // Start the session
+session_regenerate_id();
 unset($_SESSION['account']); // Unset any existing session data
 
 require 'function/not-access.php';
