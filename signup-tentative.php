@@ -8,7 +8,7 @@ $sql_check = $pdo->prepare('SELECT * FROM account WHERE mail_address = ? LIMIT 1
 $sql_check->execute([$_POST['mail_address']]);
 $resultCount = $sql_check->rowCount();
 if($resultCount == 1){
-    echo 'そのメールアドレスは既に登録されています。別のメールアドレスを使用してください。';
+    echo '<h1 style="font-size: 18px;">そのメールアドレスは既に登録されています。別のメールアドレスを使用してください。</h1>';
 
     // header('Location: error.php?message=そのメールアドレスは既に登録されています。別のメールアドレスを使用してください。');
     // exit();

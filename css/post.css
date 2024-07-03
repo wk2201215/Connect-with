@@ -89,3 +89,8 @@ body {
 .reply:hover {
     background-color: #00acc1;
 }
+
+.comment {
+    border:none;
+    background:none;
+}
