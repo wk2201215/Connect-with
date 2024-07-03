@@ -35,7 +35,10 @@
                 <label for="password">パスワード</label>
                 <input type="password" name="account_password" id="password" value="<?php echo $password; ?>" required>
             </div><br>
-            <button type="submit" class="btn">新規登録</button>
+            <button type="submit" class="btn1">新規登録</button>
+        </form>
+        <form action="login-input.php" method="get">
+            <button type="submit" class="btn2">ログイン画面</button>
         </form>
     </div>
 </div>
