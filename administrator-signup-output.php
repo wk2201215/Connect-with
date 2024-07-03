@@ -25,7 +25,7 @@ if($resultCount == 1){
             // パスワードをハッシュ化
             $hashed_password = password_hash($_POST['account_password'], PASSWORD_DEFAULT);
     
-            $sql = $pdo->prepare('INSERT INTO account (account_name, mail_address, account_password) VALUES (?, ?, ?)');
+            $sql = $pdo->prepare('INSERT INTO account (account_name, mail_address, account_password, authority) VALUES (?, ?, ?,1)');
             $sql->execute([
                 $_POST['account_name'], $_POST['mail_address'], $hashed_password
             ]);

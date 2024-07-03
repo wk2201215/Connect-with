@@ -25,7 +25,7 @@ mb_internal_encoding("UTF-8");
 $mail_address = $_POST['mail_address'];
 $title = "メールアドレスの確認";
 $message = "アカウント作成の確定をしてください\r\n
-https://aso2201215.mods.jp/Connect_with/program/signup.php";
+https://aso2201215.mods.jp/Connect_with/program/administrator-signup.php";
 $headers = "From: from@example.com";
 
 $returnMail = 'XXXXXXX@gmail.com';
@@ -38,7 +38,7 @@ if(mb_send_mail($mail_address, $title, $message, $headers, '-f'.$returnMail)){
     echo "まだ登録は完了していません";
     echo "<br>";
     echo "1分以内に登録を完了してください";
-    </div>
+    echo '</div>';
 }else{
     echo '<div class="failure">';
     echo "メール送信失敗です";

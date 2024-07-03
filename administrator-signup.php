@@ -22,7 +22,7 @@
         ?>
 <div class="container">
     <div class="signup-form">
-        <form action="administrator-signup-tentative.php" method="post">
+        <form action="administrator-signup-output.php" method="post">
             <div class="form-group">
                 <label for="name">名前</label>
                 <input type="text" name="account_name" id="name" value="<?php echo $name; ?>" required>
@@ -35,10 +35,7 @@
                 <label for="password">パスワード</label>
                 <input type="password" name="account_password" id="password" value="<?php echo $password; ?>" required>
             </div><br>
-            <button type="submit" class="btn1">新規登録</button>
-        </form>
-        <form action="login-input.php" method="get">
-            <button type="submit" class="btn2">ログイン画面</button>
+            <button type="submit" class="btn">新規登録</button>
         </form>
     </div>
 </div>
