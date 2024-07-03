@@ -20,14 +20,15 @@ foreach($sql as $row){
 
     if($item['one_on_one'] != 0){
         if($_SESSION['account']['account_id'] < $item2['account_id']){
-            echo $item['chatroom_name1'];
-        }else{
             echo $item['chatroom_name2'];
+        }else{
+            echo $item['chatroom_name1'];
         }
     }else{
         echo $item['chatroom_name1'];
     }
-    echo '<br>';
+    echo '<button class="consent" data-roomid="'.$row['chatroom_id'].'" data-accountid="'.$row['account_id'].'">承諾</button>';
+    echo '<hr>';
 }
 echo '</div>';
 ?>
