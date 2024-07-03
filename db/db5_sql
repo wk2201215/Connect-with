@@ -19,6 +19,7 @@ CREATE TABLE account(
     self_introduction VARCHAR(500)               NOT NULL,
     category_id       INT(3)                     NOT NULL,
     authority         TINYINT                    NOT NULL,
+    login_flag        BIT(1) DEFAULT 0           NOT NULL,
     delete_flag       BIT(1) DEFAULT 0           NOT NULL,
     PRIMARY KEY(account_id),
     FOREIGN KEY(photograph_id) REFERENCES photograph(photograph_id),
@@ -66,12 +67,15 @@ CREATE TABLE account_tentative(
 
 
 CREATE TABLE chatroom(
-    chatroom_id       INT(10) AUTO_INCREMENT             NOT NULL,
-    chatroom_name     VARCHAR(40)                        NOT NULL,
-    number_people     INT(10)                            NOT NULL,
-    one_on_one        INT(6) DEFAULT 0                   NOT NULL,
-    delete_flag       BIT(1) DEFAULT 0                   NOT NULL, 
-    PRIMARY KEY(chatroom_id)
+    chatroom_id       INT(10) AUTO_INCREMENT          NOT NULL,
+    chatroom_name1     VARCHAR(40)                    NOT NULL,
+    chatroom_name2     VARCHAR(40)                    NOT NULL,
+    number_people     INT(10)                         NOT NULL,
+    photograph_id     INT(7) DEFAULT 0                NOT NULL,
+    one_on_one        INT(6) DEFAULT 0                NOT NULL,
+    delete_flag       BIT(1) DEFAULT 0                NOT NULL, 
+    PRIMARY KEY(chatroom_id),
+    FOREIGN KEY(photograph_id) REFERENCES photograph(photograph_id)
 );
 
 

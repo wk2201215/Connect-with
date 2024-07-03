@@ -8,12 +8,12 @@ $sql_check = $pdo->prepare('SELECT * FROM account WHERE mail_address = ? LIMIT 1
 $sql_check->execute([$_POST['mail_address']]);
 $resultCount = $sql_check->rowCount();
 if($resultCount == 1){
-    echo '<h1 style="font-size: 18px;">そのメールアドレスは既に登録されています。別のメールアドレスを使用してください。</h1>';
-
+    echo 'そのメールアドレスは既に登録されています。別のメールアドレスを使用してください。';
     // header('Location: error.php?message=そのメールアドレスは既に登録されています。別のメールアドレスを使用してください。');
     // exit();
-}else{
-    $sql=$pdo->prepare('INSERT INTO account_tentative (account_name, account_password, mail_address, delete_at)
+}
+
+$sql=$pdo->prepare('INSERT INTO account_tentative (account_name, account_password, mail_address, delete_at)
 VALUES (?, ?, ?, DATE_ADD(NOW(), INTERVAL 1 MINUTE))'); 
 // 1分後に削除
 $sql->execute([$_POST['account_name'], $_POST['account_password'], $_POST['mail_address']]);
@@ -38,14 +38,11 @@ if(mb_send_mail($mail_address, $title, $message, $headers, '-f'.$returnMail)){
     echo "まだ登録は完了していません";
     echo "<br>";
     echo "1分以内に登録を完了してください";
-    echo '</div>';
+    </div>
 }else{
     echo '<div class="failure">';
     echo "メール送信失敗です";
     echo '</div>';
 }
-}
-
-
 ?>
 <?php require 'default/footer.php'; ?>

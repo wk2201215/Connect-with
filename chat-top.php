@@ -16,10 +16,15 @@ $pdo=new PDO($connect,USER,PASS);
 $sql=$pdo->prepare('SELECT * FROM chatmember WHERE account_id = ?');
 $sql->execute([$_SESSION['account']['account_id']]);
 foreach($sql as $row){
-    $sql2=$pdo->prepare('SELECT * FROM chatroom  WHERE chatroom_id');
+    $sql2=$pdo->prepare('SELECT * FROM chatroom  WHERE chatroom_id = ?');
     $sql2->execute([$row['chatroom_id']]);
-    $item->$sql2->fetch();
-    echo $item['chatroom_name'];
+    $item=$sql2->fetch();
+    if($_SESSION['account']['account_id'] < $item['one_on_one']){
+        echo $item['chatroom_name2'];
+    }else{
+        echo $item['chatroom_name1'];
+    }
+    echo '<br>';
 }
 echo '</div>';
 ?>
