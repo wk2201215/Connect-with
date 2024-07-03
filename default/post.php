@@ -39,8 +39,10 @@ foreach($sql as $row){
     }else{
         echo '<button class="ajax" id="'.$row['post_id'].'" data-id="'.$row['post_id'].'" data-g="0"><i class="far fa-thumbs-up"></i></button>';
     }
-    echo '<input class="reply" type="button" value="返信" data-id="'.$row['post_id'].'" data-cn="'.$row['category_name'].'" data-ci="'.$row['category_id'].'"/>';
-
+    // echo '<input class="reply" type="button" value="返信" data-id="'.$row['post_id'].'" data-cn="'.$row['category_name'].'" data-ci="'.$row['category_id'].'"/>';
+    // echo '<i class="far fa-comment reply" data-id="'.$row['post_id'].'" data-cn="'.$row['category_name'].'" data-ci="'.$row['category_id'].'"></i>';
+    echo '<button class="comment" data-id="'.$row['post_id'].'" data-cn="'.$row['category_name'].'" data-ci="'.$row['category_id'].'"><i class="far fa-comment reply"></i></button>';
+ 
     if($row['account_id'] == $_SESSION['account']['account_id']){
         echo '<button class="delete" id="'.$row['post_id'].'" data-id="'.$row['post_id'].'">削除</button>';
     }
