@@ -114,7 +114,7 @@ try {
 
     <div class="big">
 
-    <div class="profile-username">@<?php echo $mailAddress; ?></div>
+    <div class="profile-username"><?php echo $mailAddress; ?></div>
     <div class="profile-picture"></div>
     <?php if($_GET['my']==1) : ?>
         <a href="profile_edit.php" class="profile-edit">プロフィール編集</a>

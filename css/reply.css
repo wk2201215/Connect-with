@@ -10,12 +10,9 @@
 }
 
 form {
-    width: 90%;
-    margin: 0 auto;
+   margin-right: auto;
     padding: 20px;
-    border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #f9f9f9;
     position: relative;
 }
 
