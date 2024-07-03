@@ -48,4 +48,7 @@ if(mb_send_mail($mail_address, $title, $message, $headers, '-f'.$returnMail)){
 
 
 ?>
+<form action="login-input.php" method="get">
+            <button type="submit" >ログイン画面に戻る</button>
+        </form>
 <?php require 'default/footer.php'; ?>
