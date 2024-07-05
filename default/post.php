@@ -44,7 +44,8 @@ foreach($sql as $row){
     echo '<button class="comment" data-id="'.$row['post_id'].'" data-cn="'.$row['category_name'].'" data-ci="'.$row['category_id'].'"><i class="far fa-comment reply"></i></button>';
  
     if($row['account_id'] == $_SESSION['account']['account_id']){
-        echo '<button class="delete" id="'.$row['post_id'].'" data-id="'.$row['post_id'].'">削除</button>';
+        // echo '<button class="delete" id="'.$row['post_id'].'" data-id="'.$row['post_id'].'">削除</button>';
+        echo '<button class="delete" id="'.$row['post_id'].'" data-id="'.$row['post_id'].'"><i class="fa-solid fa-trash"></i></button>';
     }
     // echo '</div>';
 
