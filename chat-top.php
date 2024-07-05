@@ -19,9 +19,12 @@ foreach($sql as $row){
     $sql2=$pdo->prepare('SELECT * FROM chatroom  WHERE chatroom_id = ?');
     $sql2->execute([$row['chatroom_id']]);
     $item=$sql2->fetch();
-    if($_SESSION['account']['account_id'] < $item['one_on_one'])
-    if($_SESSION['account']['account_id'] < $item['one_on_one']){
-        echo $item['chatroom_name2'];
+    if($item['one_on_one'] != 0){
+        if($_SESSION['account']['account_id'] < $item['one_on_one']){
+            echo $item['chatroom_name2'];
+        }else{
+            echo $item['chatroom_name1'];
+        }
     }else{
         echo $item['chatroom_name1'];
     }
