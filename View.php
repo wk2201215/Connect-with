@@ -13,7 +13,7 @@ echo '</div>';
 
 $pdo=new PDO($connect,USER,PASS);
 // query
-$sql=$pdo->prepare('SELECT * FROM post INNER JOIN category ON post.category_id = category.category_id WHERE delete_flag=0 AND reply_id IS NULL AND post.category_id=?');
+$sql=$pdo->prepare('SELECT * FROM post INNER JOIN category ON post.category_id = category.category_id WHERE delete_flag=0 AND reply_id IS NULL AND post.category_id=? ORDER BY post_id DESC');
 $sql->execute([$_SESSION['account']['category_id']]);
 echo '<div id="container">';
 require 'default/post.php';
