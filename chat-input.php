@@ -19,10 +19,14 @@ echo '<form action="chat-output.php" method="post">';
     echo '<input type="text" name="chatroom_name" required>';
     echo '<input type="hidden" name="to" value="two">';
   }
-  echo '相手のメールアドレス';
-  echo '<input type="text" name="mail_address" required>';
+  echo '<br>';
   echo 'ルーム写真';
   echo '<input type="file" name="image" />';
+  echo '相手のメールアドレス';
+  echo '<div class="mail" data-count=1>';
+    echo '<input type="text" name="mail_address" required>';
+  echo '</div>';
+  echo '<div id="pura">増やす</div>';
   echo '<button type="submit">招待</button>';
 echo '</form>';
 echo '</div>';

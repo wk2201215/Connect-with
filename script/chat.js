@@ -14,6 +14,16 @@ $(document).ready(function () {
         var account_id = $(this).data('accountid');
         consent(chatroom_id,account_id);
     });
+    $("#pura").on("click", function() {
+        var count = $(this).data('count');
+        $(this).attr('count', count+1);
+        $('div.mail').append('<input type="text" name="mail_address" required>');
+    });
+    $("#mai").on("click", function() {
+        var count = $(this).data('count');
+        $('div.mail').attr('count', count-1);
+
+    });
 });
 
 function consent(chatroom_id, account_id) {
