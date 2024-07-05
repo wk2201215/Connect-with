@@ -75,7 +75,7 @@ try {
         }
 
         // プロフィールが更新された後、mypage.phpにリダイレクト
-        header("Location: mypage.php");
+        header("Location: mypage.php?my=1");
         exit;
     } else {
         $sql = 'SELECT mail_address, photograph_id, account_name, self_introduction FROM account WHERE account_id = ?';

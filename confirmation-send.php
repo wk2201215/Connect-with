@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>新規登録</title>
+    <title>管理者用メール送信</title>
     <link rel="stylesheet" href="./css/signup.css">
 
     <div class="video-background">
@@ -22,23 +22,15 @@
         ?>
 <div class="container">
     <div class="signup-form">
-        <form action="administrator-signup-tentative.php" method="post">
-            <div class="form-group">
-                <label for="name">名前</label>
-                <input type="text" name="account_name" id="name" value="<?php echo $name; ?>" required>
-            </div>
+        <form action="confirmation-signup-tentative.php" method="post">
             <div class="form-group">
                 <label for="email">メールアドレス</label>
                 <input type="email" name="mail_address" id="email" value="<?php echo $address; ?>" required>
             </div>
-            <div class="form-group">
-                <label for="password">パスワード</label>
-                <input type="password" name="account_password" id="password" value="<?php echo $password; ?>" required>
-            </div><br>
-            <button type="submit" class="btn1">新規登録</button>
+            <button type="submit" class="btn1">送信</button>
         </form>
-        <form action="login-input.php" method="get">
-            <button type="submit" class="btn2">ログイン画面</button>
+        <form action="administrator-signup-input.php" method="get">
+            <button type="submit" class="btn2">管理者用新規登録</button>
         </form>
     </div>
 </div>
