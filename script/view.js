@@ -15,7 +15,7 @@ $(document).ready(function () {
         // location.href='http://yahoo.co.jp';
     });
     
-    $(".reply").on("click", function() {
+    $(".comment").on("click", function() {
         var post_id = $(this).data('id');
         var category_name = $(this).data('cn');
         var category_id = $(this).data('ci');
