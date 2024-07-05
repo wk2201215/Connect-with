@@ -55,6 +55,12 @@ if($resultCount == 1){
             $sql5->execute([$_SESSION['account']['category_id']]);
             $path=$sql5->fetch();
             $_SESSION['account']['category_name'] = $path['category_name'];
+            //chatroom作成
+            $sql_room=$pdo->prepare('INSERT INTO chatroom (chatroom_name1, chatroom_name2, number_people, one_on_one) VALUES (?, ?, ?, ?)');
+            $sql_room->execute([$_SESSION['account']['account_name'], $_SESSION['account']['account_name'], 2, $_SESSION['account']['account_id']]);
+            $inserted_id = $pdo->lastInsertId();
+            $sql_member=$pdo->prepare('INSERT INTO chatmember (chatroom_id, account_id) VALUES (?, ?)');
+            $sql_member->execute([$inserted_id, $_SESSION['account']['account_id']]);
             // 登録完了後、top.phpにリダイレクト
             header('Location: category3.php');
             exit();
