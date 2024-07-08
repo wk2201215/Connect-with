@@ -10,7 +10,7 @@
     <input class="fix-btn" type="image" style="bottom: 40px;" src="./images/post_button.png" alt="投稿">
   <!-- <div class="box">&nbsp;</div> -->
   <?php
-  if($_SESSION['authority'] == 1){
+  if($_SESSION['account']['authority'] == 1){
     require 'default/header-hamburger.php';
   }
   ?>
