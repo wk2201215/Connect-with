@@ -16,10 +16,10 @@ $pdo=new PDO($connect,USER,PASS);
 $sql=$pdo->prepare('SELECT * FROM chatmember WHERE account_id = ?');
 $sql->execute([$_SESSION['account']['account_id']]);
 foreach($sql as $row){
-    $sql2=$pdo->prepare('SELECT * FROM chatroom  WHERE chatroom_id = ?');
+    $sql2=$pdo->prepare('SELECT * FROM chatroom INNER JOIN photograph ON chatroom.photograph_id = photograph.photograph_id WHERE chatroom_id = ?');
     $sql2->execute([$row['chatroom_id']]);
     $item=$sql2->fetch();
-    echo ''
+    echo '<img src="Image-display.php?hogeA='.$item['photograph_path'].'" alt="ルームアイコン" class="post-img" />';
     if($item['one_on_one'] != 0){
         if($_SESSION['account']['account_id'] < $item['one_on_one']){
             echo $item['chatroom_name2'];
