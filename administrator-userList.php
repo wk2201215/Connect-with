@@ -3,6 +3,8 @@ session_start(); // Start the session
 
 require 'function/not-access.php';
 require 'db/db-connect.php';
+require 'default/header-hamburger.php';
+
 
 // Handle account restoration and deletion
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -46,7 +48,6 @@ try {
     <title>User Accounts</title>
     <link rel="stylesheet" href="css/administrator-userList.css">
 </head>
-<body>
     <h1>UserList</h1>
 
     <table border="1">
@@ -75,6 +76,5 @@ try {
         </tr>
         <?php endforeach; ?>
     </table>
-    <button type="button" class="top-right-button" onclick="location.href='administrator-Delete-post.php'">遷移[post]</button>
-    
-</body></html>
+</body>
+</html>

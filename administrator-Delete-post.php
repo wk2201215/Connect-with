@@ -3,6 +3,7 @@ session_start(); // Start the session
 
 require 'function/not-access.php';
 require 'db/db-connect.php';
+require 'default/header-hamburger.php';
 
 // Handle post restoration and deletion
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -98,8 +99,5 @@ try {
             </tr>
         <?php endforeach; ?>
     </table>
-    <div class="center-button">
-        <button type="button" onclick="location.href='administrator-userList.php'">遷移[user]</button>
-    </div>
 </body>
 </html>
