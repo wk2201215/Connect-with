@@ -15,9 +15,11 @@ echo '<hr>';
 $sql2=$pdo->prepare('SELECT * FROM chatmessage WHERE chatroom_id = ?');
 $sql2->execute([$item['chatroom_id']]);
 $item2=$sql2->fetchAll();
-$item2=end($item2);
-echo '<div id="messageTextBox" data-id="'.$item2['chatmessage_id'].'">';
-  foreach($sql2 as $row){
+$item3=end($item2);
+echo '<div id="messageTextBox" data-id="'.$item3['chatmessage_id'].'" data-chatroom_id="'.$item['chatroom_id'].'">';
+  $sql3=$pdo->prepare('SELECT * FROM chatmessage WHERE chatroom_id = ?');
+  $sql3->execute([$item['chatroom_id']]);
+  foreach($sql3 as $row){
     if($item['account_id']== $_SESSION['account']['account_id']){
         echo $row['chat_text'];
         echo '_jibunn';
@@ -30,7 +32,7 @@ echo '<div id="messageTextBox" data-id="'.$item2['chatmessage_id'].'">';
 echo '</div>';
 echo '<form method="post" onsubmit="writeMessage(); return false;">';
   echo '<input id="message" name="message" type="text" value="" />';
-  echo '<input type="button" value="送信" onclick="writeMessage('.$item['chatroom_id'].')">';
+  echo '<input type="button" value="送信" onclick="writeMessage()">';
 echo '</form>';
 echo '</div>';
 ?>

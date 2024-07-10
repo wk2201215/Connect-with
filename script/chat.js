@@ -64,7 +64,8 @@ function readMessage() {
 		type: 'post',
 		url: './chat-room-db.php',
 		data: {
-            chatroom_id : chatroom_id,
+            chatroom_id : $('div#messageTextBox').data('chatroom_id'),
+            chatmessage_id : $('div#messageTextBox').data('id'),
             flag : 2
 		}
 	})
@@ -80,13 +81,13 @@ function readMessage() {
 }
 
 
-function writeMessage(chatroom_id) {
+function writeMessage() {
 	$.ajax({
 		type: 'post',
 		url: './chat-room-db.php',
 		data: {
 			'message' : $("#message").val(),
-            chatroom_id : chatroom_id,
+            chatroom_id : $('div#messageTextBox').data('chatroom_id'),
             flag : 1
 		}
 	})

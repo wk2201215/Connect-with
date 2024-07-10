@@ -125,7 +125,7 @@ try {
     </div>
     <h3 class="h3-left">~投稿一覧~</h3>
 <?php
-$sql=$pdo->prepare('SELECT * FROM post INNER JOIN category ON post.category_id = category.category_id WHERE delete_flag=0 AND account_id = ?');
+$sql=$pdo->prepare('SELECT * FROM post INNER JOIN category ON post.category_id = category.category_id WHERE delete_flag=0 AND account_id = ? ORDER BY post_id DESC');
 $sql->execute([
     $userId
 ]);
