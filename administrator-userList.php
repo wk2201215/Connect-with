@@ -6,6 +6,7 @@ require 'db/db-connect.php';
 require 'default/header-hamburger.php';
 
 
+
 // Handle account restoration and deletion
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {

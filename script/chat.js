@@ -14,15 +14,22 @@ $(document).ready(function () {
         var account_id = $(this).data('accountid');
         consent(chatroom_id,account_id);
     });
+    var count = $('div.mail').data('count');
     $("#pura").on("click", function() {
-        var count = $(this).data('count');
-        $(this).attr('count', count+1);
-        $('div.mail').append('<input type="text" name="mail_address" required>');
+        // var count = $('div.mail').data('count');
+        count += 1;
+        $('div.mail').attr('data-count', count);
+        $('div.mail').append(
+            '<div id="'+count+'"><input type="text" name="mail[]" required><br></div>'
+        );
     });
     $("#mai").on("click", function() {
-        var count = $(this).data('count');
-        $('div.mail').attr('count', count-1);
-
+        // var count = $('div.mail').data('count');
+        $('#'+count).remove();
+        if(count != 0){
+            count -= 1;
+        }
+        $('div.mail').attr('data-count', count);
     });
 });
 

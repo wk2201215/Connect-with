@@ -6,7 +6,7 @@
 echo '<div id="container">';
 echo 'チャットルーム追加(招待)';
 echo '<HR>';
-echo '<form action="chat-output.php" method="post">';
+echo '<form action="chat-output.php" method="post"  enctype="multipart/form-data">';
   if(isset($_GET['message'])){
     echo $_GET['message'];
   }
@@ -18,15 +18,19 @@ echo '<form action="chat-output.php" method="post">';
     echo 'ルーム名';
     echo '<input type="text" name="chatroom_name" required>';
     echo '<input type="hidden" name="to" value="two">';
+    echo '<div id="pura">増やす</div>';
+    echo '<div id="mai">減らす</div>';
   }
   echo '<br>';
   echo 'ルーム写真';
   echo '<input type="file" name="image" />';
   echo '相手のメールアドレス';
   echo '<div class="mail" data-count=1>';
-    echo '<input type="text" name="mail_address" required>';
+    echo '<div id="1">'; 
+      echo '<input type="text" name="mail[]" required>';
+      echo '<br>';
+    echo '</div>';
   echo '</div>';
-  echo '<div id="pura">増やす</div>';
   echo '<button type="submit">招待</button>';
 echo '</form>';
 echo '</div>';

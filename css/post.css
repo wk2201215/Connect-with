@@ -48,6 +48,7 @@ body {
 .post-content {
     margin-bottom: 10px;
     text-align: left;
+    white-space: pre-wrap;
 }
 
 .post-img {
