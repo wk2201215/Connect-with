@@ -17,13 +17,16 @@ if($_POST['flag'] == 1){
     $sql->execute([$_POST['chatroom_id']]);
     foreach($sql as $row){
         if($_POST['chatmessage_id'] < $row['chatmessage_id']){
-            $memberList[$count] = $row['chat_text'].'_jibunn';
-            echo $row['chat_text'];
-            echo '_jibunn';
-            echo '<br>';
+            $memberList[$count][0] = $row['chat_text'];
+            if($row['account_id'] == $_SESSION['account']['account_id']){
+                $memberList[$count][1] = 'my';
+            }else{
+                $memberList[$count][1] = 'you';
+            }
+            $memberList[$count][2] = $row['chatmessage_id'];
             $count++;
         }
-      }
+    }
 }
 
 

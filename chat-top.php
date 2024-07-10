@@ -14,8 +14,8 @@ echo '<div id="chatroom_invitation">';
 echo '</div>';
 echo '<hr>';
 $pdo=new PDO($connect,USER,PASS);
-//複数
-echo 'グループチャット';
+//個人
+echo '個人チャット';
 $sql=$pdo->prepare('SELECT * FROM chatmember INNER JOIN  chatroom ON chatmember.chatroom_id = chatroom.chatroom_id WHERE account_id = ? AND one_on_one != 0');
 $sql->execute([$_SESSION['account']['account_id']]);
 foreach($sql as $row){
@@ -37,8 +37,8 @@ foreach($sql as $row){
     echo '<br>';
 }
 echo '<hr>';
-//個人
-echo '個人チャット';
+//複数
+echo '複数チャット';
 $sql=$pdo->prepare('SELECT * FROM chatmember INNER JOIN  chatroom ON chatmember.chatroom_id = chatroom.chatroom_id WHERE account_id = ? AND one_on_one = 0');
 $sql->execute([$_SESSION['account']['account_id']]);
 foreach($sql as $row){

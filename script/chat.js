@@ -71,6 +71,15 @@ function readMessage() {
 	})
 	.then(
 		function (data) {
+            //ループ対象の配列
+            $.each(data, function() {
+            console.log("名称：" + this);
+            $('div#messageTextBox').append(
+                '<div class="m" id="'+this[2]+'"><div class="'+this[1]+'">'+this[0]+'</div></div>'
+            );
+            })
+
+            $('div#messageTextBox').attr('data-id', data.end);
 			console.log('チャット読み込み成功');
 		},
 		function () {

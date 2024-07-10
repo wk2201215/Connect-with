@@ -20,14 +20,18 @@ echo '<div id="messageTextBox" data-id="'.$item3['chatmessage_id'].'" data-chatr
   $sql3=$pdo->prepare('SELECT * FROM chatmessage WHERE chatroom_id = ?');
   $sql3->execute([$item['chatroom_id']]);
   foreach($sql3 as $row){
+    echo '<div class="m" id="'.$row['chatmessage_id'].'">'
     if($item['account_id']== $_SESSION['account']['account_id']){
-        echo $row['chat_text'];
-        echo '_jibunn';
+        echo '<div class="my">';
+          echo $row['chat_text'];
+        echo '</div>';
     }else{
-        echo $row['chat_text'];
-        echo '_aite';
+        echo '<div class="you">';
+          echo $row['chat_text'];
+        echo '</div>';
     }
     echo '<br>';
+    echo '</div>';
   }
 echo '</div>';
 echo '<form method="post" onsubmit="writeMessage(); return false;">';
