@@ -31,6 +31,10 @@ $(document).ready(function () {
         }
         $('div.mail').attr('data-count', count);
     });
+    $(".chatroom").on("click", function() {
+        var chatroom_id = $(this).data('id');
+        location.href='./chat-room.php?chatroom_id='+chatroom_id;
+    });
 });
 
 function consent(chatroom_id, account_id) {
@@ -52,4 +56,53 @@ function consent(chatroom_id, account_id) {
             alert("削除失敗");
         }
     );
-  }
+}
+
+function readMessage() {
+	// location.reload();
+    $.ajax({
+		type: 'post',
+		url: './chat-room-db.php',
+		data: {
+            chatroom_id : chatroom_id,
+            flag : 2
+		}
+	})
+	.then(
+		function (data) {
+			console.log('チャット読み込み成功');
+		},
+		function () {
+            console.log('チャット読み込み失敗');
+			alert("書き込み失敗");
+		}
+	);
+}
+
+
+function writeMessage(chatroom_id) {
+	$.ajax({
+		type: 'post',
+		url: './chat-room-db.php',
+		data: {
+			'message' : $("#message").val(),
+            chatroom_id : chatroom_id,
+            flag : 1
+		}
+	})
+	.then(
+		function (data) {
+			readMessage();
+			$("#message").val('');
+		},
+		function () {
+			alert("書き込み失敗");
+		}
+	);
+}
+
+
+$(document).ready(function() {
+	readMessage();
+	setInterval('readMessage()', 100);
+});

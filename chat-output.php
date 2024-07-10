@@ -10,7 +10,7 @@ $sql2 = "INSERT INTO photograph(photograph_path) VALUES (:image)";
 $stmt = $pdo->prepare($sql2);
 $stmt->bindValue(':image', $image, PDO::PARAM_STR);
 //初期アイコン
-$item2 = 0;
+$item2['photograph_id'] = 0;
 if (!empty($_FILES['image']['name'])) {//ファイルが選択されていれば$imageにファイル名を代入
 move_uploaded_file($_FILES['image']['tmp_name'], './images/' . $image);//imagesディレクトリにファイル保存
     if (exif_imagetype($file)) {//画像ファイルかのチェック

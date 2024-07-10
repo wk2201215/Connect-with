@@ -99,7 +99,7 @@ CREATE TABLE chatmember_invitation(
 );
 
 CREATE TABLE chatmessage(
-    chatmessage_id     INT(100)                           NOT NULL,
+    chatmessage_id     INT(100) AUTO_INCREMENT            NOT NULL,
     chatroom_id        INT(10)                            NOT NULL,
     chat_text          VARCHAR(200)                       NOT NULL,
     account_id         INT(6)                             NOT NULL,
