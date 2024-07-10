@@ -132,12 +132,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     </style>
 </head>
+
+<?php
+$sql = 'SELECT photograph_path FROM photograph WHERE photograph_id = ?';
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$user['photograph_id']]);
+    $photograph = $stmt->fetch(PDO::FETCH_ASSOC);
+?>
 <body>
     <div class="container">
         <div class="header">
             <div class="profile">
                 <div class="avatar">
-                    <img src="path/to/profile/image/<?php echo htmlspecialchars($user['photograph_id'], ENT_QUOTES, 'UTF-8'); ?>.jpg" alt="Profile Picture" width="60" height="60">
+                    <img src="./images/<?php echo htmlspecialchars($photograph['photograph_path'], ENT_QUOTES, 'UTF-8'); ?>" alt="Profile Picture" width="60" height="60">
                 </div>
                 <div class="info">
                     <p><strong>名前:</strong> <?php echo htmlspecialchars($user['account_name'], ENT_QUOTES, 'UTF-8'); ?></p>
