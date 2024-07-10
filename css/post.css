@@ -48,6 +48,7 @@ body {
 .post-content {
     margin-bottom: 10px;
     text-align: left;
+    white-space: pre-wrap;
 }
 
 .post-img {
@@ -68,7 +69,7 @@ body {
     background-color: #e91e63;
     color: white;
     border: none;
-    padding: 6.5px 20px;
+    padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -97,6 +98,6 @@ body {
 
 .delete {
     border:none;
-    padding: 6.5px 20px;
+    padding: 10px 20px;
     border-radius: 5px;
 }
