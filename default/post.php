@@ -34,6 +34,7 @@ foreach($sql as $row){
     $sql_g=$pdo->prepare('SELECT * FROM good WHERE post_id = ? AND account_id = ? LIMIT 1');
     $sql_g->execute([$row['post_id'],$_SESSION['account']['account_id']]);
     $resultCount = $sql_g->rowCount();
+    echo '<div class="botan">';
     if($resultCount == 1){
         echo '<button class="ajax" id="'.$row['post_id'].'" data-id="'.$row['post_id'].'" data-g="1"><i class="fas fa-thumbs-up"></i></button>';
     }else{
@@ -48,6 +49,7 @@ foreach($sql as $row){
         echo '<button class="delete" id="'.$row['post_id'].'" data-id="'.$row['post_id'].'"><i class="fa-solid fa-trash"></i></button>';
     }
     // echo '</div>';
+    echo '</div>';
 
     echo '<HR>';
     echo '</div>';

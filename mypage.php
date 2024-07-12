@@ -111,7 +111,7 @@ try {
     </style>
 </head>
 <body>
-
+    <div id="container">
     <div class="big">
 
     <div class="profile-username"><?php echo $mailAddress; ?></div>
@@ -129,7 +129,7 @@ $sql=$pdo->prepare('SELECT * FROM post INNER JOIN category ON post.category_id =
 $sql->execute([
     $userId
 ]);
-echo '<div id="container">';
+
 require 'default/post.php';
 echo '</div>';
 ?>

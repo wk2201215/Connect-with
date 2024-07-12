@@ -65,39 +65,67 @@ body {
     margin-bottom: 10px;
 }
 
-.ajax {
-    background-color: #e91e63;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-}
 
-.ajax:hover {
-    background-color: #d81b60;
-}
 
 .reply {
-    background-color: #00bcd4;
+    /* background-color: #00bcd4;
     color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
-    cursor: pointer;
+    cursor: pointer; */
 }
 
 .reply:hover {
-    background-color: #00acc1;
+    /* background-color: #00acc1; */
 }
 
 .comment {
-    border:none;
+    color: white;
+    background-color:blue;
+    /* border:none;
     background:none;
+    /* 追加 
+    width:56px;
+    height:36px; */
+}
+
+.ajax {
+    color: white;
+    background-color:red;
+    /* background-color: #e91e63;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    追加 
+    width:56px;
+    height:36px; */
+}
+
+.ajax:hover {
+    /* background-color: #d81b60; */
 }
 
 .delete {
-    border:none;
+    color: white;
+    background-color: black;
+    /* border:none;
     padding: 10px 20px;
+    border-radius: 5px;
+     追加 
+    width:56px;
+    height:36px;  */
+}
+
+div.botan{
+    text-align:center;
+}
+button{
+    border-style: none;
+    display:inline-block;/*コレ*/
+    width:56px;
+    height:36px;
     border-radius: 5px;
 }
