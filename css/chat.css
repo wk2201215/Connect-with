@@ -4,3 +4,26 @@ div.my{
 div.you{
     text-align: left;
 }
+
+.addition:hover {
+    background-color: #d6adff;
+    color: #fff;
+}
+
+.invited {
+    white-space: nowrap;
+    justify-content: center;
+    margin: 1px auto;
+    padding: 8px;
+    background-color:#ffffff;
+    box-shadow: 0 0 6px 1px #fca7d2, 0 0 6px 1px #fca7d2 inset;
+    border-radius: 30px;
+    border-color: #fca7d2;
+    box-sizing: border-box;
+    border: 1px solid #fca7d2;
+}
+
+.invited:hover {
+    background-color: #fca7d2;
+    color: #fff;
+}
