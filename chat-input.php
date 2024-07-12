@@ -17,6 +17,7 @@ echo '<form action="chat-output.php" method="post"  enctype="multipart/form-data
   }else{
     echo '<button class="input-button" type="submit" id="to" data-id="1">個人に変更</button>';
     //echo 'ルーム名';
+    echo '<br>';
     echo '<input type="text" name="chatroom_name" size="25" placeholder="ルーム名を入力してください。" required>';
     echo '<input type="hidden" name="to" value="two">';
     echo '<div id="pura">＋</div>';

@@ -9,8 +9,6 @@
     
     <?php if(isset($_GET['post_id'])) :?>
         <?='<input type="submit" value="REPLY"/>'?>
-        account_name:<?=$_SESSION['account']['account_name']?>
-        category:<?=$_GET['category_name']?>
         
         <input type="hidden" name="post_id" value="<?=$_GET['post_id']?>" />
         <input type="hidden" name="category_id" value="<?=$_GET['category_id']?>" />

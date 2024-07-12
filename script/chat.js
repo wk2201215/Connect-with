@@ -120,6 +120,9 @@ function writeMessage() {
 
 $(document).ready(function() {
 	readMessage();
+    var id = $('div#messageTextBox').data('id');
+    var iti = $('div.m#'+id).offset().top;
+    $(window).scrollTop(iti);
 	setInterval('readMessage()', 1000);
 });
 
