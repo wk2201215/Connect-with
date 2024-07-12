@@ -8,7 +8,7 @@
 // echo '↓';
 // echo '</div>';
 echo '<div class="spinner-overlay" id="spinnerOverlay">';
-    echo '<div class="spinner"></div>';
+    echo '<div class="spinner">更新</div>';
 echo '</div>';
 
 $pdo=new PDO($connect,USER,PASS);

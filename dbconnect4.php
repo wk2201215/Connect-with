@@ -15,6 +15,10 @@ $sql->execute([$_POST['chatroom_id'], $_POST['account_id']]);
 $sql2=$pdo->prepare('DELETE FROM chatmember_invitation WHERE chatroom_id = ? AND account_id = ?');
 $sql2->execute([$_POST['chatroom_id'], $_POST['account_id']]);
 
+$messege = $_SESSION['account']['account_name'].'が承諾しました';
+$sql_m=$pdo->prepare('INSERT INTO chatmessage (chatroom_id, chat_text, account_id) VALUES (?, ?, ?)');
+$sql_m->execute([$_POST['chatroom_id'], $messege, 0]);
+
 $memberList = 'invitation';
 //jsonとして出力
 header('Content-type: application/json');

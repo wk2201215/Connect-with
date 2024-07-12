@@ -32,16 +32,22 @@ move_uploaded_file($_FILES['image']['tmp_name'], './images/' . $image);//images�
 //     $item=$sql->fetchAll();
 // }
 if($_POST['to']==='on'){
-    $sql=$pdo->prepare('SELECT * FROM account WHERE mail_address = ?');
+    $sql=$pdo->prepare('SELECT * FROM account WHERE mail_address = ? LIMIT 1');
     $sql->execute([$_POST['mail'][0]]);
     $item=$sql->fetch();
-
+    // $itemcount=$sql->rowCount();
+    // if($itemcount == 0){
+    if(!isset($item['account_id'])){
+        $message='招待しようとしたメールアドレスの相手はいません';
+        header('Location:chat-input.php?to=1&message='.$message);
+        exit();
+    }
     $sql_check=$pdo->prepare('SELECT * FROM chatmember INNER JOIN chatroom ON chatmember.chatroom_id = chatroom.chatroom_id WHERE account_id = ? AND one_on_one = ? LIMIT 1');
-    $sql_check->execute([$_SESSION['account']['account_id'],$item['account_id']]);
+    $sql_check->execute([$_SESSION['account']['account_id'], $_SESSION['account']['account_id']]);
     $resultCount = $sql_check->rowCount();
 
-    $sql_check2=$pdo->prepare('SELECT * FROM chatmember_invitation INNER JOIN chatroom ON chatmember_invitation.chatroom_id = chatroom.chatroom_id WHERE account_id = ? AND one_on_one = ? LIMIT 1');
-    $sql_check2->execute([$_SESSION['account']['account_id'],$item['account_id']]);
+    $sql_check2=$pdo->prepare('SELECT * FROM chatmember_invitation INNER JOIN chatroom ON chatmember_invitation.chatroom_id = chatroom.chatroom_id WHERE account_id = ? AND one_on_one = ? AND invitation_id = ? LIMIT 1');
+    $sql_check2->execute([$item['account_id'], $_SESSION['account']['account_id'], $_SESSION['account']['account_id']]);
     $resultCount2 = $sql_check2->rowCount();
 
     if($resultCount == 1 || $resultCount2 == 1){
@@ -62,20 +68,36 @@ if($_POST['to']==='on'){
 
 $inserted_id = $pdo->lastInsertId();
 
+$sql_m=$pdo->prepare('INSERT INTO chatmessage (chatroom_id, chat_text, account_id) VALUES (?, ?, ?)');
+$sql_m->execute([$inserted_id, '新しくチャットルームを作りました', 0]);
+
 $sql_input3=$pdo->prepare('INSERT INTO chatmember (chatroom_id, account_id) VALUES (?, ?)');
 $sql_input3->execute([$inserted_id, $_SESSION['account']['account_id']]);
 
 // $member = [
 //     $item['account_id']
 // ];
+$message = '';
 //memberテーブル
 foreach($_POST['mail'] as $row){
-    $sql_id=$pdo->prepare('SELECT * FROM account WHERE mail_address = ?');
+    $sql_id=$pdo->prepare('SELECT * FROM account WHERE mail_address = ? LIMIT 1');
     $sql_id->execute([$row]);
     $item3=$sql_id->fetch();
+    if(!isset($item3['account_id'])){
+        $message='招待しようとしたメールアドレスの相手はいません2';
+        header('Location:chat-input.php?to=1&message='.$message);
+        exit();
+    }
     $sql_input2=$pdo->prepare('INSERT INTO chatmember_invitation  (chatroom_id, account_id, invitation_id) VALUES (?, ?, ?)');
     $sql_input2->execute([$inserted_id, $item3['account_id'], $_SESSION['account']['account_id']]);
+    $message .= $item3['account_name']."、";
 }
+$message = rtrim($message, "、");
+$message .= 'を招待しました';
+
+$sql_m2=$pdo->prepare('INSERT INTO chatmessage (chatroom_id, chat_text, account_id) VALUES (?, ?, ?)');
+$sql_m2->execute([$inserted_id, $message, 0]);
+
 header('Location:chat-top.php');
 exit();
 ?>
