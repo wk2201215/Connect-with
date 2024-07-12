@@ -30,7 +30,10 @@ echo '<div id="messageTextBox" data-id="'.$item3['chatmessage_id'].'" data-chatr
         echo '</div>';
     }else{
         echo '<div class="you">';
+          echo '<img src="Image-display.php?hogeA='.$row['photograph_path'].'" alt="ルームアイコン" class="post-img" />';
+          echo $row['account_name'];
           echo $row['chat_text'];
+          echo $row['chatmessage_time'];
         echo '</div>';
     }
     echo '<br>';

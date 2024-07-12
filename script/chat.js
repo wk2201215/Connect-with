@@ -71,12 +71,12 @@ function readMessage() {
 	})
 	.then(
 		function (data) {
-            if(data[0][0] != '通信正常'){
+            if(data[0]['text'] != '通信正常'){
                 //ループ対象の配列
                 $.each(data, function() {
                     console.log("名称：" + this);
                     $('div#messageTextBox').append(
-                    '<div class="'+this[1]+'" id="'+this[2]+'"><div class="'+this[1]+'">'+this[0]+'</div><br></div>'
+                    '<div class="m" id="'+this['message_id']+'"><div class="'+this['flag']+'"><img src="Image-display.php?hogeA='+this['photograph_path']+'" alt="ルームアイコン" class="post-img" />'+this['name']+this['text']+this['time']+'</div><br></div>'
                     );
                 })
                 var lastData = data[data.length - 1];
