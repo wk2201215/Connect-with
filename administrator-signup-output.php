@@ -1,4 +1,4 @@
-<?php
+a<?php
 ob_start(); // 出力バッファリングを開始
 session_start();
 
