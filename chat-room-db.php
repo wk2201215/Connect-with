@@ -7,7 +7,7 @@ try {
  var_dump($e->getMessage());
  exit;
 }
-$memberList;
+$memberList[0][0] = '通信正常';
 $count = 0;
 if($_POST['flag'] == 1){
     $sql=$pdo->prepare('INSERT INTO chatmessage (chatroom_id, chat_text, account_id) VALUES (?, ?, ?)');
