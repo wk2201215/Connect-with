@@ -81,10 +81,10 @@ function readMessage() {
                 })
                 var lastData = data[data.length - 1];
                 // $('div#messageTextBox').attr('data-id', lastData[2]);
-                $('div#messageTextBox').data('id', lastData[2]);
+                $('div#messageTextBox').data('id', lastData['message_id']);
                 console.log($('div#messageTextBox').data('id'));
             }else{
-                console.log('wa-');
+                console.log('新しいチャットなし');
             }
 			console.log('チャット読み込み成功');
 		},
@@ -123,7 +123,7 @@ $(document).ready(function() {
     var id = $('div#messageTextBox').data('id');
     var iti = $('div.m#'+id).offset().top;
     $(window).scrollTop(iti);
-	setInterval('readMessage()', 1000);
+	setInterval('readMessage()', 500);
 });
 
 

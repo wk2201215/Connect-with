@@ -25,7 +25,7 @@ if($_POST['flag'] == 1){
             }
             $memberList[$count]['photograph_path'] = $row['photograph_path'];
             $memberList[$count]['name'] = $row['account_name'];
-            $memberList[$count]['time'] = $row['message_time'];
+            $memberList[$count]['time'] = $row['chatmessage_time'];
             $memberList[$count]['message_id'] = $row['chatmessage_id'];
             $count++;
         }

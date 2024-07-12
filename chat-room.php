@@ -21,7 +21,11 @@ echo '<div id="messageTextBox" data-id="'.$item3['chatmessage_id'].'" data-chatr
   $sql3->execute([$item['chatroom_id']]);
   foreach($sql3 as $row){
     echo '<div class="m" id="'.$row['chatmessage_id'].'">';
-    if($row['account_id'] == $_SESSION['account']['account_id']){
+    if($row['account_id'] == 0){
+        echo '<div class="sisutemu">';
+          echo $row['chat_text'];
+        echo '</div>';
+    }else if($row['account_id'] == $_SESSION['account']['account_id']){
         echo '<div class="my">';
           echo '<img src="Image-display.php?hogeA='.$row['photograph_path'].'" alt="ルームアイコン" class="post-img" />';
           echo $row['account_name'];
