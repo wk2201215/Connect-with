@@ -17,7 +17,6 @@
 
 <link rel="stylesheet" href="css/header-hamburger.css">
 
-<link rel="stylesheet" href="css/chat.css"/>
 
 </head>
 <body>
