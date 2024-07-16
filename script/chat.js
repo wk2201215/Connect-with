@@ -75,9 +75,15 @@ function readMessage() {
                 //ループ対象の配列
                 $.each(data, function() {
                     console.log("名称：" + this);
-                    $('div#messageTextBox').append(
-                    '<div class="m" id="'+this['message_id']+'"><div class="'+this['flag']+'"><img src="Image-display.php?hogeA='+this['photograph_path']+'" alt="ルームアイコン" class="post-img" />'+this['name']+this['text']+this['time']+'</div><br></div>'
-                    );
+                    if(this['flag'] == 'my'){
+                        $('div#messageTextBox').append(
+                            '<div class="m" id="'+this['message_id']+'"><div class="'+this['flag']+'"><p>'+this['text']+'</p><div class="time">'+this['time']+'</div></div></div>'
+                        );
+                    }else{
+                        $('div#messageTextBox').append(
+                            '<div class="m" id="'+this['message_id']+'"><div class="'+this['flag']+'"><div class="faceion"><img src="Image-display.php?hogeA='+this['photograph_path']+'" alt="ルームアイコン"/></div><div class="name">'+this['name']+'</div><div class="chatting"><div class="says"><p>'+this['text']+'</p></div></div><div class="time">'+this['time']+'</div></div></div>'
+                        );
+                    }
                 })
                 var lastData = data[data.length - 1];
                 // $('div#messageTextBox').attr('data-id', lastData[2]);
