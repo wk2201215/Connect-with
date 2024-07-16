@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css"/>
 <!-- ヘッダーCSS -->
 <link rel="stylesheet" href="css/header-chat.css"/>
-<link rel="stylesheet" href="css/chat-top.css"/>
+
 <link rel="stylesheet" href="css/chat-room.css"/>
 
 </head>

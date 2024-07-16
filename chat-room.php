@@ -6,7 +6,7 @@ $pdo=new PDO($connect,USER,PASS);
 $sql=$pdo->prepare('SELECT * FROM chatmember INNER JOIN  chatroom ON chatmember.chatroom_id = chatroom.chatroom_id WHERE chatmember.chatroom_id = ?');
 $sql->execute([$_GET['chatroom_id']]);
 $item=$sql->fetch();
-require 'default/header-top-chat.php';
+require 'default/header-top-chatroom.php';
 require 'default/header-menu-chatroom.php';
 echo '<div id="container">';
 
