@@ -2,8 +2,10 @@ div.chatroom{
     /* box-sizing: border-box; */
     width: 100%;
     height: 50px;
-    margin: 10px 0;
     overflow: hidden;
+    /* 縦中央ぞろえ */
+    display: flex;
+    align-items: center;
 }
 div.chatroom .room-img {
   width: 40px;
@@ -12,11 +14,14 @@ div.chatroom .room-img {
 }
 
 .b{
-    float:left;
+    /* float:left;
     position: absolute;
-    transform: translateY(-50%);
+    transform: translateY(-50%); */
 }
 
 .roomname{
-    margin: 0 0 0 50px;
+    margin: 0 0 0 10px;
+}
+.s{
+    margin-left:auto;
 }

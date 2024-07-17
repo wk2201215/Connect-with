@@ -12,7 +12,6 @@
 <!-- ヘッダーCSS -->
 <link rel="stylesheet" href="css/header.css"/>
 <link rel="stylesheet" href="css/chat-top.css"/>
-<link rel="stylesheet" href="css/chat-room.css"/>
 
 </head>
 <body>
