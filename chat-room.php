@@ -1,17 +1,18 @@
 <?php session_start(); ?>
 <?php require 'db/db-connect.php'; ?>
-<?php require 'default/header-top.php'; ?>
-<?php require 'default/header-menu-chat.php'; ?>
+
 <?php
 $pdo=new PDO($connect,USER,PASS);
 $sql=$pdo->prepare('SELECT * FROM chatmember INNER JOIN  chatroom ON chatmember.chatroom_id = chatroom.chatroom_id WHERE chatmember.chatroom_id = ?');
 $sql->execute([$_GET['chatroom_id']]);
 $item=$sql->fetch();
+require 'default/header-top-chatroom.php';
+require 'default/header-menu-chatroom.php';
 echo '<div id="container">';
 
-echo 'チャットルーム';
-echo 'ルーム名'.$item['chatroom_name1'];
-echo '<hr>';
+// echo 'チャットルーム';
+// echo 'ルーム名'.$item['chatroom_name1'];
+// echo '<hr>';
 $sql2=$pdo->prepare('SELECT * FROM chatmessage WHERE chatroom_id = ?');
 $sql2->execute([$item['chatroom_id']]);
 $item2=$sql2->fetchAll();
@@ -21,33 +22,63 @@ echo '<div id="messageTextBox" data-id="'.$item3['chatmessage_id'].'" data-chatr
   $sql3->execute([$item['chatroom_id']]);
   foreach($sql3 as $row){
     echo '<div class="m" id="'.$row['chatmessage_id'].'">';
+<<<<<<< HEAD
     if($row['account_id'] == $_SESSION['account']['account_id']){
-        echo '<div class="my">';
-          echo '<img src="Image-display.php?hogeA='.$row['photograph_path'].'" alt="ルームアイコン" class="post-img" />';
-          echo $row['account_name'];
-          echo $row['chat_text'];
+=======
+    if($row['account_id'] == 0){
+        echo '<div class="sisutemu">';
+          echo '<p>';
           echo $row['chatmessage_time'];
+          echo '<br>';
+          echo $row['chat_text'];
+          echo '</p>';
+        echo '</div>';
+    }else if($row['account_id'] == $_SESSION['account']['account_id']){
+>>>>>>> 8f5dd157bab840eb238cd6611205cf90c466b030
+        echo '<div class="my">';
+          // echo '<div class="name">';
+          //   echo $row['account_name'];
+          // echo '</div>';
+          echo '<p>';
+          echo $row['chat_text'];
+          echo '</p>';
+          echo '<div class="time">';
+            echo $row['chatmessage_time'];
+          echo '</div>';
         echo '</div>';
     }else{
         echo '<div class="you">';
-          echo '<img src="Image-display.php?hogeA='.$row['photograph_path'].'" alt="ルームアイコン" class="post-img" />';
-          echo $row['account_name'];
-          echo $row['chat_text'];
-          echo $row['chatmessage_time'];
+          echo '<div class="faceicon">';
+            echo '<img src="Image-display.php?hogeA='.$row['photograph_path'].'" alt="ルームアイコン"/>';
+          echo '</div>';
+          echo '<div class="name">';
+            echo $row['account_name'];
+          echo '</div>';
+          echo '<div class="chatting">';
+            echo '<div class="says">';
+              echo '<p>';
+              echo $row['chat_text'];
+              echo '</p>';
+            echo '</div>';
+          echo '</div>';
+          echo '<div class="time">';
+            echo $row['chatmessage_time'];
+          echo '</div>';
         echo '</div>';
     }
-    echo '<br>';
     echo '</div>';
   }
 echo '</div>';
-echo '<form method="post" onsubmit="writeMessage(); return false;">';
-  echo '<input id="message" name="message" type="text" value="" />';
-  echo '<input type="button" value="送信" onclick="writeMessage()">';
-echo '</form>';
+// echo '<form method="post" onsubmit="writeMessage(); return false;">';
+//   echo '<div id="post">';
+//     echo '<input id="message" name="message" type="text" value="" />';
+//     echo '<input type="button" value="送信" onclick="writeMessage()">';
+//   echo '</div>';
+// echo '</form>';
 echo '</div>';
 ?>
 
 
 
-<?php require 'default/footer-menu.php'; ?>
-<?php require 'default/footer-top.php'; ?>
+<?php require 'default/footer-menu-chat.php'; ?>
+<?php require 'default/footer-top-chatroom.php'; ?>

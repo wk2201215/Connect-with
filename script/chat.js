@@ -58,6 +58,7 @@ function consent(chatroom_id, account_id) {
     );
 }
 
+<<<<<<< HEAD
 function readMessage() {
 	// location.reload();
     $.ajax({
@@ -125,6 +126,8 @@ $(document).ready(function() {
     $(window).scrollTop(iti);
 	setInterval('readMessage()', 1000);
 });
+=======
+>>>>>>> 8f5dd157bab840eb238cd6611205cf90c466b030
 
 
 // $(function(){

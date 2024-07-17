@@ -28,7 +28,8 @@ foreach($sql as $row){
     $sql2->execute([$row['chatroom_id']]);
     $item=$sql2->fetch();
     echo '<div class="chatroom" data-id="'.$row['chatroom_id'].'">';
-    echo '<img src="Image-display.php?hogeA='.$item['photograph_path'].'" alt="ルームアイコン" class="post-img" />';
+    echo '<img src="Image-display.php?hogeA='.$item['photograph_path'].'" alt="ルームアイコン" class="b room-img" />';
+    echo '<div class="b roomname">';
     if($item['one_on_one'] != 0){
         if($_SESSION['account']['account_id'] < $item['one_on_one']){
             echo $item['chatroom_name2'];
@@ -38,6 +39,7 @@ foreach($sql as $row){
     }else{
         echo $item['chatroom_name1'];
     }
+    echo '</div>';
     echo '</div>';
     echo '<br>';
 }
@@ -51,7 +53,8 @@ foreach($sql as $row){
     $sql2->execute([$row['chatroom_id']]);
     $item=$sql2->fetch();
     echo '<div class="chatroom" data-id="'.$row['chatroom_id'].'">';
-    echo '<img src="Image-display.php?hogeA='.$item['photograph_path'].'" alt="ルームアイコン" class="post-img" />';
+    echo '<img src="Image-display.php?hogeA='.$item['photograph_path'].'" alt="ルームアイコン" class="b room-img" />';
+    echo '<div class="b roomname">';
     if($item['one_on_one'] != 0){
         if($_SESSION['account']['account_id'] < $item['one_on_one']){
             echo $item['chatroom_name2'];
@@ -62,6 +65,7 @@ foreach($sql as $row){
         echo $item['chatroom_name1'];
     }
     echo '</div>';
+    echo '</div>';
     echo '<br>';
 }
 echo '</div>';
@@ -70,4 +74,4 @@ echo '</div>';
 
 
 <?php require 'default/footer-menu.php'; ?>
-<?php require 'default/footer-top.php'; ?>
+<?php require 'default/footer-top-chat.php'; ?>
