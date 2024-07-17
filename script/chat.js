@@ -58,6 +58,7 @@ function consent(chatroom_id, account_id) {
     );
 }
 
+<<<<<<< HEAD
 function readMessage() {
 	// location.reload();
     $.ajax({
@@ -75,22 +76,16 @@ function readMessage() {
                 //ループ対象の配列
                 $.each(data, function() {
                     console.log("名称：" + this);
-                    if(this['flag'] == 'my'){
-                        $('div#messageTextBox').append(
-                            '<div class="m" id="'+this['message_id']+'"><div class="'+this['flag']+'"><p>'+this['text']+'</p><div class="time">'+this['time']+'</div></div></div>'
-                        );
-                    }else{
-                        $('div#messageTextBox').append(
-                            '<div class="m" id="'+this['message_id']+'"><div class="'+this['flag']+'"><div class="faceion"><img src="Image-display.php?hogeA='+this['photograph_path']+'" alt="ルームアイコン"/></div><div class="name">'+this['name']+'</div><div class="chatting"><div class="says"><p>'+this['text']+'</p></div></div><div class="time">'+this['time']+'</div></div></div>'
-                        );
-                    }
+                    $('div#messageTextBox').append(
+                    '<div class="m" id="'+this['message_id']+'"><div class="'+this['flag']+'"><img src="Image-display.php?hogeA='+this['photograph_path']+'" alt="ルームアイコン" class="post-img" />'+this['name']+this['text']+this['time']+'</div><br></div>'
+                    );
                 })
                 var lastData = data[data.length - 1];
                 // $('div#messageTextBox').attr('data-id', lastData[2]);
-                $('div#messageTextBox').data('id', lastData['message_id']);
+                $('div#messageTextBox').data('id', lastData[2]);
                 console.log($('div#messageTextBox').data('id'));
             }else{
-                console.log('新しいチャットなし');
+                console.log('wa-');
             }
 			console.log('チャット読み込み成功');
 		},
@@ -129,8 +124,10 @@ $(document).ready(function() {
     var id = $('div#messageTextBox').data('id');
     var iti = $('div.m#'+id).offset().top;
     $(window).scrollTop(iti);
-	setInterval('readMessage()', 500);
+	setInterval('readMessage()', 1000);
 });
+=======
+>>>>>>> 8f5dd157bab840eb238cd6611205cf90c466b030
 
 
 // $(function(){

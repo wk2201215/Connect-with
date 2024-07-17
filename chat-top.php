@@ -2,15 +2,20 @@
 <?php require 'db/db-connect.php'; ?>
 <?php require 'default/header-top.php'; ?>
 <?php require 'default/header-menu-chat.php'; ?>
+<link rel="stylesheet" href="./css/chat.css">
 <?php
 echo '<div id="container">';
-echo 'チャットルーム';
+echo '<h2>チャットルーム</h2>';
 echo '<hr>';
 echo '<div id="chatroom_input">';
+echo '<button class="addition">';
     echo 'chatroom追加（招待）';
+echo '</button>';
 echo '</div>';
 echo '<div id="chatroom_invitation">';
+echo '<button class="invited">';
     echo '招待された';
+echo '</button>';
 echo '</div>';
 echo '<hr>';
 $pdo=new PDO($connect,USER,PASS);
@@ -36,7 +41,7 @@ foreach($sql as $row){
     }
     echo '</div>';
     echo '</div>';
-    echo '<br>';
+    // echo '<br>';
 }
 echo '<hr>';
 //複数
@@ -61,7 +66,7 @@ foreach($sql as $row){
     }
     echo '</div>';
     echo '</div>';
-    echo '<br>';
+    // echo '<br>';
 }
 echo '</div>';
 ?>
