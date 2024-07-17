@@ -16,7 +16,8 @@
       top:0;
       transition: 0.5s;/* アニメーション表示時間 */
       /* background-color: rgb(208, 250, 0); */
-      background-color: black;
+      background-color: rgb(68, 68, 68);
+      color: white;
       /* 画面の最前列にする */
       z-index: 1000;
       font-size: 150%;
@@ -35,7 +36,7 @@
       height: 40px;
       transition: 0.5s;
       /* background-color: rgb(208, 250, 0); */
-      background-color: black;
+      background-color: rgb(68, 68, 68);
       display: grid;
       display: flex;
       justify-content: center; /* 横方向の中央寄せ */

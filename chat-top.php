@@ -41,7 +41,7 @@ foreach($sql as $row){
     }
     echo '</div>';
     echo '</div>';
-    echo '<br>';
+    // echo '<br>';
 }
 echo '<hr>';
 //複数
@@ -66,7 +66,7 @@ foreach($sql as $row){
     }
     echo '</div>';
     echo '</div>';
-    echo '<br>';
+    // echo '<br>';
 }
 echo '</div>';
 ?>
