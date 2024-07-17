@@ -3,7 +3,7 @@
     height: 60px;        /* アイコンの高さ */
     border-radius: 50%;  /* 丸い形にするための設定 */
     object-fit: cover;   /* 画像を容器にフィットさせる */
-    display: inline-block; /* ブロック要素として表示 */
+    /*display: inline-block;  ブロック要素として表示 */
     border: 2px solid black; /* アイコンの周りに黒い枠を追加 */
     margin-right: 15px;      /* 右側の余白を追加 */
     vertical-align: middle;  /* 画像の垂直位置をテキストと同じに */
