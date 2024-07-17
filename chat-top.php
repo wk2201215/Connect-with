@@ -1,6 +1,6 @@
 <?php session_start(); ?>
 <?php require 'db/db-connect.php'; ?>
-<?php require 'default/header-top.php'; ?>
+<?php require 'default/header-top-chat.php'; ?>
 <?php require 'default/header-menu-chat.php'; ?>
 <link rel="stylesheet" href="./css/chat.css">
 <?php
@@ -40,6 +40,9 @@ foreach($sql as $row){
         echo $item['chatroom_name1'];
     }
     echo '</div>';
+      echo '<div class="s">';
+        echo ':';
+      echo '</div>';
     echo '</div>';
     // echo '<br>';
 }
@@ -65,6 +68,9 @@ foreach($sql as $row){
         echo $item['chatroom_name1'];
     }
     echo '</div>';
+      echo '<div class="s">';
+        echo ':';
+      echo '</div>';
     echo '</div>';
     // echo '<br>';
 }
