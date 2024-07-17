@@ -2,7 +2,7 @@
 session_start();
 
 require 'db/db-connect.php';
-require 'default/header-top.php'; 
+require 'default/header-top-mypage.php'; 
 
 
 try {
