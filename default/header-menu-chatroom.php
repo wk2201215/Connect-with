@@ -1,6 +1,6 @@
 <header>
 <div>
-    
+    <a onclick="history.back()" id="back">←</a>
     <?php
     if($item['one_on_one'] == 0){
         echo $item['chatroom_name1'];
