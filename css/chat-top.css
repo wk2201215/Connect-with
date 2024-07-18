@@ -25,3 +25,74 @@ div.chatroom .room-img {
 .s{
     margin-left:auto;
 }
+
+/* ポップアップ */
+#click-btn {
+    display: block;
+    margin: 20px auto;
+    background-color: purple;
+    color: white;
+    border: 0;
+    padding: 6px 10px;
+  }
+  
+  #popup-wrapper {
+    background-color: rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+  }
+  
+  #popup-inside {
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+    background: white;
+    margin: 10% auto;
+    padding: 20px;
+    position: relative;
+  }
+
+  #theme{
+    color: black;
+  }
+  
+  #theme a {
+    background: purple;
+    color: white;
+    text-decoration: none;
+    padding: 6px 10px;
+  }
+  
+  #close {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    cursor: pointer;
+    color: black;
+  }
+
+.color{
+    width: 20px;
+    height: 20px;
+    /* border-style: none; */
+}
+
+#default{
+    background-color: aquamarine;
+}
+#black{
+    background-color: black;
+}
+#white{
+    background-color: white;
+}
+#blue{
+    background-color: blue;
+}
+#red{
+    background-color: red;
+}
