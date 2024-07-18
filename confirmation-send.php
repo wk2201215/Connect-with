@@ -32,6 +32,9 @@
         <form action="administrator-signup-input.php" method="get">
             <button type="submit" class="btn2">管理者用新規登録</button>
         </form>
+        <form action="administrator-userList.php" method="get">
+            <button type="submit" class="btn3">戻る</button>
+        </form>
     </div>
 </div>
     <?php require 'default/footer.php'; ?>
