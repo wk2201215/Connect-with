@@ -19,7 +19,7 @@ echo '<div class="button-container">';
   foreach($sql as $row){
   //   echo $row['category_name'];
     
-    echo '<button class=button-container>'.'<a href="category.php?category_id='.$row['category_id'].'& category_name='.$row['category_name'].'">'.$row['category_name'].'</button>'.'</a>';
+    echo '<button class=button-container>'.'<a href="category4.php?category_id='.$row['category_id'].'& category_name='.$row['category_name'].'">'.$row['category_name'].'</button>'.'</a>';
   }
 echo '</div>';
 

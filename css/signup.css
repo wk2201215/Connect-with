@@ -95,7 +95,18 @@ body {
     font-size: 1rem;
     cursor: pointer;
     margin-top: 10px;
-
+}
+.btn3 {
+    background-color: white;
+    color: #fca7d2;
+    display: inline-block;
+    width: 100%;
+    padding: 8px;
+    border: 2px solid #fca7d2;
+    border-radius: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
 }
 
 .btn1:hover {
@@ -103,6 +114,10 @@ body {
     color: white;
 }
 .btn2:hover {
+    background-color: #fca7d2;
+    color: white;
+}
+.btn3:hover {
     background-color: #fca7d2;
     color: white;
 }
