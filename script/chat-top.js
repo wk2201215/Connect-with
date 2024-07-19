@@ -20,3 +20,28 @@ popupWrapper.addEventListener('click', e => {
     popupWrapper.style.display = 'none';
   }
 });
+
+function theme(chatroom_id) {
+    $.ajax({
+      url:'./dbconnect4.php', //送信先
+      type:'POST', //送信方法
+      datatype: 'json', //受け取りデータの種類
+      data:{
+        'chatroom_id' : chatroom_id,
+        'account_id' : account_id
+      }
+    })
+    .then(
+        function (data) {
+          location.reload();
+          console.log(data);
+        },
+        function () {
+            alert("削除失敗");
+        }
+    );
+}
+$(".color").on("click", function() {
+    // var count = $('div.mail').data('count');
+    theme();
+});

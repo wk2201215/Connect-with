@@ -10,11 +10,11 @@
         <div id="close">x</div>
         <div id="theme">
           <h2>テーマ変更</h2>
-          <button class="color" id="default"></button>
-          <button class="color" id="black"></button>
-          <button class="color" id="white"></button>
-          <button class="color" id="blue"></button>
-          <button class="color" id="red"></button>
+          <button class="color" id="default" data-id="1"></button>
+          <button class="color" id="black" data-id="2"></button>
+          <button class="color" id="white" data-id="3"></button>
+          <button class="color" id="blue" data-id="4"></button>
+          <button class="color" id="red" data-id="5"></button>
         </div>
       </div>
     </div>
