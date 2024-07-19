@@ -1,3 +1,7 @@
+body {
+    background-image: url('../images/sky3.png'); 
+}
+
 .input-button {
     white-space: nowrap;
     justify-content: center;
@@ -11,7 +15,48 @@
     border: 1px solid #d6adff;
 }
 
-.input-button:hover{
+.input-button:hover {
     background-color: #d6adff;
     color: #ffffff;
 }
+
+.pura {
+    width: 140px;
+    white-space: nowrap;
+    justify-content: center;
+    /* margin: 1px auto; */
+    padding: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 0 6px 1px #d6adff, 0 0 6px 1px #d6adff inset;
+    border-radius: 30px;
+    border-color: #d6adff;
+    box-sizing: border-box;
+    border: 1px solid #d6adff;
+    color: black;
+  }
+
+  .pura:hover {
+    background-color: #d6adff;
+    color: #ffffff;
+}
+
+  .mai {
+    width: 140px;
+    white-space: nowrap;
+    justify-content: center;
+    /* margin: 1px auto; */
+    padding: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 0 6px 1px #d6adff, 0 0 6px 1px #d6adff inset;
+    border-radius: 30px;
+    border-color: #d6adff;
+    box-sizing: border-box;
+    border: 1px solid #d6adff;
+    color: black;
+  }
+
+  .mai:hover {
+    background-color: #d6adff;
+    color: #ffffff;
+}
+  
