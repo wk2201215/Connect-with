@@ -29,6 +29,7 @@ try {
                     'photograph_id' => $row['photograph_id'],
                     'self_introduction' => $row['self_introduction'],
                     'category_id' => $row['category_id'],
+                    'theme_id' => $row['theme_id'],
                     'authority' => $row['authority'],
                     'delete_flag' => $row['delete_flag']
                 ];
