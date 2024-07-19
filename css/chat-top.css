@@ -96,3 +96,37 @@ div.chatroom .room-img {
 #red{
     background-color: red;
 }
+.addition {
+  white-space: nowrap;
+  justify-content: center;
+  margin: 1px auto;
+  padding: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 0 6px 1px #d6adff, 0 0 6px 1px #d6adff inset;
+  border-radius: 30px;
+  border-color: #d6adff;
+  box-sizing: border-box;
+  border: 1px solid #d6adff;
+}
+
+.addition:hover {
+  background-color: #d6adff;
+  color: #ffffff;
+}
+.invited {
+  white-space: nowrap;
+  justify-content: center;
+  margin: 1px auto;
+  padding: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 0 6px 1px #d6adff, 0 0 6px 1px #d6adff inset;
+  border-radius: 30px;
+  border-color: #d6adff;
+  box-sizing: border-box;
+  border: 1px solid #d6adff;
+}
+
+.invited:hover {
+  background-color: #d6adff;
+  color: #ffffff;
+}
