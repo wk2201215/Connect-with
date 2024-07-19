@@ -3,8 +3,8 @@
 
 <?php
 $pdo=new PDO($connect,USER,PASS);
-$sql=$pdo->prepare('SELECT * FROM chatmember INNER JOIN  chatroom ON chatmember.chatroom_id = chatroom.chatroom_id WHERE chatmember.chatroom_id = ?');
-$sql->execute([$_GET['chatroom_id']]);
+$sql=$pdo->prepare('SELECT * FROM chatmember INNER JOIN  chatroom ON chatmember.chatroom_id = chatroom.chatroom_id WHERE chatmember.chatroom_id = ? AND chatmember.account_id != ?');
+$sql->execute([$_GET['chatroom_id'],$_SESSION['account']['account_id']]);
 $item=$sql->fetch();
 require 'default/header-top-chatroom.php';
 require 'default/header-menu-chatroom.php';
