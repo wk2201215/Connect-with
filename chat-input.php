@@ -20,8 +20,8 @@ echo '<form action="chat-output.php" method="post"  enctype="multipart/form-data
     echo '<br>';
     echo '<input type="text" name="chatroom_name" size="25" placeholder="ルーム名を入力してください。" required>';
     echo '<input type="hidden" name="to" value="two">';
-    echo '<div id="pura">＋</div>';
-    echo '<div id="mai">－</div>';
+    echo '<div id="pura" class="pura">メンバーを増やす</div>';
+    echo '<div id="mai" class="mai">メンバーを減らす</div>';
   }
   echo '<br>';
   echo 'ルーム写真';
