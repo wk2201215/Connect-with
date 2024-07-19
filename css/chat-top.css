@@ -12,6 +12,9 @@ div.chatroom .room-img {
   height:40px;
   border-radius: 50%;
 }
+body {
+  background-image: url('../images/sky3.png'); 
+}
 
 .b{
     /* float:left;
