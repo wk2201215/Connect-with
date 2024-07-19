@@ -32,6 +32,7 @@ body {
     border-color: #d6adff;
     box-sizing: border-box;
     border: 1px solid #d6adff;
+    color: black;
   }
 
   .pura:hover {
@@ -51,6 +52,7 @@ body {
     border-color: #d6adff;
     box-sizing: border-box;
     border: 1px solid #d6adff;
+    color: black;
   }
 
   .mai:hover {
