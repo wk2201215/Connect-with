@@ -14,7 +14,7 @@ echo '</button>';
 echo '</div>';
 echo '<div id="chatroom_invitation">';
 echo '<button class="invited">';
-    echo '招待された';
+    echo '参加';
 echo '</button>';
 echo '</div>';
 echo '<hr>';
