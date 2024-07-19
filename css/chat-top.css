@@ -25,38 +25,74 @@ div.chatroom .room-img {
 .s{
     margin-left:auto;
 }
-.addition{
-    white-space: nowrap;
-    justify-content: center;
-    margin: 1px auto;
-    padding: 8px;
-    background-color: #ffffff;
-    box-shadow: 0 0 6px 1px #d6adff, 0 0 6px 1px #d6adff inset;
-    border-radius: 30px;
-    border-color: #d6adff;
-    box-sizing: border-box;
-    border: 1px solid #d6adff;
+
+/* ポップアップ */
+#click-btn {
+    display: block;
+    margin: 20px auto;
+    background-color: purple;
+    color: white;
+    border: 0;
+    padding: 6px 10px;
+  }
+  
+  #popup-wrapper {
+    background-color: rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+  }
+  
+  #popup-inside {
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+    background: white;
+    margin: 10% auto;
+    padding: 20px;
+    position: relative;
+  }
+
+  #theme{
+    color: black;
+  }
+  
+  #theme a {
+    background: purple;
+    color: white;
+    text-decoration: none;
+    padding: 6px 10px;
+  }
+  
+  #close {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    cursor: pointer;
+    color: black;
+  }
+
+.color{
+    width: 20px;
+    height: 20px;
+    /* border-style: none; */
 }
-.addition:hover{
-    background-color: #d6adff;
-    color: #ffffff;
+
+#default{
+    background-color: aquamarine;
 }
-.invited{
-    white-space: nowrap;
-    justify-content: center;
-    margin: 1px auto;
-    padding: 8px;
-    background-color: #ffffff;
-    box-shadow: 0 0 6px 1px #d6adff, 0 0 6px 1px #d6adff inset;
-    border-radius: 30px;
-    border-color: #d6adff;
-    box-sizing: border-box;
-    border: 1px solid #d6adff;
+#black{
+    background-color: black;
 }
-.invited:hover{
-    background-color: #d6adff;
-    color: #ffffff;
+#white{
+    background-color: white;
 }
-body{
-    background-image: url('../images/sky3.png');
+#blue{
+    background-color: blue;
+}
+#red{
+    background-color: red;
 }
