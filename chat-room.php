@@ -3,8 +3,8 @@
 
 <?php
 $pdo=new PDO($connect,USER,PASS);
-$sql=$pdo->prepare('SELECT * FROM chatmember INNER JOIN  chatroom ON chatmember.chatroom_id = chatroom.chatroom_id WHERE chatmember.chatroom_id = ?');
-$sql->execute([$_GET['chatroom_id']]);
+$sql=$pdo->prepare('SELECT * FROM chatmember INNER JOIN  chatroom ON chatmember.chatroom_id = chatroom.chatroom_id WHERE chatmember.chatroom_id = ? AND chatmember.account_id != ?');
+$sql->execute([$_GET['chatroom_id'],$_SESSION['account']['account_id']]);
 $item=$sql->fetch();
 require 'default/header-top-chatroom.php';
 require 'default/header-menu-chatroom.php';
@@ -22,9 +22,6 @@ echo '<div id="messageTextBox" data-id="'.$item3['chatmessage_id'].'" data-chatr
   $sql3->execute([$item['chatroom_id']]);
   foreach($sql3 as $row){
     echo '<div class="m" id="'.$row['chatmessage_id'].'">';
-<<<<<<< HEAD
-    if($row['account_id'] == $_SESSION['account']['account_id']){
-=======
     if($row['account_id'] == 0){
         echo '<div class="sisutemu">';
           echo '<p>';
@@ -34,7 +31,6 @@ echo '<div id="messageTextBox" data-id="'.$item3['chatmessage_id'].'" data-chatr
           echo '</p>';
         echo '</div>';
     }else if($row['account_id'] == $_SESSION['account']['account_id']){
->>>>>>> 8f5dd157bab840eb238cd6611205cf90c466b030
         echo '<div class="my">';
           // echo '<div class="name">';
           //   echo $row['account_name'];

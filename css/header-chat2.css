@@ -1,5 +1,6 @@
 body{
-    background-color: rgba(0, 0, 0, 0.237);
+    background-color: rgb(0 123 77 / 45%);
+    color: white;
 }
 #container{
     margin: 0;
@@ -17,7 +18,7 @@ body{
       top:0;
       transition: 0.5s;/* アニメーション表示時間 */
       /* background-color: rgb(208, 250, 0); */
-      background-color: black;
+      background-color: #2db521;
       /* 画面の最前列にする */
       z-index: 1000;
       font-size: 150%;
@@ -39,7 +40,7 @@ body{
       width: 100%;
       transition: 0.5s;
       /* background-color: rgb(208, 250, 0); */
-      background-color: black;
+      background-color: #2db521;
       overflow: hidden;
   }
   
@@ -53,8 +54,6 @@ body{
       width: 25%;
       height: 33px;
       text-align: center;
-      /* background-color: rgb(208, 250, 0); */
-      background-color: black;
       display: inline-block;
       font-size: 17.5px;
   }
