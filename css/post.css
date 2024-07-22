@@ -82,7 +82,8 @@ body {
 
 .comment {
     color: white;
-    background-color:blue;
+    /* background-color:blue; */
+    background-color:#d6adff;
     /* border:none;
     background:none;
     /* 追加 
@@ -92,7 +93,8 @@ body {
 
 .ajax {
     color: white;
-    background-color:red;
+    /* background-color:red; */
+    background-color:#fca7d2;
     /* background-color: #e91e63;
     color: white;
     border: none;
@@ -110,7 +112,7 @@ body {
 
 .delete {
     color: white;
-    background-color: black;
+    background-color: rgb(139, 139, 139);
     /* border:none;
     padding: 10px 20px;
     border-radius: 5px;
