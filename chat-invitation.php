@@ -27,7 +27,7 @@ foreach($sql as $row){
     }else{
         echo $item['chatroom_name1'];
     }
-    echo '<button class="consent" data-roomid="'.$row['chatroom_id'].'" data-accountid="'.$row['account_id'].'">承諾</button>';
+    echo '<button class="consent" data-roomid="'.$row['chatroom_id'].'" data-accountid="'.$row['account_id'].'" data-id="'.$row['invitation_id'].'">承諾</button>';
     echo '<hr>';
 }
 echo '</div>';

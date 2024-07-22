@@ -111,6 +111,12 @@ try {
     </style>
 </head>
 <body>
+    <?php
+    $sql_t=$pdo->prepare('SELECT * FROM theme WHERE theme_id = ?');
+    $sql_t->execute([$_SESSION['account']['theme_id']]);
+    $item_t = $sql_t->fetch();
+    echo '<div id="t" data-idb="'.$item_t['body'].'" data-idhf="'.$item_t['header'].'" data-idn="'.$item_t['moji'].'"></div>';
+    ?>
     <div id="container">
     <div class="big">
 
@@ -139,4 +145,4 @@ echo '</div>';
 </html>
 
 <?php require 'default/footer-menu.php'; ?>
-<?php require 'default/footer-top.php'; ?>
+<?php require 'default/footer-top-my.php'; ?>

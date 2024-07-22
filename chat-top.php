@@ -1,13 +1,15 @@
 <?php session_start(); ?>
 <?php require 'db/db-connect.php'; ?>
-<?php require 'default/header-top-chat.php'; ?>
-<?php require 'default/header-menu-chat.php'; ?>
-<link rel="stylesheet" href="./css/chat.css">
 <?php
 $pdo=new PDO($connect,USER,PASS);
 $sql_t=$pdo->prepare('SELECT * FROM theme WHERE theme_id = ?');
 $sql_t->execute([$_SESSION['account']['theme_id']]);
 $item_t = $sql_t->fetch();
+?>
+<?php require 'default/header-top-chat.php'; ?>
+<?php require 'default/header-menu-chat.php'; ?>
+<link rel="stylesheet" href="./css/chat.css">
+<?php
 echo '<div id="t" data-idb="'.$item_t['body'].'" data-idhf="'.$item_t['header'].'" data-idn="'.$item_t['moji'].'"></div>';
 echo '<div id="container">';
 echo '<h2>チャットルーム</h2>';
@@ -31,12 +33,13 @@ foreach($sql as $row){
     $sql2=$pdo->prepare('SELECT * FROM chatroom INNER JOIN photograph ON chatroom.photograph_id = photograph.photograph_id WHERE chatroom_id = ?');
     $sql2->execute([$row['chatroom_id']]);
     $item=$sql2->fetch();
-    $sql3=$pdo->prepare('SELECT * FROM chatmember WHERE chatroom_id = ? AND account_id != ?');
-    $sql3->execute([$row['chatroom_id'], $_SESSION['account']['account_id']]);
+    $sql3=$pdo->prepare('SELECT * FROM chatmember WHERE chatroom_id = ? AND account_id != ? UNION ALL SELECT * FROM chatmember_invitation WHERE chatroom_id = ? AND account_id != ?');
+    $sql3->execute([$row['chatroom_id'], $_SESSION['account']['account_id'], $row['chatroom_id'], $_SESSION['account']['account_id']]);
     $item3=$sql3->fetch();
     echo '<div class="chatroom" data-id="'.$row['chatroom_id'].'">';
     echo '<img src="Image-display.php?hogeA='.$item['photograph_path'].'" alt="ルームアイコン" class="b room-img" />';
     echo '<div class="b roomname">';
+    // var_dump($item3);
     if($_SESSION['account']['account_id'] < $item3['account_id']){
         echo $item['chatroom_name2'];
     }else{

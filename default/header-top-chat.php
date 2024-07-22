@@ -14,4 +14,4 @@
 <link rel="stylesheet" href="css/chat-top.css"/>
 
 </head>
-<body>
+<body style="background-color:<?=$item_t['body'];?>; color:<?=$item_t['moji'];?>;">

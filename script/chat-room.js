@@ -18,11 +18,11 @@ function readMessage() {
                     if(this['flag'] == 'my'){
                         $('div#messageTextBox').append(
                             '<div class="m" id="'+this['message_id']+'"><div class="'+this['flag']+'"><p>'+this['text']+'</p><div class="time">'+this['time']+'</div></div></div>'
-                        );
+                        ).trigger('create');
                     }else{
                         $('div#messageTextBox').append(
                             '<div class="m" id="'+this['message_id']+'"><div class="'+this['flag']+'"><div class="faceion"><img src="Image-display.php?hogeA='+this['photograph_path']+'" alt="ルームアイコン"/></div><div class="name">'+this['name']+'</div><div class="chatting"><div class="says"><p>'+this['text']+'</p></div></div><div class="time">'+this['time']+'</div></div></div>'
-                        );
+                        ).trigger('create');
                     }
                 })
                 var lastData = data[data.length - 1];

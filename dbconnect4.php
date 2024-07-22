@@ -9,8 +9,8 @@ try {
  exit;
 }
 
-$sql=$pdo->prepare('INSERT INTO chatmember (chatroom_id, account_id) VALUES (?, ?)');
-$sql->execute([$_POST['chatroom_id'], $_POST['account_id']]);
+$sql=$pdo->prepare('INSERT INTO chatmember (chatroom_id, account_id, invitation_id) VALUES (?, ?)');
+$sql->execute([$_POST['chatroom_id'], $_POST['account_id'], $_POST['invitation_id']]);
 
 $sql2=$pdo->prepare('DELETE FROM chatmember_invitation WHERE chatroom_id = ? AND account_id = ?');
 $sql2->execute([$_POST['chatroom_id'], $_POST['account_id']]);

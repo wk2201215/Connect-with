@@ -15,6 +15,10 @@ echo '<h1>カテゴリー</h1><br>';
 echo '<p>興味のあるカテゴリーを選択してください。</p><br><br>';
 echo '<div class="button-container">';
   $pdo=new PDO($connect,USER,PASS);
+  $sql_t=$pdo->prepare('SELECT * FROM theme WHERE theme_id = ?');
+  $sql_t->execute([$_SESSION['account']['theme_id']]);
+  $item_t = $sql_t->fetch();
+  echo '<div id="t" data-idb="'.$item_t['body'].'" data-idhf="'.$item_t['header'].'" data-idn="'.$item_t['moji'].'"></div>';
   $sql=$pdo->query('select * from category');
   foreach($sql as $row){
   //   echo $row['category_name'];

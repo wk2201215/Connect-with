@@ -94,9 +94,11 @@ CREATE TABLE chatroom(
 CREATE TABLE chatmember(
     chatroom_id       INT(10)                             NOT NULL,
     account_id        INT(6)                              NOT NULL,
+    invitation_id     INT(6)                              NOT NULL,
     PRIMARY KEY(chatroom_id,account_id),
     FOREIGN KEY(chatroom_id)    REFERENCES chatroom(chatroom_id),
-    FOREIGN KEY(account_id)    REFERENCES account(account_id)
+    FOREIGN KEY(account_id)    REFERENCES account(account_id),
+    FOREIGN KEY(invitation_id)    REFERENCES account(account_id)
 );
 
 CREATE TABLE chatmember_invitation(

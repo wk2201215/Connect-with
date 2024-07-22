@@ -14,5 +14,9 @@
 <link rel="stylesheet" href="css/post.css"/>
 <link rel="stylesheet" href="css/reply.css"/>
 <link rel="stylesheet" href="css/header-hamburger.css">
+
+<link rel="stylesheet" href="css/header-chat2.css"/>
+<link rel="stylesheet" href="css/chat-top.css"/>
+
 </head>
 <body>
