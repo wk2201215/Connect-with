@@ -27,3 +27,12 @@ $window.on( 'scroll' , function(){
 });
 // 中途半端なところでロードされても良いようにスクロールイベントを発生させる
 $window.trigger('scroll');
+
+function toggleMenu(){
+        var menu = document.getElementById('menu');
+        if(menu.style.display === 'block'){
+            menu.style.display = 'none';
+        }else{
+            menu.style.display = 'block';
+        }
+    }

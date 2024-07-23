@@ -59,8 +59,12 @@ if($resultCount == 1){
             $sql_room=$pdo->prepare('INSERT INTO chatroom (chatroom_name1, chatroom_name2, number_people, one_on_one) VALUES (?, ?, ?, ?)');
             $sql_room->execute([$_SESSION['account']['account_name'], $_SESSION['account']['account_name'], 2, $_SESSION['account']['account_id']]);
             $inserted_id = $pdo->lastInsertId();
-            $sql_member=$pdo->prepare('INSERT INTO chatmember (chatroom_id, account_id) VALUES (?, ?)');
-            $sql_member->execute([$inserted_id, $_SESSION['account']['account_id']]);
+            $sql_member=$pdo->prepare('INSERT INTO chatmember (chatroom_id, account_id, invitation_id) VALUES (?, ?, ?)');
+            $sql_member->execute([$inserted_id, $_SESSION['account']['account_id'], $_SESSION['account']['account_id']]);
+            $sql_m=$pdo->prepare('INSERT INTO chatmessage (chatroom_id, chat_text, account_id) VALUES (?, ?, ?)');
+            $sql_m->execute([$inserted_id, '新しくチャットルームを作りました', $_SESSION['account']['account_id']]);
+            $sql_m2=$pdo->prepare('INSERT INTO chatmessage (chatroom_id, chat_text, account_id) VALUES (?, ?, ?)');
+            $sql_m2->execute([$inserted_id, 'こちらは個人のチャットルームです', $_SESSION['account']['account_id']]);
             // 登録完了後、top.phpにリダイレクト
             header('Location: category3.php');
             exit();

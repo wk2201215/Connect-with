@@ -21,7 +21,7 @@ function readMessage() {
                         ).trigger('create');
                     }else{
                         $('div#messageTextBox').append(
-                            '<div class="m" id="'+this['message_id']+'"><div class="'+this['flag']+'"><div class="faceion"><img src="Image-display.php?hogeA='+this['photograph_path']+'" alt="ルームアイコン"/></div><div class="name">'+this['name']+'</div><div class="chatting"><div class="says"><p>'+this['text']+'</p></div></div><div class="time">'+this['time']+'</div></div></div>'
+                            '<div class="m" id="'+this['message_id']+'"><div class="'+this['flag']+'"><div class="faceicon"><img src="Image-display.php?hogeA='+this['photograph_path']+'" alt="ルームアイコン"/></div><div class="name">'+this['name']+'</div><div class="chatting"><div class="says"><p>'+this['text']+'</p></div></div><div class="time">'+this['time']+'</div></div></div>'
                         ).trigger('create');
                     }
                 })

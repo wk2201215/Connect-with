@@ -34,7 +34,8 @@ $(document).ready(function () {
     });
     $(".chatroom").on("click", function() {
         var chatroom_id = $(this).data('id');
-        location.href='./chat-room.php?chatroom_id='+chatroom_id;
+        var flag = $(this).data('flag');
+        location.href='./chat-room.php?chatroom_id='+chatroom_id+'&flag='+flag;
     });
 });
 
