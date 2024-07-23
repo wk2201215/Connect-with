@@ -13,6 +13,7 @@ $(document).ready(function () {
         var chatroom_id = $(this).data('roomid');
         var account_id = $(this).data('accountid');
         var invitation_id = $(this).data('id');
+        // console.log(chatroom_id,account_id,invitation_id);
         consent(chatroom_id,account_id,invitation_id);
     });
     var count = $('div.mail').data('count');

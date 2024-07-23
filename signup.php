@@ -23,18 +23,7 @@
 <div class="container">
     <div class="signup-form">
         <form action="signup-output.php" method="post">
-            <div class="form-group">
-                <label for="name">名前</label>
-                <input type="text" name="account_name" id="name" value="<?php echo $name; ?>" required>
-            </div>
-            <div class="form-group">
-                <label for="email">メールアドレス</label>
-                <input type="email" name="mail_address" id="email" value="<?php echo $address; ?>" required>
-            </div>
-            <div class="form-group">
-                <label for="password">パスワード</label>
-                <input type="password" name="account_password" id="password" value="<?php echo $password; ?>" required>
-            </div><br>
+            <input type="num" name="pas1" id="pas1" required>
             <button type="submit" class="btn1">新規登録</button>
         </form>
         <form action="login-input.php" method="get">

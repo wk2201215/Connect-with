@@ -13,15 +13,14 @@ if($resultCount == 1){
     // header('Location: error.php?message=そのメールアドレスは既に登録されています。別のメールアドレスを使用してください。');
     // exit();
 }else{
-    $sql=$pdo->prepare('INSERT INTO account_tentative (account_name, account_password, mail_address, delete_at)
-VALUES (?, ?, ?, DATE_ADD(NOW(), INTERVAL 1 MINUTE))'); 
+    $pas1 = rand(0, 9);
+    $pas2 = rand(0, 9);
+    $pas3 = rand(0, 9);
+    $pas4 = rand(0, 9);
+    $sql=$pdo->prepare('INSERT INTO account_tentative (account_name, account_password, mail_address, delete_at, pas1, pas2, pas3, pas4)
+    VALUES (?, ?, ?, DATE_ADD(NOW(), INTERVAL 1 MINUTE), ?,?,?,?)'); 
 // 1分後に削除
-$sql->execute([$_POST['account_name'], $_POST['account_password'], $_POST['mail_address']]);
-
-$pas1 = rand(0, 9);
-$pas2 = rand(0, 9);
-$pas3 = rand(0, 9);
-$pas4 = rand(0, 9);
+$sql->execute([$_POST['account_name'], $_POST['account_password'], $_POST['mail_address'],$pas1,$pas2,$pas3,$pas4]);
 
 mb_language("Japanese");
 mb_internal_encoding("UTF-8");
@@ -37,7 +36,7 @@ $returnMail = 'XXXXXXX@gmail.com';
 if(mb_send_mail($mail_address, $title, $message, $headers, '-f'.$returnMail)){
     echo $mail_address.'にメールを送信しました';
     echo "<br>";
-    echo "新規登録に必要なパスワードは".$pas1$pas2$pas3$pas4."です";
+    echo "新規登録に必要なパスワードは".$pas1.$pas2.$pas3.$pas4."です";
     echo "<br>";
     echo "まだ登録は完了していません";
     echo "<br>";

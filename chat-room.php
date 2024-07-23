@@ -9,7 +9,7 @@ if($_GET['flag'] == 0){
   $item=$sql->fetch();
 }else{
   $sql=$pdo->prepare('SELECT * FROM chatmember INNER JOIN  chatroom ON chatmember.chatroom_id = chatroom.chatroom_id WHERE chatmember.chatroom_id = ? AND chatmember.account_id != ? UNION ALL SELECT * FROM chatmember_invitation INNER JOIN  chatroom ON chatmember_invitation.chatroom_id = chatroom.chatroom_id WHERE chatmember_invitation.chatroom_id = ? AND chatmember_invitation.account_id != ?');
-  $sql->execute([$_GET['chatroom_id'],$_SESSION['account']['account_id']]);
+  $sql->execute([$_GET['chatroom_id'],$_SESSION['account']['account_id'],$_GET['chatroom_id'],$_SESSION['account']['account_id']]);
   $item=$sql->fetch();
 }
 
