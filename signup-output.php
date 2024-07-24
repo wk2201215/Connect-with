@@ -7,10 +7,20 @@ require 'default/header.php';
 
 //確認
 $pdo2=new PDO($connect,USER,PASS);
-$sql2=$pdo2->prepare('SELECT * FROM account_tentative WHERE account_name = ? AND account_password = ? AND mail_address = ? LIMIT 1');
-$sql2->execute([$_POST['account_name'], $_POST['account_password'], $_POST['mail_address']]);
+$sql3=$pdo2->prepare('SELECT * FROM account_tentative WHERE id = ? AND pas1=? AND pas2=? AND pas3=? AND pas4=? LIMIT 1');
+$sql3->execute([$_POST['id'], $_POST['pas1'],$_POST['pas2'],$_POST['pas3'],$_POST['pas4']]);
+$item_pas = $sql3->rowCount();
+
+$sql2=$pdo2->prepare('SELECT * FROM account_tentative WHERE id = ? LIMIT 1');
+$sql2->execute([$_POST['id']]);
 $resultCount = $sql2->rowCount();
+
+$sql_id=$pdo2->prepare('SELECT * FROM account_tentative WHERE id = ? LIMIT 1');
+$sql_id->execute([$_POST['id']]);
+$item_id=$sql_id->fetch();
+
 if($resultCount == 1){
+    if($item_pas==1){
     try {
         $pdo = new PDO($connect, USER, PASS);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -18,22 +28,22 @@ if($resultCount == 1){
     
         // 入力されたメールアドレスが既に存在するかチェック
         $sql_check = $pdo->prepare('SELECT * FROM account WHERE mail_address = ?');
-        $sql_check->execute([$_POST['mail_address']]);
+        $sql_check->execute([$item_id['mail_address']]);
         $existing_account = $sql_check->fetch(PDO::FETCH_ASSOC);
     
         if (!$existing_account) {
             // パスワードをハッシュ化
-            $hashed_password = password_hash($_POST['account_password'], PASSWORD_DEFAULT);
+            $hashed_password = password_hash($item_id['account_password'], PASSWORD_DEFAULT);
     
             $sql = $pdo->prepare('INSERT INTO account (account_name, mail_address, account_password) VALUES (?, ?, ?)');
             $sql->execute([
-                $_POST['account_name'], $_POST['mail_address'], $hashed_password
+                $item_id['account_name'], $item_id['mail_address'], $hashed_password
             ]);
             $sql3=$pdo->prepare('DELETE FROM account_tentative WHERE account_name = ? AND account_password = ? AND mail_address = ? LIMIT 1');
-            $sql3->execute([$_POST['account_name'], $_POST['account_password'], $_POST['mail_address']]);
+            $sql3->execute([$item_id['account_name'], $item_id['account_password'], $item_id['mail_address']]);
             //セッション登録
             $sql6 = $pdo->prepare('SELECT * FROM account WHERE mail_address = ?');
-            $sql6->execute([$_POST['mail_address']]);
+            $sql6->execute([$item_id['mail_address']]);
             foreach($sql6 as $row){
                 $_SESSION['account'] = [
                     'account_id' => $row['account_id'],
@@ -77,6 +87,13 @@ if($resultCount == 1){
     } catch (PDOException $e) {
         echo "エラー: " . $e->getMessage();
     }
+    }else{
+        header('Location: error.php?message=パスワードが違います');
+        exit();
+    }
+}else{
+    header('Location: error.php?message=正常に仮登録がされませんでした');
+    exit();
 }
 
 require 'default/footer.php';

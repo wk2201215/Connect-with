@@ -143,7 +143,7 @@ function session() {
         console.log(data);
       },
       function () {
-          alert("ログイン管理失敗");
+          // alert("ログイン管理失敗");
       }
   );
 }

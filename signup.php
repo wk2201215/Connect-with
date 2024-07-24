@@ -23,7 +23,11 @@
 <div class="container">
     <div class="signup-form">
         <form action="signup-output.php" method="post">
-            <input type="num" name="pas1" id="pas1" required>
+            <input type="hidden" name="id" id="id" value=<?=$_GET['id']?>>
+            <input type="number" name="pas1" id="pas1" required>
+            <input type="number" name="pas2" id="pas2" required>
+            <input type="number" name="pas3" id="pas3" required>
+            <input type="number" name="pas4" id="pas4" required>
             <button type="submit" class="btn1">新規登録</button>
         </form>
         <form action="login-input.php" method="get">

@@ -21,22 +21,22 @@ if($resultCount == 1){
     VALUES (?, ?, ?, DATE_ADD(NOW(), INTERVAL 1 MINUTE), ?,?,?,?)'); 
 // 1分後に削除
 $sql->execute([$_POST['account_name'], $_POST['account_password'], $_POST['mail_address'],$pas1,$pas2,$pas3,$pas4]);
+$inserted_id = $pdo->lastInsertId();
 
 mb_language("Japanese");
 mb_internal_encoding("UTF-8");
 
 $mail_address = $_POST['mail_address'];
 $title = "メールアドレスの確認";
-$message = "アカウント作成の確定をしてください\r\n
-https://aso2201215.mods.jp/Connect_with/program/signup.php";
+$message = "アカウント作成の完了をしてください\r\n
+新規登録に必要なパスワードは".$pas1.$pas2.$pas3.$pas4."です。\r\n
+https://aso2201215.mods.jp/Connect_with/program/signup.php?id=".$inserted_id;
 $headers = "From: from@example.com";
 
 $returnMail = 'XXXXXXX@gmail.com';
 
 if(mb_send_mail($mail_address, $title, $message, $headers, '-f'.$returnMail)){
     echo $mail_address.'にメールを送信しました';
-    echo "<br>";
-    echo "新規登録に必要なパスワードは".$pas1.$pas2.$pas3.$pas4."です";
     echo "<br>";
     echo "まだ登録は完了していません";
     echo "<br>";
