@@ -1,4 +1,5 @@
 <?php session_start(); ?>
+<?php require 'function/not-access.php'; ?>
 <?php require 'db/db-connect.php'; ?>
 <?php require 'default/header-top.php'; ?>
 <?php require 'default/header-menu.php'; ?>

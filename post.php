@@ -1,3 +1,4 @@
+<?php require 'function/not-access.php'; ?>
 <?php require 'default/header-top-post.php'; ?>
 <?php require 'default/header-menu.php'; ?>
 

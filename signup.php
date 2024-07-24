@@ -23,11 +23,13 @@
 <div class="container">
     <div class="signup-form">
         <form action="signup-output.php" method="post">
+            パスコードを打ち込んでください
+            <br>
             <input type="hidden" name="id" id="id" value=<?=$_GET['id']?>>
-            <input type="text" name="pas1" id="pas1" class="pass1" required>
-            <input type="text" name="pas2" id="pas2" class="pass2" required>
-            <input type="text" name="pas3" id="pas3" class="pass3" required>
-            <input type="text" name="pas4" id="pas4" class="pass4" required>
+            <input type="tel" name="pas1" id="pas1" class="pass1" required maxlength="1" onchange="inputCheck()" pattern="[0-9]{1,1}">
+            <input type="tel" name="pas2" id="pas2" class="pass2" required maxlength="1" onchange="inputCheck()" pattern="[0-9]{1,1}">
+            <input type="tel" name="pas3" id="pas3" class="pass3" required maxlength="1" onchange="inputCheck()" pattern="[0-9]{1,1}">
+            <input type="tel" name="pas4" id="pas4" class="pass4" required maxlength="1" onchange="inputCheck()" pattern="[0-9]{1,1}">
             <button type="submit" class="btn1">新規登録</button>
         </form>
         <form action="login-input.php" method="get">
@@ -38,3 +40,6 @@
     <?php require 'default/footer.php'; ?>
 </body>
 </html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<!-- headerjs -->
+<script src="./script/signup.js"></script>
