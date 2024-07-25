@@ -9,12 +9,12 @@ try {
 }
 //delete_post
 if(isset($_SESSION['account']['account_id'])){
-    $sql=$pdo->prepare('UPDATE account SET login_flag = 1 WHERE account_id = ?');
+    $sql=$pdo->prepare('UPDATE account SET login_flag = 1, login_time = DATE_ADD(NOW(), INTERVAL 1 MINUTE) WHERE account_id = ?');
     $sql->execute([$_SESSION['account']['account_id']]);
     $memberList = 'ログイン';
 }else{
-    $sql=$pdo->prepare('UPDATE account SET login_flag = 0 WHERE account_id = ?');
-    $sql->execute([$_SESSION['account']['account_id']]);
+    // $sql=$pdo->prepare('UPDATE account SET login_flag = 0 WHERE account_id = ?');
+    // $sql->execute([$_SESSION['account']['account_id']]);
     $memberList = 'ログアウト';
 }
 

@@ -5,6 +5,7 @@
 <!-- headerjs -->
 <script src="./script/chat.js"></script>
 <script src="./script/chat-room.js"></script>
+<script src="./script/login-management.js"></script>
 <?php
  $pdo = null;   //DB切断
  ?>

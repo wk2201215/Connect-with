@@ -7,6 +7,7 @@
 <script src="./script/view.js"></script>
 <script src="./script/ajax.js"></script>
 <script src="./script/chat-top.js"></script>
+<script src="./script/login-management.js"></script>
 <?php
  $pdo = null;   //DB切断
  ?>

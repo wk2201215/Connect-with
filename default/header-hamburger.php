@@ -11,6 +11,7 @@
         <a href="administrator-Delete-post.php">Post Deletion</a>
         <a href="view.php">view</a>
         <a href="confirmation-send.php">invitation</a>
+        <a href="administrator-login-management.php">login-management</a>
         <!-- Add more links as needed -->
     </div>  
     <script>
