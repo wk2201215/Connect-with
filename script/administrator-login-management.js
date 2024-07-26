@@ -99,7 +99,7 @@ const options = {
     yAxes: [{//縦軸のスケールを指定
                         ticks: {
                             suggestedMax: 10,//縦軸の最大値
-                            suggestedMin: 1,//縦軸の最小値（最小値以下の値があれば自動で変更）
+                            suggestedMin: 0,//縦軸の最小値（最小値以下の値があれば自動で変更）
                             stepSize: 1,//縦軸の間隔
                             callback: function(value, index, values) {
                                 return value
